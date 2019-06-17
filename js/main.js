@@ -34,5 +34,27 @@ const machinePrice = (comp) => {
         console.log(machinePrice) 
     });
 }
-
 machinePrice(components)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Button creator 
+
+let button = document.createElement('button');
+button = document.createElement('div')
+button.type = 'button';
+button.innerText = 'Nueva';
+print = (button)
