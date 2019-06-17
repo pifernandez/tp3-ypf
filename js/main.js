@@ -59,3 +59,25 @@ amountSalesComponents("Monitor GPRS 3000")
 const bestSellerMonth = (month, year) => {
 
 }
+
+//función que abre el modal cuando se hace click en "Nueva"
+
+let openModal = "show me the money";
+
+console.log(openModal)
+
+let openModal = function () {
+  var newSale = getElementByid(newSale)
+  newSale.onclick = docment.getElementByid('newSale')
+  console.log(Modal)
+}
+
+//función que crea los selectores en el modal
+
+//función que busca los elementos en el array 
+
+//función que muestra información cuando se hace botón en "Agregar nueva venta"
+
+//función de alerta de "Se ha agregado con éxito"
+
+//función que imprime el resultado en "home.html"
