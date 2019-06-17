@@ -4,8 +4,14 @@
     text-align: center;
     text-decoration: none;
     line-height: 40px;
-    color: #ffffff;   
+    color: #ffffff;
 }
+
+@mixin action-buttons {
+    width: 80px;
+    height: 40px;
+}
+
 
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,28 +77,33 @@ nav{
     justify-items: baseline;
 
     .new-sale{
-    width: 80px;
-    height: 40px;
     background-color: #214CE3;
+    @include action-buttons;
     @include text-buttons;
+
     }
 
     a{
-        @include text-buttons;
+        @include text-buttons;   
     }
 
 }
 
-.active-modal{
+.passive-modal {
     background: grey;
-    opacity: 30%;
     overflow: hidden;
-    width: 60%;
+    width: 80%;
     min-height: 250px;
     position: absolute;
-    float: center;
-    top margin: 35%;
+    align-content: center;
+    margin-left: 10%;
     color: white;
-    
+    fill-opacity: 60%;
+    display: none; 
+
+    .active-modal{
+    display:block;
+        }
+         
     
 }
