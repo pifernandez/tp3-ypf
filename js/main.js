@@ -1,7 +1,7 @@
 var local = {
   seller: ["Ada", "Grace", "Hedy", "Sheryl"],
 
-  ventas: [
+  sales: [
     // tener en cuenta que Date guarda los meses del 0 (enero) al 11 (diciembre)
     { date: new Date(2019, 1, 4), nameSeller: "Grace", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"] },
     { date: new Date(2019, 0, 1), nameSeller: "Ada", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"] },
@@ -22,17 +22,40 @@ var local = {
     { component: "RAM Quinston Fury", price: 230 }
   ]
 };
-let components = ["Motherboard ASUS 1500", "RAM Quinston Fury"]
-const machinePrice = (comp) => {
-    comp.forEach(e => {
-        let machinePrice = 0
-        local.price.forEach(i => {
-            if(local.price.component === e){
-                machinePrice += local.price.price
-            }
-        })
-        console.log(machinePrice) 
-    });
-}
 
-machinePrice(components)
+// Devuelve el precio de la máquina que se puede armar con esos componentes
+
+const machinePrice = (param) => {
+  let mPrice = 0
+  param.forEach(i => {
+    local.price.forEach(e => {
+      if(e.component === i){
+        mPrice += e.price
+      }
+    })
+  })
+  // console.log(mPrice)
+}
+machinePrice(["Monitor ASC 543", "Motherboard ASUS 1200"])
+
+// Devuelve la cantidad de veces que fue vendido
+
+const amountSalesComponents = (param) => {
+  let cont = 0 
+  local.sales.forEach(i => { 
+    i.components.forEach(e => { 
+      if(e === param){
+        cont++
+      }
+    })
+  })
+  // console.log(cont)
+}
+amountSalesComponents("Monitor GPRS 3000")
+
+
+// Vendedora del mes
+
+const bestSellerMonth = (month, year) => {
+
+}
