@@ -35,6 +35,7 @@ const machinePrice = (param) => {
     })
   })
   // console.log(mPrice)
+  return mPrice
 }
 machinePrice(["Monitor ASC 543", "Motherboard ASUS 1200"])
 
@@ -50,12 +51,65 @@ const amountSalesComponents = (param) => {
     })
   })
   // console.log(cont)
+  return cont
 }
 amountSalesComponents("Monitor GPRS 3000")
 
 
 // Vendedora del mes
 
-const bestSellerMonth = (month, year) => {
+const bestSellerMonth = (year, month) => {
+  local.sales.forEach(e => {
+    if(e.date === (year, month)){
+      priceSale = machinePrice(e.components)
+      
+    }
+  })
+}
+
+bestSellerMonth(2019, 1) // no me salio
+
+// Ventas de un mes
+
+const salesMonth = (year, month) => {
+  let cont = 0
+  local.sales.forEach(e => {
+    if(e.date == (year, month)){
+      priceSale = machinePrice(e.components)
+      cont += sales
+    }
+  })
+  // console.log(cont)
+}
+
+salesMonth(2019, 0) // no funciona, no entiendo bien lo de new date y las fechas
+
+// Ventas totales realizadas por vendedora
+
+const salesSpecificSeller = (name) => {
+  let cont = 0
+  local.sales.forEach(e => {
+    if(e.nameSeller === name){
+      sales = machinePrice(e.components)
+      cont += sales
+    }
+  })
+  // console.log(cont)
+  return cont
+}
+
+salesSpecificSeller("Ada")
+
+// Componente más vendido
+
+const bestSellerComponent = () => {
+  
+}
+
+bestSellerComponent()
+
+// Indica si hubo ventas en un mes determinado
+
+const thereWereSales = (year, month) => {
 
 }
