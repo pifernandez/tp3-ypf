@@ -31,22 +31,22 @@ time, mark, audio, video, a {
 
 body {
     font-family: 'Roboto', sans-serif;
-
-        .brand{
-            color: #ffffff;
-            font-size: 120%;
-            text-align: center;
-            text-decoration: none; 
-            padding:4%;
+    .brand{
+        color: #ffffff;
+        font-size: 120%;
+        text-align: center;
+        text-decoration: none; 
+        padding:4%;
+    }
+    header{
+        nav{
+        width: 100%;
+        height: 200%;
+        background-color: #393636;
+        display: block;
+        padding:1.2%
         }
-}
-
-nav{
-    width: 100%;
-    height: 200%;
-    background-color: #393636;
-    display: block;
-    padding:1.2%
+    }
 }
 
 .container{

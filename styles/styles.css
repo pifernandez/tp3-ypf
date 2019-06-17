@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -31,21 +30,11 @@ body .brand {
   text-decoration: none;
   padding: 4%;
 }
-=======
-/* Error: expected "}".
- *    ,
- * 69 | }
- *    |  ^
- *    '
- *   styles.scss 69:2  root stylesheet */
->>>>>>> 714fa36bc47c98178ff96002fe8528208a80328c
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+body header nav {
+  width: 100%;
+  height: 200%;
+  background-color: #393636;
   display: block;
-<<<<<<< HEAD
   padding: 1.2%;
 }
 
@@ -89,10 +78,3 @@ body::before {
 }
 
 /*# sourceMappingURL=styles.css.map */
-=======
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "}".\a    \2577 \a 69 \2502  }\a    \2502   ^\a    \2575 \a   styles.scss 69:2  root stylesheet';
-}
->>>>>>> 714fa36bc47c98178ff96002fe8528208a80328c
