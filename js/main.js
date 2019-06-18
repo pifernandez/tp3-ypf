@@ -62,15 +62,18 @@ const bestSellerMonth = (month, year) => {
 
 //función que abre el modal cuando se hace click en "Nueva"
 
-let openModal = "show me the money";
-
-console.log(openModal)
-
-let openModal = function () {
-  var newSale = getElementByid(newSale)
-  newSale.onclick = docment.getElementByid('newSale')
-  console.log(Modal)
+const openModal = (newSale) => {
+  let newSale = document.getElementById('newSale')
+  newSale.onclick (activeModal) => {
+  let activeModal = document.getElementByid('modal')
+      modal.classlist.add('active-modal')   
+  }
+  } 
 }
+
+
+
+  
 
 //función que crea los selectores en el modal
 

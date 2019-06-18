@@ -99,11 +99,18 @@ nav{
     margin-left: 10%;
     color: white;
     fill-opacity: 60%;
-    display: none; 
+    display: none;   
+}
 
-    .active-modal{
+.active-modal{
+    background: grey;
+    overflow: hidden;
+    width: 80%;
+    min-height: 250px;
+    position: absolute;
+    align-content: center;
+    margin-left: 10%;
+    color: white;
+    fill-opacity: 60%; 
     display:block;
         }
-         
-    
-}
