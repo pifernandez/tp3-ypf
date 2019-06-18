@@ -56,13 +56,17 @@ const amountSalesComponents = (param) => {
 amountSalesComponents("Monitor GPRS 3000")
 
 
-// Vendedora del mes
+// Vendedora del mes 
 
 const bestSellerMonth = (year, month) => {
+  cont = 0
   local.sales.forEach(e => {
-    if(e.date === (year, month)){
+    let monthSale = e.date.getMonth()
+    let yearSale = e.date.getYear()
+    if(monthSale === month || yearSale === year){
       priceSale = machinePrice(e.components)
-      
+      cont += priceSale
+      let nameSeller = e.nameSeller
     }
   })
 }
@@ -74,15 +78,18 @@ bestSellerMonth(2019, 1) // no me salio
 const salesMonth = (year, month) => {
   let cont = 0
   local.sales.forEach(e => {
-    if(e.date == (year, month)){
+    let monthSale = e.date.getMonth()
+    let yearSale = e.date.getYear()
+    if(monthSale === month || yearSale === year){
       priceSale = machinePrice(e.components)
-      cont += sales
+      cont += priceSale
     }
   })
   // console.log(cont)
+  return cont
 }
 
-salesMonth(2019, 0) // no funciona, no entiendo bien lo de new date y las fechas
+salesMonth(2019, 1) 
 
 // Ventas totales realizadas por vendedora
 
@@ -111,5 +118,13 @@ bestSellerComponent()
 // Indica si hubo ventas en un mes determinado
 
 const thereWereSales = (year, month) => {
-
+  local.sales.find(e => {
+  let monthSale = e.date.getMonth()
+  let yearSale = e.date.getYear()
+  if(monthSale === month || yearSale === year){
+    
+  }
+  })
 }
+
+thereWereSales(2019, 0)
