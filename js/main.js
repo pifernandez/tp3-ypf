@@ -56,7 +56,7 @@ const amountSalesComponents = (param) => {
 amountSalesComponents("Monitor GPRS 3000")
 
 
-// Vendedora del mes 
+// Vendedora del mes // Esto esta mal, no me sale
 
 const bestSellerMonth = (year, month) => {
   cont = 0
@@ -110,7 +110,17 @@ salesSpecificSeller("Ada")
 // Componente más vendido
 
 const bestSellerComponent = () => {
-  
+  let countComponent = []
+  let nameComponent
+  local.price.forEach(e => {
+    countComponent.push(amountSalesComponents(e.component))
+    countMaxComponent = Math.max.apply(null, countComponent)
+    if(amountSalesComponents(e.component) === countMaxComponent){
+    nameComponent = e.component
+    }
+  })
+  // console.log(nameComponent)
+  return nameComponent
 }
 
 bestSellerComponent()
