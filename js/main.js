@@ -118,13 +118,14 @@ bestSellerComponent()
 // Indica si hubo ventas en un mes determinado
 
 const thereWereSales = (year, month) => {
+  let sales = false // habria que cambiarle el nombre para que tenga como resultado un booleano
   local.sales.find(e => {
   let monthSale = e.date.getMonth()
   let yearSale = e.date.getYear()
-  if(monthSale === month || yearSale === year){
-    
-  }
-  })
+  monthSale === month || yearSale === year ? sales = true : undefined
+  })  
+  // console.log(sales)
+  return sales
 }
 
-thereWereSales(2019, 0)
+thereWereSales(2019, 1)
