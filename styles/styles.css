@@ -26,7 +26,7 @@ body {
 body .brand {
   color: #ffffff;
   font-size: 120%;
-  text-align: center;
+  text-align: center; 
   text-decoration: none;
   padding: 4%;
 }
