@@ -82,7 +82,7 @@ const bestSellerMonth = (year, month) => {
     if(monthSale === month || yearSale === year){
       priceSale = machinePrice(e.components)
       cont += priceSale
-      let nameSeller = e.nameSeller
+      let nameSeller = e.sellerName
     }
   })
 }
@@ -112,12 +112,12 @@ salesMonth(2019, 1)
 const salesSpecificSeller = (name) => {
   let cont = 0
   local.sales.forEach(e => {
-    if(e.nameSeller === name){
+    if(e.sellerName === name){
       sales = machinePrice(e.components)
       cont += sales
     }
   })
-  // console.log(cont)
+  //console.log(cont)
   return cont
 }
 
