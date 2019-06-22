@@ -64,16 +64,13 @@ const bestSellerMonth = (month, year) => {
 
 const openModal = (newSale) => {
   let newSale = document.getElementById('newSale')
-  newSale.onclick (activeModal) => {
-  let activeModal = document.getElementByid('modal')
-      modal.classlist.add('active-modal')   
+    newSale.onclick = (activeModal) => {
+    let activeModal = document.getElementByid('modal')
+        modal.classlist.add('active-modal')   
+    }
   }
-  } 
-}
 
-
-
-  
+openModal()
 
 //función que crea los selectores en el modal
 
