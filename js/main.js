@@ -16,7 +16,7 @@ var local = {
     { date: new Date(2019, 2, 12), sellerName: "Hedy", components: ["Motherboard ASUS 1500", "HDD Toyiva"], subsidiary: "Caballito" },
     { date: new Date(2019, 2, 21), sellerName: "Grace", components: ["Motherboard MZI", "RAM Quinston"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 8), sellerName: "Sheryl", components: ["Monitor ASC 543", "HDD Wezter Dishital"], subsidiary: "Centro" },
-    { date: new Date(2029, 2, 16), sellerName: "Sheryl", components: ["Monitor GPRS 3000", "RAM Quinston Fury"], subsidiary: "Centro" },
+    { date: new Date(2019, 2, 16), sellerName: "Sheryl", components: ["Monitor GPRS 3000", "RAM Quinston Fury"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 27), sellerName: "Hedy", components: ["Motherboard ASUS 1200", "HDD Toyiva"], subsidiary: "Caballito" },
     { date: new Date(2019, 2, 22), sellerName: "Grace", components: ["Monitor ASC 543", "HDD Wezter Dishital"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 5), sellerName: "Ada", components: ["Motherboard ASUS 1500", "RAM Quinston"], subsidiary: "Centro" },
@@ -52,6 +52,7 @@ const machinePrice = (param) => {
   // console.log(mPrice)
   return mPrice
 }
+
 machinePrice(["Monitor ASC 543", "Motherboard ASUS 1200"])
 
 // Devuelve la cantidad de veces que fue vendido
@@ -75,18 +76,20 @@ amountSalesComponents("Monitor GPRS 3000")
 
 const bestSellerMonth = (year, month) => {
   cont = 0
+  let nameSeller
   local.sales.forEach(e => {
     let monthSale = e.date.getMonth()
     let yearSale = e.date.getYear()
     if(monthSale === month || yearSale === year){
-      priceSale = machinePrice(e.components)
+      let priceSale = machinePrice(e.components)
       cont += priceSale
-      let nameSeller = e.sellerName
+      nameSeller = e.sellerName
     }
   })
+  // console.log(cont, nameSeller)
 }
 
-bestSellerMonth(2019, 1) // no me salio
+bestSellerMonth(2019, 0) // no me salio
 
 // Ventas de un mes
 
@@ -158,6 +161,27 @@ thereWereSales(2019, 1)
 
 // Punto 3 - funciones render
 
+// Importe total vendido por cada mes/año
+
 const renderMonth = () => {
-  
+  let monthSale = [], yearSale = []
+  local.sales.forEach(e=> {
+    monthSale.push(e.date.getMonth())
+    yearSale.push(e.date.getFullYear())
+  })
+  const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i)
+  const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
+  month.find(e => {
+    let saleMonth
+    year.find(i => {
+      saleMonth = salesMonth(i, e)
+      // console.log('El importe total vendido en '+e+' del '+i+' es: '+saleMonth) ponerlo mas lindo con ES6 y con nombres de meses
+    })
+  })
 }
+
+renderMonth()
+
+// Importe total vendido por cada sucursal
+
+// Tiene que mostrar la unión de los dos reportes anteriores
