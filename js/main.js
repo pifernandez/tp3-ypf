@@ -49,7 +49,7 @@ const machinePrice = (param) => {
       }
     })
   })
-  // console.log(mPrice)
+  //console.log(mPrice)
   return mPrice
 }
 
@@ -109,21 +109,20 @@ const salesMonth = (year, month) => {
 
 salesMonth(2019, 1) 
 
-// Ventas totales realizadas por vendedora
 
-const salesSpecificSeller = (name) => {
-  let cont = 0
+//sales specific seller and subsidiary sales in one function
+const salesSubOrSeller = (sub) => {
+  let salesSub = 0
   local.sales.forEach(e => {
-    if(e.sellerName === name){
-      sales = machinePrice(e.components)
-      cont += sales
+    if(e.sellerName === sub || e.subsidiary === sub){
+      let sales = machinePrice(e.components)
+      salesSub += sales
     }
   })
-  // console.log(cont)
-  return cont
+  console.log(salesSub)
 }
 
-salesSpecificSeller("Ada")
+salesSubOrSeller("Grace")
 
 // Componente más vendido
 
