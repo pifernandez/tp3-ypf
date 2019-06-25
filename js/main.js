@@ -76,13 +76,14 @@ amountSalesComponents("Monitor GPRS 3000")
 
 const bestSellerMonth = (year, month) => {
   cont = 0
+  let nameSeller
   local.sales.forEach(e => {
     let monthSale = e.date.getMonth()
     let yearSale = e.date.getYear()
     if(monthSale === month || yearSale === year){
-      priceSale = machinePrice(e.components)
+      let priceSale = machinePrice(e.components)
       cont += priceSale
-      let nameSeller = e.sellerName
+      let nameSeller = e.sellerName 
     }
   })
 }
@@ -107,21 +108,22 @@ const salesMonth = (year, month) => {
 
 salesMonth(2019, 1) 
 
-// Ventas totales realizadas por vendedora
 
-const salesSpecificSeller = (name) => {
-  let cont = 0
+//sales specific seller and subsidiary sales in one function
+const salesSubOrSeller = (sub) => {
+  let salesSub = 0
   local.sales.forEach(e => {
-    if(e.sellerName === name){
-      sales = machinePrice(e.components)
-      cont += sales
+    if(e.sellerName === sub || e.subsidiary === sub){
+      let sales = machinePrice(e.components)
+      salesSub += sales
     }
   })
   //console.log(`El total de ventas de esa vendedora es: $${cont}`)
+  //console.log(`El total de ventas de esa sucursal es: $${cont}`)
   return cont
 }
 
-salesSpecificSeller("Ada")
+salesSubOrSeller("Grace")
 
 // Componente más vendido
 
@@ -156,6 +158,4 @@ const thereWereSales = (year, month) => {
 
 thereWereSales(2019, 1)
 
-//salesSubsidiary(sucursal), obtiene las ventas totales realizadas por una sucursal sin límite de fecha.
 
-//monthSubsidiary . Se le pasa dos parámetros numéricos, (mes, anio) y devuelve el nombre de la sucursal que más vendió en plata en el mes.
