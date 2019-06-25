@@ -49,11 +49,12 @@ const machinePrice = (param) => {
       }
     })
   })
-  console.log(mPrice)
+  // console.log(mPrice)
   return mPrice
 }
 
-machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"])
+console.log(machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"]));
+
 
 // Devuelve la cantidad de veces que fue vendido
 
@@ -69,7 +70,7 @@ const amountSalesComponents = (param) => {
   // console.log(cont)
   return cont
 }
-amountSalesComponents("Monitor GPRS 3000")
+console.log(amountSalesComponents("Monitor GPRS 3000"));
 
 
 // Vendedora del mes // Esto esta mal, no me sale
@@ -85,7 +86,7 @@ const salesMonth = (year, month) => {
   let cont = 0
   local.sales.forEach(e => {
     let monthSale = e.date.getMonth()
-    let yearSale = e.date.getYear()
+    let yearSale = e.date.getFullYear()
     if(monthSale === month || yearSale === year){
       priceSale = machinePrice(e.components)
       cont += priceSale
@@ -95,7 +96,8 @@ const salesMonth = (year, month) => {
   return cont
 }
 
-salesMonth(2019, 1) 
+console.log(salesMonth(2019, 1));
+ 
 
 
 //sales specific seller and subsidiary sales in one function
@@ -108,9 +110,11 @@ const salesSubOrSeller = (sub) => {
     }
   })
   // console.log(salesSub)
+  return salesSub
 }
 
-salesSubOrSeller("Grace")
+console.log(salesSubOrSeller("Grace"));
+
 
 // Componente más vendido
 
@@ -128,7 +132,8 @@ const bestSellerComponent = () => {
   return nameComponent
 }
 
-bestSellerComponent()
+console.log(bestSellerComponent());
+
 
 // Indica si hubo ventas en un mes determinado
 
@@ -136,14 +141,15 @@ const thereWereSales = (year, month) => {
   let sales = false // habria que cambiarle el nombre para que tenga como resultado un booleano
   local.sales.find(e => {
   let monthSale = e.date.getMonth()
-  let yearSale = e.date.getYear()
+  let yearSale = e.date.getFullYear()
   monthSale === month || yearSale === year ? sales = true : undefined
   })  
   // console.log(sales)
   return sales
 }
 
-thereWereSales(2019, 1)
+console.log(thereWereSales(2019, 1));
+
 
 
 // Punto 3 - funciones render
@@ -158,16 +164,17 @@ const renderMonth = () => {
   })
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i)
   const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
+  let saleMonth
   month.find(e => {
-    let saleMonth
     year.find(i => {
       saleMonth = salesMonth(i, e)
       // console.log('El importe total vendido en '+e+' del '+i+' es: '+saleMonth) ponerlo mas lindo con ES6 y con nombres de meses
     })
   })
+  return saleMonth
 }
 
-renderMonth()
+console.log(renderMonth())
 
 // Importe total vendido por cada sucursal
 
