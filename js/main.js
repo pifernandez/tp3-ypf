@@ -50,7 +50,7 @@ const machinePrice = (param) => {
       }
     })
   })
-  // console.log(mPrice)
+  //console.log(`El precio de la máquina es: ${mPrice}`)
   return mPrice
 }
 machinePrice(["Monitor ASC 543", "Motherboard ASUS 1200"])
@@ -66,7 +66,7 @@ const amountSalesComponents = (param) => {
       }
     })
   })
-  // console.log(cont)
+  //console.log(`El componente fue vendido ${cont} veces`)
   return cont
 }
 amountSalesComponents("Monitor GPRS 3000")
@@ -101,7 +101,7 @@ const salesMonth = (year, month) => {
       cont += priceSale
     }
   })
-  // console.log(cont)
+  //console.log(`El total de ventas del mes es: $${cont}`)
   return cont
 }
 
@@ -117,7 +117,7 @@ const salesSpecificSeller = (name) => {
       cont += sales
     }
   })
-  //console.log(cont)
+  //console.log(`El total de ventas de esa vendedora es: $${cont}`)
   return cont
 }
 
@@ -135,7 +135,7 @@ const bestSellerComponent = () => {
     nameComponent = e.component
     }
   })
-  // console.log(nameComponent)
+  //console.log(`El componente más vendido es: ${nameComponent}`)
   return nameComponent
 }
 
@@ -150,7 +150,7 @@ const thereWereSales = (year, month) => {
   let yearSale = e.date.getYear()
   monthSale === month || yearSale === year ? sales = true : undefined
   })  
-  // console.log(sales)
+  //console.log(`¿Hubo ventas?: ${sales}`)
   return sales
 }
 
