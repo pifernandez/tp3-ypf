@@ -40,20 +40,20 @@ var local = {
 
 // Devuelve el precio de la máquina que se puede armar con esos componentes
 
-const machinePrice = (param) => {
+const machinePrice = (param) => {  
   let mPrice = 0
   param.forEach(i => {
-    local.price.forEach(e => {
+    local.price.find(e => {
       if(e.component === i){
         mPrice += e.price
       }
     })
   })
-  //console.log(mPrice)
+  console.log(mPrice)
   return mPrice
 }
 
-machinePrice(["Monitor ASC 543", "Motherboard ASUS 1200"])
+machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"])
 
 // Devuelve la cantidad de veces que fue vendido
 
@@ -75,18 +75,6 @@ amountSalesComponents("Monitor GPRS 3000")
 // Vendedora del mes // Esto esta mal, no me sale
 
 const bestSellerMonth = (year, month) => {
-  cont = 0
-  let nameSeller
-  local.sales.forEach(e => {
-    let monthSale = e.date.getMonth()
-    let yearSale = e.date.getYear()
-    if(monthSale === month || yearSale === year){
-      let priceSale = machinePrice(e.components)
-      cont += priceSale
-      nameSeller = e.sellerName
-    }
-  })
-  // console.log(cont, nameSeller)
 }
 
 bestSellerMonth(2019, 0) // no me salio
@@ -119,7 +107,7 @@ const salesSubOrSeller = (sub) => {
       salesSub += sales
     }
   })
-  console.log(salesSub)
+  // console.log(salesSub)
 }
 
 salesSubOrSeller("Grace")
