@@ -4,9 +4,9 @@ var local = {
   sales: [
     // tener en cuenta que Date guarda los meses del 0 (enero) al 11 (diciembre)
     { date: new Date(2019, 1, 4), sellerName: "Grace", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
-    { date: new Date(2019, 0, 1), sellerName: "Ada", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
-    { date: new Date(2019, 0, 2), sellerName: "Grace", components: ["Monitor ASC 543", "Motherboard MZI"], subsidiary: "Centro" },
     { date: new Date(2019, 0, 10), sellerName: "Ada", components: ["Monitor ASC 543", "Motherboard ASUS 1200"], subsidiary: "Centro" },
+    { date: new Date(2019, 0, 1), sellerName: "Ada", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
+    { date: new Date(2019, 0, 2), sellerName: "Ada", components: ["Monitor ASC 543", "Motherboard MZI"], subsidiary: "Centro" },
     { date: new Date(2019, 0, 12), sellerName: "Grace", components: ["Monitor GPRS 3000", "Motherboard ASUS 1200"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 22), sellerName: "Hedy", components: ["Monitor GPRS 3000", "HDD Toyiva"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 24), sellerName: "Sheryl", components: ["Motherboard ASUS 1500", "HDD Wezter Dishital"], subsidiary: "Caballito" },
@@ -49,7 +49,6 @@ const machinePrice = (param) => {
       }
     })
   })
-  // console.log(mPrice)
   return mPrice
 }
 
@@ -67,18 +66,27 @@ const amountSalesComponents = (param) => {
       }
     })
   })
-  // console.log(cont)
   return cont
 }
 console.log(amountSalesComponents("Monitor GPRS 3000"));
 
 
-// Vendedora del mes // Esto esta mal, no me sale
+// Vendedora del mes 
 
 const bestSellerMonth = (year, month) => {
+  let sellerName = []
+  local.sales.filter(e => {
+    let monthS = e.date.getMonth()
+    let yearS = e.date.getFullYear()
+    if(year === yearS && month === monthS){
+      sellerName.push(e.sellerName) 
+    }
+  })
+  sellerName.reduce((e, i) => { e === i })
+  return sellerName
 }
 
-bestSellerMonth(2019, 0) // no me salio
+console.log(bestSellerMonth(2019, 0))
 
 // Ventas de un mes
 
@@ -109,7 +117,6 @@ const salesSubOrSeller = (sub) => {
       salesSub += sales
     }
   })
-  // console.log(salesSub)
   return salesSub
 }
 
