@@ -1,11 +1,13 @@
-var local = {
+var shop = {
+  subsidiary: ["Centro", "Caballito"],
+
   seller: ["Ada", "Grace", "Hedy", "Sheryl"],
 
   sales: [
     // tener en cuenta que Date guarda los meses del 0 (enero) al 11 (diciembre)
     { date: new Date(2019, 1, 4), sellerName: "Grace", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
     { date: new Date(2019, 0, 10), sellerName: "Ada", components: ["Monitor ASC 543", "Motherboard ASUS 1200"], subsidiary: "Centro" },
-    { date: new Date(2019, 0, 1), sellerName: "Ada", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
+    { date: new Date(2019, 5, 1), sellerName: "Ada", components: ["Monitor GPRS 3000", "Motherboard ASUS 1500"], subsidiary: "Centro" },
     { date: new Date(2019, 0, 2), sellerName: "Ada", components: ["Monitor ASC 543", "Motherboard MZI"], subsidiary: "Centro" },
     { date: new Date(2019, 0, 12), sellerName: "Grace", components: ["Monitor GPRS 3000", "Motherboard ASUS 1200"], subsidiary: "Centro" },
     { date: new Date(2019, 2, 22), sellerName: "Hedy", components: ["Monitor GPRS 3000", "HDD Toyiva"], subsidiary: "Centro" },
@@ -43,7 +45,7 @@ var local = {
 const machinePrice = (param) => {  
   let mPrice = 0
   param.forEach(i => {
-    local.price.find(e => {
+    shop.price.find(e => {
       if(e.component === i){
         mPrice += e.price
       }
@@ -54,12 +56,26 @@ const machinePrice = (param) => {
 
 console.log(machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"]));
 
+//sales specific seller and subsidiary sales in one function
+const salesSubOrSeller = (sub) => {
+  let salesSub = 0
+  shop.sales.forEach(e => {
+    if(e.sellerName === sub || e.subsidiary === sub){
+      let sales = machinePrice(e.components)
+      salesSub += sales
+    }
+  })
+  return salesSub
+}
+
+console.log(salesSubOrSeller("Ada"));
+
 
 // Devuelve la cantidad de veces que fue vendido
 
 const amountSalesComponents = (param) => {
   let cont = 0 
-  local.sales.forEach(i => { 
+  shop.sales.forEach(i => { 
     i.components.forEach(e => { 
       if(e === param){
         cont++
@@ -74,15 +90,19 @@ console.log(amountSalesComponents("Monitor GPRS 3000"));
 // Vendedora del mes 
 
 const bestSellerMonth = (year, month) => {
-  let sellerName = []
-  local.sales.filter(e => {
-    let monthS = e.date.getMonth()
-    let yearS = e.date.getFullYear()
-    if(year === yearS && month === monthS){
-      sellerName.push(e.sellerName) 
-    }
+  let countSeller = []
+  let sellerName
+  shop.seller.forEach(e => {
+    shop.sales.filter(i => {
+      if(year === i.date.getFullYear() && month === i.date.getMonth() && e === i.sellerName){
+        countSeller.push(machinePrice(i.components))
+        let countMaxSeller = Math.max.apply(null, countSeller)
+        if(machinePrice(i.components) === countMaxSeller){
+          sellerName = e
+        }
+      }
+    })
   })
-  sellerName.reduce((e, i) => { e === i })
   return sellerName
 }
 
@@ -92,7 +112,7 @@ console.log(bestSellerMonth(2019, 0))
 
 const salesMonth = (year, month) => {
   let cont = 0
-  local.sales.forEach(e => {
+  shop.sales.forEach(e => {
     let monthSale = e.date.getMonth()
     let yearSale = e.date.getFullYear()
     if(monthSale === month || yearSale === year){
@@ -100,42 +120,23 @@ const salesMonth = (year, month) => {
       cont += priceSale
     }
   })
-  // console.log(cont)
   return cont
 }
 
 console.log(salesMonth(2019, 1));
- 
-
-
-//sales specific seller and subsidiary sales in one function
-const salesSubOrSeller = (sub) => {
-  let salesSub = 0
-  local.sales.forEach(e => {
-    if(e.sellerName === sub || e.subsidiary === sub){
-      let sales = machinePrice(e.components)
-      salesSub += sales
-    }
-  })
-  return salesSub
-}
-
-console.log(salesSubOrSeller("Grace"));
-
 
 // Componente más vendido
 
 const bestSellerComponent = () => {
   let countComponent = []
   let nameComponent
-  local.price.forEach(e => {
+  shop.price.forEach(e => {
     countComponent.push(amountSalesComponents(e.component))
-    countMaxComponent = Math.max.apply(null, countComponent)
+    let countMaxComponent = Math.max.apply(null, countComponent)
     if(amountSalesComponents(e.component) === countMaxComponent){
     nameComponent = e.component
     }
   })
-  // console.log(nameComponent)
   return nameComponent
 }
 
@@ -146,7 +147,7 @@ console.log(bestSellerComponent());
 
 const thereWereSales = (year, month) => {
   let sales = false // habria que cambiarle el nombre para que tenga como resultado un booleano
-  local.sales.find(e => {
+  shop.sales.find(e => {
   let monthSale = e.date.getMonth()
   let yearSale = e.date.getFullYear()
   monthSale === month || yearSale === year ? sales = true : undefined
@@ -157,25 +158,54 @@ const thereWereSales = (year, month) => {
 
 console.log(thereWereSales(2019, 1));
 
+// Sucursal del mes
 
+const bestSubsidiaryMonth = (year, month) => {
+  let countSubsidiary = []
+  let subsidiaryName
+  shop.subsidiary.forEach(e => {
+    shop.sales.filter(i => {
+      if(year === i.date.getFullYear() && month === i.date.getMonth() && e === i.subsidiary){
+        countSubsidiary.push(machinePrice(i.components))
+        let countMaxSubsidiary = Math.max.apply(null, countSubsidiary)
+        if(machinePrice(i.components) === countMaxSubsidiary){
+          subsidiaryName = e
+        }
+      }
+    })
+  })
+  return subsidiaryName
+}
+
+console.log(bestSubsidiaryMonth(2019, 0))
 
 // Punto 3 - funciones render
 
 // Importe total vendido por cada mes/año
 
+
 const renderMonth = () => {
+  // let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
   let monthSale = [], yearSale = []
-  local.sales.forEach(e=> {
+  shop.sales.forEach(e=> {
     monthSale.push(e.date.getMonth())
     yearSale.push(e.date.getFullYear())
   })
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i)
   const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
+  month.sort()
+  // let reem 
+  // month.forEach((e, i) => {
+  //   if(meses.indexOf[i] === e){
+  //     reem = reem.replace(e, meses[i])
+  //   }
+  // })
+  // console.log(reem)
   let saleMonth
   month.find(e => {
     year.find(i => {
       saleMonth = salesMonth(i, e)
-      // console.log('El importe total vendido en '+e+' del '+i+' es: '+saleMonth) ponerlo mas lindo con ES6 y con nombres de meses
+      console.log(`El importe total vendido en ${e} del ${i} es: $${saleMonth}`) 
     })
   })
   return saleMonth
@@ -185,4 +215,28 @@ console.log(renderMonth())
 
 // Importe total vendido por cada sucursal
 
+const renderSubsidiary = () => {
+  let saleSubsidiary
+  shop.subsidiary.forEach(e => {
+    saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
+  })
+  return saleSubsidiary
+}
+
+console.log(renderSubsidiary())
+
 // Tiene que mostrar la unión de los dos reportes anteriores
+
+const render = () => {
+  let month = new Date().getMonth()
+  console.log(`Reporte:
+  Ventas del mes: 
+  ${renderMonth()}
+  Ventas por sucursal:
+  ${renderSubsidiary()}
+  Producto estrella: ${bestSellerComponent()}
+  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)
+}
+
+render()
