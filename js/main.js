@@ -184,34 +184,23 @@ console.log(bestSubsidiaryMonth(2019, 0))
 // Importe total vendido por cada mes/año
 
 
+let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
-  // let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-  let monthSale = [], yearSale = []
-  shop.sales.forEach(e=> {
-    monthSale.push(e.date.getMonth())
-    yearSale.push(e.date.getFullYear())
-  })
-  const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i)
+  let monthSale = shop.sales.map(s => s.date.getMonth())
+  let yearSale = shop.sales.map(s => s.date.getFullYear())
+  const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
   const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
-  month.sort()
-  // let reem 
-  // month.forEach((e, i) => {
-  //   if(meses.indexOf[i] === e){
-  //     reem = reem.replace(e, meses[i])
-  //   }
-  // })
-  // console.log(reem)
   let saleMonth
-  month.find(e => {
-    year.find(i => {
-      saleMonth = salesMonth(i, e)
-      console.log(`El importe total vendido en ${e} del ${i} es: $${saleMonth}`) 
+  year.forEach(e => {
+    month.forEach(i => {
+      saleMonth = salesMonth(e, 1)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
     })
   })
-  return saleMonth
+  // return saleMonth
 }
 
-console.log(renderMonth())
+renderMonth()
 
 // Importe total vendido por cada sucursal
 
@@ -224,7 +213,7 @@ const renderSubsidiary = () => {
   return saleSubsidiary
 }
 
-console.log(renderSubsidiary())
+renderSubsidiary()
 
 // Tiene que mostrar la unión de los dos reportes anteriores
 
