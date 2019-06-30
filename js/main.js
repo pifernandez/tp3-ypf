@@ -246,6 +246,11 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
+//MODAL
+
+const modal 
+let 
+
 // //Crea select
 // const createSelects = (list, container) => {
 //   list.forEach(e => {

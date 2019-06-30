@@ -23,6 +23,7 @@ time, mark, audio, video, a {
 body {
   font-family: "Roboto", sans-serif;
   background: url(img/background-img.png) no-repeat;
+  background-size: cover;
 }
 body .brand {
   color: #393636;
@@ -43,7 +44,7 @@ body header nav {
 .container {
   width: 90%;
   height: 70%;
-  max-width: 1400px;
+  max-width: 1440px;
   min-width: 420px;
   margin: auto;
   position: absolute;
@@ -71,17 +72,17 @@ body header nav {
   margin-bottom: 6%;
 }
 
-.action-bottons {
+.action-buttons {
   text-align: center;
   margin-top: 15%;
   margin-bottom: 5%;
 }
-.action-bottons .subsidiaries {
+.action-buttons .subsidiaries {
   display: inline-block;
   margin: 0 auto;
   text-align: center;
 }
-.action-bottons .subsidiaries a {
+.action-buttons .subsidiaries a {
   background-color: #1B96D1;
   color: white;
   padding: 10px 30px;
@@ -89,13 +90,13 @@ body header nav {
   text-decoration: none;
   margin-left: 5px;
 }
-.action-bottons .new-sale {
+.action-buttons .new-sale {
   display: block;
   float: right;
 }
-.action-bottons .new-sale a {
-  background-color: #FFFFFF;
-  color: black;
+.action-buttons .new-sale a {
+  background-color: #015E9A;
+  color: white;
   text-decoration: none;
   padding: 10px 15px;
 }
@@ -152,6 +153,67 @@ body header nav {
   color: white;
   padding: 10px 25px;
   text-decoration: none;
+}
+
+.modal {
+  display: none;
+}
+
+.activeModal .modal {
+  display: block;
+}
+
+.inactive-modal {
+  background-color: rgba(144, 194, 253, 0.6);
+  height: 120vh;
+  width: 100%;
+  position: absolute;
+}
+
+.contain-modal-select {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.modal-select {
+  background-color: #FFFFFF;
+  width: 40%;
+  height: 50%;
+}
+.modal-select .modal-select-text {
+  display: inline-block;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.modal-select .selectors {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 30px;
+  align-content: space-between;
+}
+.modal-select .close-modal {
+  float: right;
+  margin-top: 4%;
+  margin-right: 4%;
+}
+.modal-select .close-modal a {
+  text-decoration: none;
+}
+.modal-select select {
+  width: 90%;
+  height: 25px;
+}
+.modal-select input {
+  float: right;
+  margin-right: 10%;
+  margin-top: 15%;
+  padding: px;
 }
 
 /*# sourceMappingURL=styles.css.map */
