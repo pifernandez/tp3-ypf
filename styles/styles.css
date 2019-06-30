@@ -26,7 +26,7 @@ body {
 }
 body .brand {
   color: #393636;
-  font-size: 140%;
+  font-size: 160%;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -127,6 +127,31 @@ body header nav {
 
 .sellers {
   height: 100%;
+}
+
+.reports-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.reports-title .rep {
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 60px;
+  margin-top: 5%;
+  border-radius: 20px;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.back-btn .back {
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
