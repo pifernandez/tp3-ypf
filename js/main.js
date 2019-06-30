@@ -42,10 +42,10 @@ var shop = {
 
 // Devuelve el precio de la máquina que se puede armar con esos componentes
 
-const machinePrice = (param) => {  
+const machinePrice = (a) => {  
   let mPrice = 0
-  param.forEach(i => {
-    shop.price.find(e => {
+  a.forEach(i => {
+    shop.price.forEach(e => {
       if(e.component === i){
         mPrice += e.price
       }
@@ -54,22 +54,21 @@ const machinePrice = (param) => {
   return mPrice
 }
 
-console.log(machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"]));
+console.log(machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"]))
+
 
 //sales specific seller and subsidiary sales in one function
 const salesSubOrSeller = (sub) => {
   let salesSub = 0
   shop.sales.forEach(e => {
     if(e.sellerName === sub || e.subsidiary === sub){
-      let sales = machinePrice(e.components)
-      salesSub += sales
+      salesSub += machinePrice(e.components)
     }
   })
   return salesSub
 }
 
 console.log(salesSubOrSeller("Ada"));
-
 
 // Devuelve la cantidad de veces que fue vendido
 
@@ -123,7 +122,7 @@ const salesMonth = (year, month) => {
   return cont
 }
 
-console.log(salesMonth(2019, 1));
+// console.log(salesMonth(2019, 1));
 
 // Componente más vendido
 
@@ -142,17 +141,11 @@ const bestSellerComponent = () => {
 
 console.log(bestSellerComponent());
 
-
 // Indica si hubo ventas en un mes determinado
 
 const thereWereSales = (year, month) => {
   let sales = false // habria que cambiarle el nombre para que tenga como resultado un booleano
-  shop.sales.find(e => {
-  let monthSale = e.date.getMonth()
-  let yearSale = e.date.getFullYear()
-  monthSale === month || yearSale === year ? sales = true : undefined
-  })  
-  // console.log(sales)
+  shop.sales.forEach(e => { e.date.getMonth() === month || e.date.getFullYear() === year ? sales = true : undefined})
   return sales
 }
 
@@ -179,39 +172,25 @@ const bestSubsidiaryMonth = (year, month) => {
 
 console.log(bestSubsidiaryMonth(2019, 0))
 
-// Punto 3 - funciones render
-
 // Importe total vendido por cada mes/año
 
-
+let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
-  // let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-  let monthSale = [], yearSale = []
-  shop.sales.forEach(e=> {
-    monthSale.push(e.date.getMonth())
-    yearSale.push(e.date.getFullYear())
-  })
-  const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i)
+  let monthSale = shop.sales.map(s => s.date.getMonth())
+  let yearSale = shop.sales.map(s => s.date.getFullYear())
+  const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
   const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
-  month.sort()
-  // let reem 
-  // month.forEach((e, i) => {
-  //   if(meses.indexOf[i] === e){
-  //     reem = reem.replace(e, meses[i])
-  //   }
-  // })
-  // console.log(reem)
   let saleMonth
-  month.find(e => {
-    year.find(i => {
-      saleMonth = salesMonth(i, e)
-      console.log(`El importe total vendido en ${e} del ${i} es: $${saleMonth}`) 
+  year.forEach(e => {
+    month.forEach(i => {
+      saleMonth = salesMonth(e, i)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
     })
   })
   return saleMonth
 }
 
-console.log(renderMonth())
+// renderMonth()
 
 // Importe total vendido por cada sucursal
 
@@ -224,19 +203,62 @@ const renderSubsidiary = () => {
   return saleSubsidiary
 }
 
-console.log(renderSubsidiary())
+// renderSubsidiary()
 
 // Tiene que mostrar la unión de los dos reportes anteriores
 
 const render = () => {
   let month = new Date().getMonth()
   console.log(`Reporte:
-  Ventas del mes: 
-  ${renderMonth()}
-  Ventas por sucursal:
-  ${renderSubsidiary()}
+  Ventas del mes: ${renderMonth()}
+  Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
   Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)
 }
 
 render()
+
+
+
+// Otras funciones
+
+
+const onLoadFunctions = () => {
+  let container = document.getElementById('new-sale')
+  printSellerMonth()
+}
+
+const printSellerMonth = () => {
+  let nameBS = document.getElementById('best-seller')
+  nameBS.innerText = bestSellerMonth(2019, 0)
+  nameBS.classList.add('seller-main-text')
+  let salesSeller = document.getElementById('sales-seller')
+  salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
+  let subsidiary = document.getElementById('seller-subsidiary')
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+}
+
+//Crea UL
+const createUl = () => {
+  let ul = document.createElement('ul')
+  ul.classList.add('categories sells')
+  let li = document.createElement('li')
+  ul.appendChild(li)
+}
+
+// //Crea select
+// const createSelects = (list, container) => {
+//   list.forEach(e => {
+//       let select = document.createElement('select')
+//       select.id = e
+//       container.appendChild(select)
+//   })
+// }
+
+// //Crea option
+// const createOption = e =>{
+//   let option = document.createElement('option')
+//   option.innerText = e
+//   option.value = e.id
+//   return option
+// }
