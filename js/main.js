@@ -217,3 +217,48 @@ const render = () => {
 }
 
 render()
+
+
+
+// Otras funciones
+
+
+const onLoadFunctions = () => {
+  let container = document.getElementById('new-sale')
+  printSellerMonth()
+}
+
+const printSellerMonth = () => {
+  let nameBS = document.getElementById('best-seller')
+  nameBS.innerText = bestSellerMonth(2019, 0)
+  nameBS.classList.add('seller-main-text')
+  let salesSeller = document.getElementById('sales-seller')
+  salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
+  let subsidiary = document.getElementById('seller-subsidiary')
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+}
+
+//Crea UL
+const createUl = () => {
+  let ul = document.createElement('ul')
+  ul.classList.add('categories sells')
+  let li = document.createElement('li')
+  ul.appendChild(li)
+}
+
+// //Crea select
+// const createSelects = (list, container) => {
+//   list.forEach(e => {
+//       let select = document.createElement('select')
+//       select.id = e
+//       container.appendChild(select)
+//   })
+// }
+
+// //Crea option
+// const createOption = e =>{
+//   let option = document.createElement('option')
+//   option.innerText = e
+//   option.value = e.id
+//   return option
+// }
