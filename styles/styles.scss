@@ -34,9 +34,10 @@ body {
     background: url(img/background-img.png) no-repeat;
     .brand{
         color: #393636;
-        font-size: 120%;
+        font-size: 140%;
+        font-weight: bold;
         text-align: center;
-        text-decoration: none; 
+        text-decoration: none;
         padding:4%;
     }
     header{
@@ -81,16 +82,34 @@ body {
     }
 }
 
-.action-bottons{
-    display: flex;
-    justify-content: center;
-    margin-top: 16%;
-    border-radius: 5%;
-}
 
-.new-sale{
-    margin-left:30%;
-    background-color: #FFFFFF;
+.action-bottons{
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    .subsidiaries{
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+        a{
+            background-color: #1B96D1;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+    }
+    .new-sale{
+        display: block;
+        float: right;
+        a{
+            background-color: #FFFFFF;
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+    }
 }
 
 .categories{
@@ -108,9 +127,14 @@ body {
 }
 
 .report-btn{
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
+    float: right;
+    margin-bottom: 5%;
+    a{
+        background-color: #015E9A;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none        
+    }
 }
 
 .sellers{
