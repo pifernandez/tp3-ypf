@@ -197,8 +197,8 @@ const renderMonth = () => {
 const renderSubsidiary = () => {
   let saleSubsidiary
   shop.subsidiary.forEach(e => {
-    saleSubsidiary = 
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
+    saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
   })
   return saleSubsidiary
 }
