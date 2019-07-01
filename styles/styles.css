@@ -139,7 +139,8 @@ body header nav {
   background-color: #015E9A;
   color: white;
   padding: 10px 60px;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-bottom: 4%;
   border-radius: 20px;
 }
 
@@ -147,12 +148,39 @@ body header nav {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-top: 4%;
 }
 .back-btn .back {
   background-color: #015E9A;
   color: white;
   padding: 10px 25px;
   text-decoration: none;
+}
+
+.reports {
+  display: flex;
+  justify-content: space-around;
+  max-width: 80%;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.reports .month-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+}
+.reports .sub-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  margin-left: 2%;
+}
+.reports .mix-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  margin-left: 2%;
 }
 
 .modal {
