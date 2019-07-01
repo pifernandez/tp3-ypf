@@ -172,6 +172,62 @@ body {
     display:none;
 }
 
+
+.inactive-modal{
+    background-color: rgba(144, 194, 253, 0.6);
+    height: 120vh;
+    width: 100%;
+    position: absolute;
+}
+.contain-modal-select{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+
+}
+.modal-select{
+    background-color: #FFFFFF;
+    width: 40%;
+    height:50%;
+    .modal-select-text{
+        display:inline-block;
+        justify-content: space-evenly;
+        margin-top: 30px; 
+        margin-left: 20px;
+    }
+    .selectors{
+        display: flex;   
+        flex-direction: column;
+        margin-top: 50px;
+        margin-left: 30px; 
+        align-content: space-between;
+    }
+    .closeModal{
+        float: right;
+        margin-top: 4%;
+        margin-right: 4%;
+        a{
+            text-decoration: none;
+        }
+    }
+    select{
+        width: 90%;
+        height: 25px;
+    }
+    
+    input{
+        float:right;
+        margin-right: 10%;
+        margin-top: 15%;
+        padding: px;  
+    }
+}
+
+
+
 .activeModal{
     display:block;
 
@@ -228,6 +284,7 @@ body {
     }
 }
 }
+
 
 
 

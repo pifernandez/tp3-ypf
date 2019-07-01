@@ -222,11 +222,11 @@ render()
 
 // Otras funciones
 
-let onLoadFunctions 
+/* let onLoadFunctions 
 const onLoadFunctions = () => {
   let container = document.getElementById('new-sale')
   printSellerMonth()
-}
+} */
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -239,13 +239,16 @@ const printSellerMonth = () => {
 }
 
 //Modal
-let newSaleBtn = document.getElementById('newSaleBtn')
-let openModal = document.getElementById('activeModal')
+
+
+
 let exitModal = document.getElementById('closeModal')
 
-const modal = (openModal) => {
- newSaleBtn.onclick = () => {
-    openModal.classList.add('activeModal')
+const modal = () => {
+let newSaleBtn = document.getElementById('newSaleBtn')
+let openModal = document.getElementById('activeModal')
+newSaleBtn.onclick = () => {
+    activeModal.classList.toggle('activeModal')
   } 
 }
 
@@ -265,9 +268,6 @@ const createUl = () => {
 }
 
 //MODAL
-
-const modal 
-let 
 
 // //Crea select
 // const createSelects = (list, container) => {

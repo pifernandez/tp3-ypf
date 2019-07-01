@@ -9,7 +9,7 @@
     <link href="styles/styles.css" rel="stylesheet" type="text/css" media="screen">
     <title>All Devices</title>
 </head>
-<body onload=onLoadFunctions()>
+    <body><!-- onload="onLoadFunctions()" -->
     <header>
         <nav>
             <a href="index.html" class="brand">All devices</a>
@@ -46,8 +46,8 @@
                 <a href="#">Caballito</a>
                 <a href="#">Centro</a>
             </div>
-            <div class="new-sale" id="newSaleBtn">
-                <a href="#">Nueva Venta</a>
+            <div onclick="modal()"class="new-sale" >
+                <a id="newSaleBtn" href="#">Nueva Venta</a>
             </div>
         </div>
         <div class="sellers">
