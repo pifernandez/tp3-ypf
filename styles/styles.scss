@@ -169,14 +169,11 @@ body {
 }
 
 .modal{
-display:none;
+    display:none;
 }
 
 .activeModal{
-    .modal{
-        display:block;
-    }
-}
+    display:block;
 
 .inactive-modal{
     background-color: rgba(144, 194, 253, 0.6);
@@ -210,7 +207,7 @@ display:none;
         margin-left: 30px; 
         align-content: space-between;
     }
-    .close-modal{
+    .closeModal{
         float: right;
         margin-top: 4%;
         margin-right: 4%;
@@ -230,7 +227,7 @@ display:none;
         padding: px;  
     }
 }
-    
+}
 
 
 

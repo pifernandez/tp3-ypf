@@ -222,7 +222,7 @@ render()
 
 // Otras funciones
 
-
+let onLoadFunctions 
 const onLoadFunctions = () => {
   let container = document.getElementById('new-sale')
   printSellerMonth()
@@ -237,6 +237,24 @@ const printSellerMonth = () => {
   let subsidiary = document.getElementById('seller-subsidiary')
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
 }
+
+//Modal
+let newSaleBtn = document.getElementById('newSaleBtn')
+let openModal = document.getElementById('activeModal')
+let exitModal = document.getElementById('closeModal')
+
+const modal = (openModal) => {
+ newSaleBtn.onclick = () => {
+    openModal.classList.add('activeModal')
+  } 
+}
+
+/*   
+  exitModal.onclick = () => {
+    modal.classlist.add('modal')
+} */
+
+
 
 //Crea UL
 const createUl = () => {

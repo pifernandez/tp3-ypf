@@ -9,7 +9,7 @@
     <link href="styles/styles.css" rel="stylesheet" type="text/css" media="screen">
     <title>All Devices</title>
 </head>
-<body onload="onLoadFunctions()">
+<body onload=onLoadFunctions()>
     <header>
         <nav>
             <a href="index.html" class="brand">All devices</a>
@@ -46,7 +46,7 @@
                 <a href="#">Caballito</a>
                 <a href="#">Centro</a>
             </div>
-            <div class="new-sale">
+            <div class="new-sale" id="newSaleBtn">
                 <a href="#">Nueva Venta</a>
             </div>
         </div>
@@ -68,12 +68,12 @@
             <a href="reportes.html">Reportes</a>
         </div>
     </section>
-    <section class="modal activeModal">
+    <section class="modal" id="activeModal" >
         <div class="inactive-modal"></div>
         <div class="contain-modal-select">
         <div class="modal-select">
                 <p class="modal-select-text">Seleccione</p>
-                <a class="close-modal" href="">x</a>
+                <a class="closeModal" id="closeModal" href="">x</a>
                 <div class="selectors">
                     <div>
                     <select name="Vendedora">
