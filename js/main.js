@@ -192,6 +192,13 @@ const renderMonth = () => {
 
 // renderMonth()
 
+const printMonth = () => {
+  let printMonthReport = document.getElementById("month-report")
+  printMonthReport.appendChild(renderMonth())
+}
+
+printMonth()
+
 // Importe total vendido por cada sucursal
 
 const renderSubsidiary = () => {
@@ -222,11 +229,11 @@ render()
 
 // Otras funciones
 
-/* let onLoadFunctions 
+
 const onLoadFunctions = () => {
   let container = document.getElementById('new-sale')
   printSellerMonth()
-} */
+}
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -235,29 +242,8 @@ const printSellerMonth = () => {
   let salesSeller = document.getElementById('sales-seller')
   salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
   let subsidiary = document.getElementById('seller-subsidiary')
-  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
-
-//Modal
-
-
-
-let exitModal = document.getElementById('closeModal')
-
-const modal = () => {
-let newSaleBtn = document.getElementById('newSaleBtn')
-let openModal = document.getElementById('activeModal')
-newSaleBtn.onclick = () => {
-    activeModal.classList.toggle('activeModal')
-  } 
-}
-
-/*   
-  exitModal.onclick = () => {
-    modal.classlist.add('modal')
-} */
-
-
 
 //Crea UL
 const createUl = () => {
@@ -268,6 +254,9 @@ const createUl = () => {
 }
 
 //MODAL
+
+const modal 
+let 
 
 // //Crea select
 // const createSelects = (list, container) => {
