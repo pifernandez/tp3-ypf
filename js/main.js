@@ -192,12 +192,17 @@ const renderMonth = () => {
 
 // renderMonth()
 
-const printMonth = () => {
+const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
-  printMonthReport.appendChild(renderMonth())
+  let printMonth = document.createElement("p")
+  printMonth.innerHTML = "Ventas por mes"
+  printMonth.classList.add("reportbox-title")
+  printMonthReport.appendChild(printMonth)
+
+  
 }
 
-printMonth()
+printReports()
 
 // Importe total vendido por cada sucursal
 
@@ -254,9 +259,9 @@ const createUl = () => {
 }
 
 //MODAL
-
+/*
 const modal 
-let 
+let */
 
 // //Crea select
 // const createSelects = (list, container) => {
