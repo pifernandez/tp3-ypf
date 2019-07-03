@@ -191,7 +191,6 @@ const renderMonth = () => {
     })
   })
   return arr
-   
 }
 
 
@@ -199,23 +198,32 @@ const renderMonth = () => {
 
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
-  let algo = renderMonth()
-  console.log(algo);
+  let toPrintM = renderMonth()
+  //recorrer esa variable y crear element por cada uno forEach?
+  toPrintM.forEach(e => {
+    let reportM = document.createElement("p")
+    reportM.classList.add("report-info")
+    reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMonthReport.appendChild(reportM)
+  })
   
-  let printMonthT = document.createElement("p")
-  
-  printMonthReport.appendChild(printMonthT)
 
   let printSubReport = document.getElementById("sub-report")
-  let printSubT = document.createElement("p")
-  
-  printSubReport.appendChild(printSubT)
+  let toPrintS = renderSubsidiary()
+  toPrintS.forEach(e => {
+    let reportSub = document.createElement("p")
+    reportSub.classList.add("report-info")
+    reportSub.innerHTML = (`Total de ${e.sub}: $${e.salesSub}`)
+    printSubReport.appendChild(reportSub)
+  })
 
   let printMixReport = document.getElementById("mix-report")
-  let printMixT = document.createElement("p")
-  
-  printMixReport.appendChild(printMixT)
-
+  let toPrintMix = render()
+  /*
+  toPrintMix.forEach(e => {
+    let reportM = document.createElement("p")
+    reportM.classList.add("report-info")
+  }) */
   
 }
 
@@ -224,10 +232,12 @@ const printReports = () => {
 // Importe total vendido por cada sucursal
 
 const renderSubsidiary = () => {
-  let saleSubsidiary
+  let saleSubsidiary = []
   shop.subsidiary.forEach(e => {
-    saleSubsidiary = salesSubOrSeller(e)
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
+    let s = {sub: e, salesSub: salesSubOrSeller(e)}
+    saleSubsidiary.push(s)
+    //saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
   })
   return saleSubsidiary
 }
@@ -238,6 +248,7 @@ const renderSubsidiary = () => {
 
 const render = () => {
   let month = new Date().getMonth()
+  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
   console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
