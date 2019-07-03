@@ -184,6 +184,12 @@ body {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+    p.reportbox-title{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-size: 140%;
+    }
     .month-report{
         @include reports-boxes()
     }
@@ -196,6 +202,8 @@ body {
         margin-left: 2%;
     }
 }
+
+.report
 
 //MODAL
 

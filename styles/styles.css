@@ -165,6 +165,12 @@ body header nav {
   justify-content: center;
   margin: 0 auto;
 }
+.reports p.reportbox-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 140%;
+}
 .reports .month-report {
   background-color: white;
   height: 270px;
@@ -183,7 +189,7 @@ body header nav {
   margin-left: 2%;
 }
 
-.modal {
+.report .modal {
   display: none;
 }
 

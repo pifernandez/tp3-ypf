@@ -176,6 +176,7 @@ console.log(bestSubsidiaryMonth(2019, 0))
 
 let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
+  let arr = []
   let monthSale = shop.sales.map(s => s.date.getMonth())
   let yearSale = shop.sales.map(s => s.date.getFullYear())
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
@@ -183,26 +184,42 @@ const renderMonth = () => {
   let saleMonth
   year.forEach(e => {
     month.forEach(i => {
-      saleMonth = salesMonth(e, i)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
+      //saleMonth = salesMonth(e, i)
+      let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
+      arr.push(x)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`) 
     })
   })
-  return saleMonth
+  return arr
+   
 }
+
 
 // renderMonth()
 
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
-  let printMonth = document.createElement("p")
-  printMonth.innerHTML = "Ventas por mes"
-  printMonth.classList.add("reportbox-title")
-  printMonthReport.appendChild(printMonth)
+  let algo = renderMonth()
+  console.log(algo);
+  
+  let printMonthT = document.createElement("p")
+  
+  printMonthReport.appendChild(printMonthT)
+
+  let printSubReport = document.getElementById("sub-report")
+  let printSubT = document.createElement("p")
+  
+  printSubReport.appendChild(printSubT)
+
+  let printMixReport = document.getElementById("mix-report")
+  let printMixT = document.createElement("p")
+  
+  printMixReport.appendChild(printMixT)
 
   
 }
 
-printReports()
+//printReports()
 
 // Importe total vendido por cada sucursal
 
@@ -238,6 +255,7 @@ render()
 const onLoadFunctions = () => {
   let container = document.getElementById('new-sale')
   printSellerMonth()
+  printReports()
 }
 
 const printSellerMonth = () => {
