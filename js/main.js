@@ -219,14 +219,13 @@ const render = () => {
 render()
 
 
-
 // Otras funciones
 
-/* let onLoadFunctions 
 const onLoadFunctions = () => {
-  let container = document.getElementById('new-sale')
+  let container = document.getElementById('modal')
   printSellerMonth()
-} */
+  createSelSubSelects(container)
+} 
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -240,10 +239,6 @@ const printSellerMonth = () => {
 
 //Modal
 
-
-
-let exitModal = document.getElementById('closeModal')
-
 const modal = () => {
 let newSaleBtn = document.getElementById('newSaleBtn')
 let openModal = document.getElementById('activeModal')
@@ -251,12 +246,6 @@ newSaleBtn.onclick = () => {
     activeModal.classList.toggle('activeModal')
   } 
 }
-
-/*   
-  exitModal.onclick = () => {
-    modal.classlist.add('modal')
-} */
-
 
 
 //Crea UL
@@ -267,21 +256,32 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
-//MODAL
 
-// //Crea select
-// const createSelects = (list, container) => {
-//   list.forEach(e => {
-//       let select = document.createElement('select')
-//       select.id = e
-//       container.appendChild(select)
-//   })
-// }
+//Crea select para vendedoras y sucursales
+const createSelSubSelects = (container, id) => {
+  let select = document.createElement('select')
+  select.classList.add('selectors')
+  select.id = id;
+  container.appendChild(select)
+  select.appendChild(createOption(...shop.seller))
+}
 
-// //Crea option
-// const createOption = e =>{
-//   let option = document.createElement('option')
-//   option.innerText = e
-//   option.value = e.id
-//   return option
-// }
+const fillSelects = (list, id) => {
+  list.forEach(e => {
+      let select = document.getElementById(id)
+      if(select.childElementCount === 0){
+          let placeholder = {name:`seleccione vendedora`, id:''}
+          select.appendChild(createOption(placeholder))
+      }
+      select.appendChild(createOption(e))
+  })
+}
+
+//Crea option para vendedoras y sucursales
+const createOption = array => {
+    let option = document.createElement('option')
+    option.innerText = e
+    option.value = i
+    return option
+}
+
