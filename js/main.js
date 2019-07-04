@@ -199,7 +199,6 @@ const renderMonth = () => {
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
   let toPrintM = renderMonth()
-  //recorrer esa variable y crear element por cada uno forEach?
   toPrintM.forEach(e => {
     let reportM = document.createElement("p")
     reportM.classList.add("report-info")
@@ -207,7 +206,6 @@ const printReports = () => {
     printMonthReport.appendChild(reportM)
   })
   
-
   let printSubReport = document.getElementById("sub-report")
   let toPrintS = renderSubsidiary()
   toPrintS.forEach(e => {
@@ -216,14 +214,10 @@ const printReports = () => {
     reportSub.innerHTML = (`Total de ${e.sub}: $${e.salesSub}`)
     printSubReport.appendChild(reportSub)
   })
-
+  
+  
   let printMixReport = document.getElementById("mix-report")
-  let toPrintMix = render()
-  /*
-  toPrintMix.forEach(e => {
-    let reportM = document.createElement("p")
-    reportM.classList.add("report-info")
-  }) */
+  
   
 }
 
@@ -248,6 +242,7 @@ const renderSubsidiary = () => {
 
 const render = () => {
   let month = new Date().getMonth()
+  
   //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
   console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
