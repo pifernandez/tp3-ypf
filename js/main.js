@@ -222,9 +222,10 @@ render()
 // Otras funciones
 
 const onLoadFunctions = () => {
-  let container = document.getElementById('modal')
+  let container = document.getElementById('selectors')
   printSellerMonth()
   createSelSubSelects(container)
+
 } 
 
 const printSellerMonth = () => {
@@ -263,7 +264,7 @@ const createSelSubSelects = (container, id) => {
   select.classList.add('selectors')
   select.id = id;
   container.appendChild(select)
-  select.appendChild(createOption(...shop.seller))
+
 }
 
 const fillSelects = (list, id) => {
@@ -279,9 +280,11 @@ const fillSelects = (list, id) => {
 
 //Crea option para vendedoras y sucursales
 const createOption = array => {
+    array.forEach(e => { 
     let option = document.createElement('option')
     option.innerText = e
     option.value = i
+    select.appendChild(option)
+    })
     return option
-}
-
+} 
