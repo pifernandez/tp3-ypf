@@ -60,7 +60,10 @@ time, mark, audio, video, a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: url(img/background-img.png) no-repeat;
+    background: url(img/background-img.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     .brand{
         color: #393636;
