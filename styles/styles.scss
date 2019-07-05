@@ -7,6 +7,17 @@
     color: #ffffff;   
 }
 
+@mixin reports-boxes{
+    background-color: white;
+    height: 270px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -84,7 +95,6 @@ body {
     }
 }
 
-
 .action-buttons{
     text-align: center;
     margin-top: 15%;
@@ -143,6 +153,8 @@ body {
     height: 100%;       
 }
 
+//reports page
+
 .reports-title{
     display: flex;
     text-align: center;
@@ -151,7 +163,8 @@ body {
         background-color: #015E9A;
         color: white;
         padding: 10px 60px;
-        margin-top: 5%;
+        margin-top: 2%;
+        margin-bottom: 4%;
         border-radius: 20px;
     }
 }  
@@ -160,6 +173,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-top: 4%;
     .back{
         background-color: #015E9A;
         color: white;
@@ -167,6 +181,43 @@ body {
         text-decoration: none;
     }
 }
+
+.reports{
+    display: flex;
+    justify-content: space-around;
+    max-width: 80%;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    p.reportbox-title{
+        font-size: 140%;
+        margin-bottom: 4%;
+        text-shadow: 0 0 2px #015E9A;
+    }
+    .month-report{
+        @include reports-boxes();
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+    .sub-report{
+        @include reports-boxes();
+        margin-left: 2%;
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+    .mix-report{
+        @include reports-boxes();
+        margin-left: 2%;
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+}
+
+
+//MODAL
 
 .modal{
     display:none;

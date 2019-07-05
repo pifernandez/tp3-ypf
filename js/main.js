@@ -176,6 +176,7 @@ console.log(bestSubsidiaryMonth(2019, 0))
 
 let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
+  let arr = []
   let monthSale = shop.sales.map(s => s.date.getMonth())
   let yearSale = shop.sales.map(s => s.date.getFullYear())
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
@@ -183,22 +184,54 @@ const renderMonth = () => {
   let saleMonth
   year.forEach(e => {
     month.forEach(i => {
-      saleMonth = salesMonth(e, i)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
+      //saleMonth = salesMonth(e, i)
+      let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
+      arr.push(x)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`) 
     })
   })
-  return saleMonth
+  return arr
 }
 
+
 // renderMonth()
+
+const printReports = () => {
+  let printMonthReport = document.getElementById("month-report")
+  let toPrintM = renderMonth()
+  toPrintM.forEach(e => {
+    let reportM = document.createElement("p")
+    reportM.classList.add("report-info")
+    reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMonthReport.appendChild(reportM)
+  })
+  
+  let printSubReport = document.getElementById("sub-report")
+  let toPrintS = renderSubsidiary()
+  toPrintS.forEach(e => {
+    let reportSub = document.createElement("p")
+    reportSub.classList.add("report-info")
+    reportSub.innerHTML = (`Total de ${e.sub}: $${e.salesSub}`)
+    printSubReport.appendChild(reportSub)
+  })
+  
+  
+  let printMixReport = document.getElementById("mix-report")
+  
+  
+}
+
+//printReports()
 
 // Importe total vendido por cada sucursal
 
 const renderSubsidiary = () => {
-  let saleSubsidiary
+  let saleSubsidiary = []
   shop.subsidiary.forEach(e => {
-    saleSubsidiary = salesSubOrSeller(e)
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
+    let s = {sub: e, salesSub: salesSubOrSeller(e)}
+    saleSubsidiary.push(s)
+    //saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
   })
   return saleSubsidiary
 }
@@ -209,6 +242,8 @@ const renderSubsidiary = () => {
 
 const render = () => {
   let month = new Date().getMonth()
+  
+  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
   console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
@@ -221,11 +256,20 @@ render()
 
 // Otras funciones
 
+//Nuevo array
+
+const newArray = shop.price.map(e => e.component)
+newArray.push(...shop.seller)
+newArray.push(...shop.subsidiary)
+
+console.log(newArray) // tienen que ser objetos 
+
 const onLoadFunctions = () => {
   let container = document.getElementById('modal')
   printSellerMonth()
   createSelSubSelects(container)
-} 
+  printReports()
+}
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -234,7 +278,7 @@ const printSellerMonth = () => {
   let salesSeller = document.getElementById('sales-seller')
   salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
   let subsidiary = document.getElementById('seller-subsidiary')
-  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
 
 //Modal
@@ -284,4 +328,6 @@ const createOption = array => {
     option.value = i
     return option
 }
+
+
 
