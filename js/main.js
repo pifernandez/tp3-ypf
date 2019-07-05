@@ -221,12 +221,7 @@ render()
 
 // Otras funciones
 
-const onLoadFunctions = () => {
-  let openModal = document.getElementById('selectors')
-  printSellerMonth()
-  createSelSubSelects(openModal,id)
 
-} 
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -257,12 +252,29 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
+const onLoadFunctions = () => {
+  let openModal = document.getElementById('selectors')
+  printSellerMonth()
+  createSelSubSelects()
+
+} 
 
 //Crea select para vendedoras y sucursales
-const createSelSubSelects = (openModal, id) => {
+const createSelSubSelects = () => {
+  let lala = document.getElementById('modal')
+
   let select = document.createElement('select')
-  select.id = id;
-  openModal.appendChild(select)
+  createOptions(shop.seller).forEach(o => select.appendChild(o))
+  lala.appendChild(select)
+
+  let selectPrice = document.createElement('select')
+  createPriceOptions(shop.price).forEach(o => selectPrice.appendChild(o))
+  lala.appendChild(selectPrice)
+
+  let selectSubsidiary = document.createElement('select')
+  createOptions(shop.subsidiary).forEach(o => selectSubsidiary.appendChild(o))
+  lala.appendChild(selectSubsidiary)
+
 }
 
 const fillSelects = (list, id) => {
@@ -278,12 +290,25 @@ const fillSelects = (list, id) => {
 
 //Crea option para vendedoras y sucursales
 
-const createOption = array => {
-    array.forEach(e => { 
-    let option = document.createElement('option')
-    option.innerText = e
-    option.value = i
-    select.appendChild(option)
+const createOptions = array => {
+    return array.map((e,i) => {
+      let option = document.createElement('option')
+      option.innerText = e
+      option.value = e
+      option.id=i
+      console.log(option)
+      return option
     })
-    return option
+    
+} 
+const createPriceOptions = array => {
+    return array.map((e,i) => {
+      let option = document.createElement('option')
+      option.innerText = e.component
+      option.value = e.price
+      option.id=i
+      console.log(option)
+      return option
+    })
+    
 } 
