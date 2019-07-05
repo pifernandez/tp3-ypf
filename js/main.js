@@ -194,7 +194,7 @@ const renderMonth = () => {
 }
 
 
-// renderMonth()
+//renderMonth()
 
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
@@ -215,9 +215,10 @@ const printReports = () => {
     printSubReport.appendChild(reportSub)
   })
   
-  
+
   let printMixReport = document.getElementById("mix-report")
-  
+  let toPrintMix = render()
+ 
   
 }
 
@@ -242,13 +243,15 @@ const renderSubsidiary = () => {
 
 const render = () => {
   let month = new Date().getMonth()
+  let renderMix = []
+  let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
   
-  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
-  console.log(`Reporte:
+  /*console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)
+  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)*/
+  console.log(renderP)
 }
 
 render()

@@ -16,7 +16,24 @@
     text-align: center;
     justify-content: center;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    @media only screen and (max-width: $first){
+        width: 90%;
+    }
+    @media only screen and (max-width: $mobile){
+        width: 80%;
+        margin-top: 5%;
+    }
 }
+
+@mixin to-center{
+    text-align: center;
+    justify-content: center;
+}
+
+//breakpoints//
+$mobile: 420px;
+$tablet: 700px;
+$first: 940px;
 
 
 body, div, span, applet, object, iframe,
@@ -75,6 +92,9 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
+    @media only screen and (max-width: $first){
+        width: 100%;
+    }
 }
 
 .seller-month{
@@ -174,6 +194,12 @@ body {
     justify-content: flex-end;
     align-items: flex-end;
     margin-top: 4%;
+    @media only screen and (max-width: $first){
+        @include to-center();
+    }
+    @media only screen and (max-width: $mobile){
+        @include to-center();
+    }
     .back{
         background-color: #015E9A;
         color: white;
@@ -189,6 +215,12 @@ body {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+    @media only screen and (max-width: $first){
+        max-width: 90%;
+    }
+    @media only screen and (max-width: $mobile){
+        flex-direction: column;
+    }
     p.reportbox-title{
         font-size: 140%;
         margin-bottom: 4%;
@@ -203,6 +235,12 @@ body {
     .sub-report{
         @include reports-boxes();
         margin-left: 2%;
+        @media only screen and (max-width: $tablet){
+            flex-direction: column;
+        }
+        @media only screen and (max-width: $mobile){
+            margin-left: 0;
+        }
         p.report-info{
             margin-top: 5%;
         }
@@ -210,6 +248,12 @@ body {
     .mix-report{
         @include reports-boxes();
         margin-left: 2%;
+        @media only screen and (max-width: $tablet){
+            flex-direction: column;
+        }
+        @media only screen and (max-width: $mobile){
+            margin-left: 0;
+        }
         p.report-info{
             margin-top: 5%;
         }
