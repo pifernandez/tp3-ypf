@@ -256,20 +256,13 @@ render()
 
 // Otras funciones
 
-//Nuevo array
-
-const newArray = shop.price.map(e => e.component)
-newArray.push(...shop.seller)
-newArray.push(...shop.subsidiary)
-
-console.log(newArray) // tienen que ser objetos 
 
 const onLoadFunctions = () => {
-  let container = document.getElementById('modal')
+  let openModal = document.getElementById('selectors')
   printSellerMonth()
-  createSelSubSelects(container)
-  printReports()
-}
+  createSelSubSelects(openModal,id)
+
+} 
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -302,12 +295,10 @@ const createUl = () => {
 
 
 //Crea select para vendedoras y sucursales
-const createSelSubSelects = (container, id) => {
+const createSelSubSelects = (openModal, id) => {
   let select = document.createElement('select')
-  select.classList.add('selectors')
   select.id = id;
-  container.appendChild(select)
-  select.appendChild(createOption(...shop.seller))
+  openModal.appendChild(select)
 }
 
 const fillSelects = (list, id) => {
@@ -322,12 +313,13 @@ const fillSelects = (list, id) => {
 }
 
 //Crea option para vendedoras y sucursales
+
 const createOption = array => {
+    array.forEach(e => { 
     let option = document.createElement('option')
     option.innerText = e
     option.value = i
+    select.appendChild(option)
+    })
     return option
-}
-
-
-
+} 
