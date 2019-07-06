@@ -187,7 +187,7 @@ const renderMonth = () => {
       //saleMonth = salesMonth(e, i)
       let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
       arr.push(x)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`) 
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`)
     })
   })
   return arr
@@ -198,12 +198,18 @@ const renderMonth = () => {
 
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
-  let toPrintM = renderMonth()
+    let toPrintM = renderMonth()
   toPrintM.forEach(e => {
-    let reportM = document.createElement("p")
+    let reportM
+    reportM = document.createElement("p")
     reportM.classList.add("report-info")
     reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
     printMonthReport.appendChild(reportM)
+    
+    let printMixReport = document.getElementById("mix-report")
+    let mixMReport = document.createElement("p")
+    mixMReport.innerText = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMixReport.appendChild(mixMReport)
   })
   
   let printSubReport = document.getElementById("sub-report")
@@ -211,16 +217,28 @@ const printReports = () => {
   toPrintS.forEach(e => {
     let reportSub = document.createElement("p")
     reportSub.classList.add("report-info")
-    reportSub.innerHTML = (`Total de ${e.sub}: $${e.salesSub}`)
+    reportSub.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
     printSubReport.appendChild(reportSub)
+
+    let printMixReport = document.getElementById("mix-report")
+    let mixSReport = document.createElement("p")
+    mixSReport.classList.add("report-info")
+    mixSReport.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
+    printMixReport.appendChild(mixSReport)
   })
-  
 
   let printMixReport = document.getElementById("mix-report")
-  let toPrintMix = render()
- 
-  
+  let reportBestProduct = document.createElement("p")
+  reportBestProduct.classList.add("report-info")
+  reportBestProduct.innerText = (`Producto estrella: ${bestSellerComponent()}`)
+  printMixReport.appendChild(reportBestProduct)
+
+  let reportBestSeller = document.createElement("p")
+  reportBestSeller.classList.add("report-info")
+  reportBestSeller.innerText = (`Vendedora que más ingresos generó: `+ bestSellerEver())
+  printMixReport.appendChild(reportBestSeller)
 }
+
 
 //printReports()
 
@@ -239,19 +257,39 @@ const renderSubsidiary = () => {
 
 // renderSubsidiary()
 
-// Tiene que mostrar la unión de los dos reportes anteriores
+const bestSellerEver = () => {
+  let maxSales = 0
+  let maxSeller = ""
+  shop.seller.map(i => {
+    let counterS = 0
+    shop.sales.map(e => {
+      if(i === e.sellerName){
+        counterS += machinePrice(e.components)
+      }
+    })
+    if(counterS > maxSales){
+      maxSeller = i
+      maxSales = counterS
+    }
+  })
+  return maxSeller
+}
 
+bestSellerEver()
+
+// Tiene que mostrar la unión de los dos reportes anteriores
 const render = () => {
-  let month = new Date().getMonth()
-  let renderMix = []
-  let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
+  //let month = new Date().getMonth()
+  //let renderMix = []
+  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
   
-  /*console.log(`Reporte:
+  console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)*/
-  console.log(renderP)
+  Vendedora que más ingresos generó: ${bestSellerEver()}`)
+  //console.log(renderP)
+  
 }
 
 render()

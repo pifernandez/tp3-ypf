@@ -19,6 +19,9 @@
     @media only screen and (max-width: $first){
         width: 90%;
     }
+    @media only screen and (max-width: $tablet){
+        margin-top: 5%;
+    }
     @media only screen and (max-width: $mobile){
         width: 80%;
         margin-top: 5%;
@@ -213,6 +216,8 @@ body {
 
 .reports{
     display: flex;
+    //flex-wrap: wrap;
+    //flex-direction: row;
     justify-content: space-around;
     max-width: 80%;
     text-align: center;
@@ -220,6 +225,11 @@ body {
     margin: 0 auto;
     @media only screen and (max-width: $first){
         max-width: 90%;
+    }
+    @media only screen and (max-width: $tablet){
+        //flex-direction: column;
+        width: 60%;
+        //flex-wrap: wrap;
     }
     @media only screen and (max-width: $mobile){
         flex-direction: column;
@@ -240,6 +250,7 @@ body {
         margin-left: 2%;
         @media only screen and (max-width: $tablet){
             flex-direction: column;
+            margin-left: 0;
         }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
@@ -251,9 +262,6 @@ body {
     .mix-report{
         @include reports-boxes();
         margin-left: 2%;
-        @media only screen and (max-width: $tablet){
-            flex-direction: column;
-        }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
         }
