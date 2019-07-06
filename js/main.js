@@ -199,9 +199,8 @@ const renderMonth = () => {
 const printReports = () => {
   let printMonthReport = document.getElementById("month-report")
     let toPrintM = renderMonth()
-    let reportM
   toPrintM.forEach(e => {
-    
+    let reportM
     reportM = document.createElement("p")
     reportM.classList.add("report-info")
     reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
@@ -209,7 +208,7 @@ const printReports = () => {
     
     let printMixReport = document.getElementById("mix-report")
     let mixMReport = document.createElement("p")
-    mixMReport.innerText = reportM
+    mixMReport.innerText = (`Total de ${e.month} ${e.year}: $${e.sales}`)
     printMixReport.appendChild(mixMReport)
   })
   
