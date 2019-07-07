@@ -123,6 +123,12 @@ body {
         font-weight: bold;
         margin-bottom: 6%;
     }
+    #seller-subsidiary{
+        display:inline-block;
+    }
+    #best-seller{
+        display: inline-block;
+    }
 }
 
 .action-buttons{
@@ -149,6 +155,7 @@ body {
             background-color: #015E9A;
             color: white;
             text-decoration: none;
+            border-radius: 20px;
             padding: 10px 15px;
         }
     }
@@ -156,7 +163,9 @@ body {
 
 .categories{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
     margin-top: 2%;
     width: 98%;
 }
@@ -165,7 +174,8 @@ body {
     background-color:#FFFFFF;
     height: 10%; 
     align-items: center;
-    align-self: center;     
+    align-self: center;  
+    font-weight: normal   
 }
 
 .report-btn{
@@ -175,7 +185,8 @@ body {
         background-color: #015E9A;
         color: white;
         padding: 10px 20px;
-        text-decoration: none        
+        text-decoration: none;
+        border-radius: 20px;     
     }
 }
 
@@ -370,15 +381,15 @@ body {
     .modal-select-text{
         display:inline-block;
         justify-content: space-evenly;
-        margin-top: 30px; 
-        margin-left: 20px;
+        // margin-top: 30px; 
+        // margin-left: 20px;
     }
     .selectors{
         display: flex;   
         flex-direction: column;
-        margin-top: 50px;
-        margin-left: 30px; 
-        align-content: space-between;
+        // margin-top: 10px;
+        // margin-left: 30px; 
+        // align-content: space-between;
     }
     .closeModal{
         float: right;
@@ -401,10 +412,3 @@ body {
     }
 }
 }
-
-
-
-
-
-
-
