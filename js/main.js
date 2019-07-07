@@ -217,9 +217,7 @@ const printReports = () => {
   
 
   let printMixReport = document.getElementById("mix-report")
-  let toPrintMix = render()
- 
-  
+  let toPrintMix = render()  
 }
 
 //printReports()
