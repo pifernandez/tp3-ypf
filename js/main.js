@@ -1,4 +1,5 @@
-var shop = {
+let allSalesSales = []
+let shop = {
   subsidiary: ["Centro", "Caballito"],
 
   seller: ["Ada", "Grace", "Hedy", "Sheryl"],
