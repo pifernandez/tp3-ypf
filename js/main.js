@@ -257,14 +257,11 @@ render()
 
 // Otras funciones
 
-<<<<<<< HEAD
 
 const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
   createSelSubSelects(openModal,id)
-=======
->>>>>>> 84588b4cda956e54a06dbfd430affd347d5cc6e9
 
 
 const printSellerMonth = () => {
@@ -384,4 +381,4 @@ const addNewSale = () => {
         })
    }
   printSales()
-}
+}}
