@@ -257,15 +257,11 @@ render()
 
 // Otras funciones
 
-
-<<<<<<< HEAD
 const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
-  createSelSubSelects(openModal,id)
-
-=======
->>>>>>> a7f4e0a66d9c71e0b42afff03bcec7419cd9bd99
+  createSelSubSelects()
+} 
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -293,21 +289,6 @@ const closeModal = () => {
       closeModal.classList.toggle('modal')
     } 
   }
-
-
-//Crea UL
-const createUl = () => {
-  let ul = document.createElement('ul')
-  ul.classList.add('categories sells')
-  let li = document.createElement('li')
-  ul.appendChild(li)
-}
-
-const onLoadFunctions = () => {
-  let openModal = document.getElementById('selectors')
-  printSellerMonth()
-  createSelSubSelects()
-} 
 
 //Crea select para vendedoras y sucursales
 const createSelSubSelects = () => {
@@ -361,7 +342,6 @@ const createPriceOptions = array => {
 
 //Imprimir opciones elegidas
 
-
 const printSales = () => {
     allSales = document.getElementById('allSales')
     allSales.innerHTML = ''
@@ -384,8 +364,15 @@ const addNewSale = () => {
         })
    }
   printSales()
-<<<<<<< HEAD
-}}
-=======
 }
->>>>>>> a7f4e0a66d9c71e0b42afff03bcec7419cd9bd99
+
+//Crea UL
+const createUl = (list) => {
+  let ul = document.createElement('ul')
+  ul.classList.add('categories sells')
+  list.forEach(e => {
+    let li = document.createElement('li')
+    li.innerText = e
+    ul.appendChild(li)
+  })
+}
