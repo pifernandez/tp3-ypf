@@ -257,16 +257,6 @@ render()
 
 // Otras funciones
 
-
-<<<<<<< HEAD
-const onLoadFunctions = () => {
-  let openModal = document.getElementById('selectors')
-  printSellerMonth()
-  createSelSubSelects(openModal,id)
-
-=======
->>>>>>> a7f4e0a66d9c71e0b42afff03bcec7419cd9bd99
-
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
   nameBS.innerText = bestSellerMonth(2019, 0)
@@ -384,8 +374,4 @@ const addNewSale = () => {
         })
    }
   printSales()
-<<<<<<< HEAD
-}}
-=======
 }
->>>>>>> a7f4e0a66d9c71e0b42afff03bcec7419cd9bd99
