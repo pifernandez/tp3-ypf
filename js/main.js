@@ -298,14 +298,6 @@ render()
 // Otras funciones
 
 
-<<<<<<< HEAD
-=======
-const onLoadFunctions = () => {
-  let container = document.getElementById('new-sale')
-  printSellerMonth()
-  printReports()
-}
->>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -317,7 +309,6 @@ const printSellerMonth = () => {
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
 
-<<<<<<< HEAD
 //Modal
 
 const modal = () => {
@@ -336,8 +327,6 @@ const closeModal = () => {
   }
 
 
-=======
->>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f
 //Crea UL
 const createUl = () => {
   let ul = document.createElement('ul')
@@ -346,7 +335,6 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
-<<<<<<< HEAD
 const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
@@ -429,26 +417,3 @@ const addNewSale = () => {
    }
   printSales()
 }
-=======
-//MODAL
-/*
-const modal 
-let */
-
-// //Crea select
-// const createSelects = (list, container) => {
-//   list.forEach(e => {
-//       let select = document.createElement('select')
-//       select.id = e
-//       container.appendChild(select)
-//   })
-// }
-
-// //Crea option
-// const createOption = e =>{
-//   let option = document.createElement('option')
-//   option.innerText = e
-//   option.value = e.id
-//   return option
-// }
->>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f
