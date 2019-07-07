@@ -176,6 +176,7 @@ console.log(bestSubsidiaryMonth(2019, 0))
 
 let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
+  let arr = []
   let monthSale = shop.sales.map(s => s.date.getMonth())
   let yearSale = shop.sales.map(s => s.date.getFullYear())
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
@@ -183,45 +184,126 @@ const renderMonth = () => {
   let saleMonth
   year.forEach(e => {
     month.forEach(i => {
-      saleMonth = salesMonth(e, i)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
+      //saleMonth = salesMonth(e, i)
+      let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
+      arr.push(x)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`)
     })
   })
-  return saleMonth
+  return arr
 }
 
-// renderMonth()
+
+//renderMonth()
+
+const printReports = () => {
+  let printMonthReport = document.getElementById("month-report")
+    let toPrintM = renderMonth()
+  toPrintM.forEach(e => {
+    let reportM
+    reportM = document.createElement("p")
+    reportM.classList.add("report-info")
+    reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMonthReport.appendChild(reportM)
+    
+    let printMixReport = document.getElementById("mix-report")
+    let mixMReport = document.createElement("p")
+    mixMReport.innerText = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMixReport.appendChild(mixMReport)
+  })
+  
+  let printSubReport = document.getElementById("sub-report")
+  let toPrintS = renderSubsidiary()
+  toPrintS.forEach(e => {
+    let reportSub = document.createElement("p")
+    reportSub.classList.add("report-info")
+    reportSub.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
+    printSubReport.appendChild(reportSub)
+
+    let printMixReport = document.getElementById("mix-report")
+    let mixSReport = document.createElement("p")
+    mixSReport.classList.add("report-info")
+    mixSReport.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
+    printMixReport.appendChild(mixSReport)
+  })
+
+  let printMixReport = document.getElementById("mix-report")
+  let reportBestProduct = document.createElement("p")
+  reportBestProduct.classList.add("report-info")
+  reportBestProduct.innerText = (`Producto estrella: ${bestSellerComponent()}`)
+  printMixReport.appendChild(reportBestProduct)
+
+  let reportBestSeller = document.createElement("p")
+  reportBestSeller.classList.add("report-info")
+  reportBestSeller.innerText = (`Vendedora que más ingresos generó: `+ bestSellerEver())
+  printMixReport.appendChild(reportBestSeller)
+}
+
+
+//printReports()
 
 // Importe total vendido por cada sucursal
 
 const renderSubsidiary = () => {
-  let saleSubsidiary
+  let saleSubsidiary = []
   shop.subsidiary.forEach(e => {
-    saleSubsidiary = salesSubOrSeller(e)
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
+    let s = {sub: e, salesSub: salesSubOrSeller(e)}
+    saleSubsidiary.push(s)
+    //saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
   })
   return saleSubsidiary
 }
 
 // renderSubsidiary()
 
-// Tiene que mostrar la unión de los dos reportes anteriores
+const bestSellerEver = () => {
+  let maxSales = 0
+  let maxSeller = ""
+  shop.seller.map(i => {
+    let counterS = 0
+    shop.sales.map(e => {
+      if(i === e.sellerName){
+        counterS += machinePrice(e.components)
+      }
+    })
+    if(counterS > maxSales){
+      maxSeller = i
+      maxSales = counterS
+    }
+  })
+  return maxSeller
+}
 
+bestSellerEver()
+
+// Tiene que mostrar la unión de los dos reportes anteriores
 const render = () => {
-  let month = new Date().getMonth()
+  //let month = new Date().getMonth()
+  //let renderMix = []
+  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
+  
   console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)
+  Vendedora que más ingresos generó: ${bestSellerEver()}`)
+  //console.log(renderP)
+  
 }
 
 render()
 
 
+
 // Otras funciones
 
 
+const onLoadFunctions = () => {
+  let container = document.getElementById('new-sale')
+  printSellerMonth()
+  printReports()
+}
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -230,26 +312,8 @@ const printSellerMonth = () => {
   let salesSeller = document.getElementById('sales-seller')
   salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
   let subsidiary = document.getElementById('seller-subsidiary')
-  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
-
-//Modal
-
-const modal = () => {
-let newSaleBtn = document.getElementById('newSaleBtn')
-let openModal = document.getElementById('activeModal')
-newSaleBtn.onclick = () => {
-    activeModal.classList.toggle('activeModal')
-  } 
-}
-
-const closeModal = () => {
-  let closeModal = document.getElementById('closeModal')
-  closeModal.onclick = () => {
-      closeModal.classList.toggle('modal')
-    } 
-  }
-
 
 //Crea UL
 const createUl = () => {
@@ -259,85 +323,24 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
-const onLoadFunctions = () => {
-  let openModal = document.getElementById('selectors')
-  printSellerMonth()
-  createSelSubSelects()
-} 
+//MODAL
+/*
+const modal 
+let */
 
-//Crea select para vendedoras y sucursales
-const createSelSubSelects = () => {
-  let showModal = document.getElementById('modal')
-  let select = document.createElement('select')
-  createOptions(shop.seller).forEach(o => select.appendChild(o))
-  showModal.appendChild(select)
-  let selectPrice = document.createElement('select')
-  createPriceOptions(shop.price).forEach(o => selectPrice.appendChild(o))
-  showModal.appendChild(selectPrice)
-  let selectSubsidiary = document.createElement('select')
-  createOptions(shop.subsidiary).forEach(o => selectSubsidiary.appendChild(o))
-  showModal.appendChild(selectSubsidiary)
+// //Crea select
+// const createSelects = (list, container) => {
+//   list.forEach(e => {
+//       let select = document.createElement('select')
+//       select.id = e
+//       container.appendChild(select)
+//   })
+// }
 
-}
-
-const fillSelects = (list, id) => {
-  list.forEach(e => {
-      let select = document.getElementById(id)
-      if(select.childElementCount === 0){
-          let placeholder = {name:`seleccione vendedora`, id:''}
-          select.appendChild(createOption(placeholder))
-      }
-      select.appendChild(createOption(e))
-  })
-}
-
-//Crea option para vendedoras y sucursales
-
-const createOptions = (array) => {
-      return array.map((e,i) => {
-      let option = document.createElement('option')
-      option.innerText = e
-      option.value = e
-      option.id = i
-      return option 
-    })
-    
-} 
-const createPriceOptions = array => {
-    return array.map((e,i) => {
-      let option = document.createElement('option')
-      option.innerText = e.component
-      option.value = e.price
-      option.id=i
-      console.log(option)
-      return option
-    })
-    
-} 
-
-//Imprimir opciones elegidas
-
-
-const printSales = () => {
-    allSales = document.getElementById('allSales')
-    allSales.innerHTML = ''
-    allSales.map = () => {
-      let saleItem = document.createElement('li')
-      saleItem.classList.add('newSale')
-      saleItem.innerText = newSale.text
-    }
-}
-
-
-const addNewSale = () => {
-  let newSale = document.getElementById('input') 
-   let showNewsale = () => {
-    input.onclick() = document.createElement('ul')
-    newSale = input.value
-    newSale.unshift({
-          text: newSale,
-          isNewSale: true
-        })
-   }
-  printSales()
-}
+// //Crea option
+// const createOption = e =>{
+//   let option = document.createElement('option')
+//   option.innerText = e
+//   option.value = e.id
+//   return option
+// }
