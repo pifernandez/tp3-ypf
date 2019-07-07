@@ -257,6 +257,12 @@ render()
 
 // Otras funciones
 
+const onLoadFunctions = () => {
+  let openModal = document.getElementById('selectors')
+  printSellerMonth()
+  createSelSubSelects()
+} 
+
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
   nameBS.innerText = bestSellerMonth(2019, 0)
@@ -283,21 +289,6 @@ const closeModal = () => {
       closeModal.classList.toggle('modal')
     } 
   }
-
-
-//Crea UL
-const createUl = () => {
-  let ul = document.createElement('ul')
-  ul.classList.add('categories sells')
-  let li = document.createElement('li')
-  ul.appendChild(li)
-}
-
-const onLoadFunctions = () => {
-  let openModal = document.getElementById('selectors')
-  printSellerMonth()
-  createSelSubSelects()
-} 
 
 //Crea select para vendedoras y sucursales
 const createSelSubSelects = () => {
@@ -351,7 +342,6 @@ const createPriceOptions = array => {
 
 //Imprimir opciones elegidas
 
-
 const printSales = () => {
     allSales = document.getElementById('allSales')
     allSales.innerHTML = ''
@@ -374,4 +364,15 @@ const addNewSale = () => {
         })
    }
   printSales()
+}
+
+//Crea UL
+const createUl = (list) => {
+  let ul = document.createElement('ul')
+  ul.classList.add('categories sells')
+  list.forEach(e => {
+    let li = document.createElement('li')
+    li.innerText = e
+    ul.appendChild(li)
+  })
 }
