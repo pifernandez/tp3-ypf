@@ -7,6 +7,37 @@
     color: #ffffff;   
 }
 
+@mixin reports-boxes{
+    background-color: white;
+    height: 270px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    @media only screen and (max-width: $first){
+        width: 90%;
+    }
+    @media only screen and (max-width: $tablet){
+        margin-top: 5%;
+    }
+    @media only screen and (max-width: $mobile){
+        width: 80%;
+        margin-top: 5%;
+    }
+}
+
+@mixin to-center{
+    text-align: center;
+    justify-content: center;
+}
+
+//breakpoints//
+$mobile: 420px;
+$tablet: 700px;
+$first: 940px;
+
 
 body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -32,7 +63,10 @@ time, mark, audio, video, a {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: url(img/background-img.png) no-repeat;
+    background: url(img/background-img.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     .brand{
         color: #393636;
@@ -64,6 +98,9 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
+    @media only screen and (max-width: $first){
+        width: 100%;
+    }
 }
 
 .seller-month{
@@ -83,7 +120,6 @@ body {
         margin-bottom: 6%;
     }
 }
-
 
 .action-buttons{
     text-align: center;
@@ -143,6 +179,8 @@ body {
     height: 100%;       
 }
 
+//reports page
+
 .reports-title{
     display: flex;
     text-align: center;
@@ -151,7 +189,8 @@ body {
         background-color: #015E9A;
         color: white;
         padding: 10px 60px;
-        margin-top: 5%;
+        margin-top: 2%;
+        margin-bottom: 4%;
         border-radius: 20px;
     }
 }  
@@ -160,6 +199,13 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-top: 4%;
+    @media only screen and (max-width: $first){
+        @include to-center();
+    }
+    @media only screen and (max-width: $mobile){
+        @include to-center();
+    }
     .back{
         background-color: #015E9A;
         color: white;
@@ -167,6 +213,66 @@ body {
         text-decoration: none;
     }
 }
+
+.reports{
+    display: flex;
+    //flex-wrap: wrap;
+    //flex-direction: row;
+    justify-content: space-around;
+    max-width: 80%;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    @media only screen and (max-width: $first){
+        max-width: 90%;
+    }
+    @media only screen and (max-width: $tablet){
+        //flex-direction: column;
+        width: 60%;
+        //flex-wrap: wrap;
+    }
+    @media only screen and (max-width: $mobile){
+        flex-direction: column;
+    }
+    p.reportbox-title{
+        font-size: 140%;
+        margin-bottom: 4%;
+        text-shadow: 0 0 2px #015E9A;
+    }
+    .month-report{
+        @include reports-boxes();
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+    .sub-report{
+        @include reports-boxes();
+        margin-left: 2%;
+        @media only screen and (max-width: $tablet){
+            flex-direction: column;
+            margin-left: 0;
+        }
+        @media only screen and (max-width: $mobile){
+            margin-left: 0;
+        }
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+    .mix-report{
+        @include reports-boxes();
+        margin-left: 2%;
+        @media only screen and (max-width: $mobile){
+            margin-left: 0;
+        }
+        p.report-info{
+            margin-top: 5%;
+        }
+    }
+}
+
+
+//MODAL
 
 .modal{
     display:none;

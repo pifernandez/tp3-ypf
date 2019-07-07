@@ -176,6 +176,7 @@ console.log(bestSubsidiaryMonth(2019, 0))
 
 let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const renderMonth = () => {
+  let arr = []
   let monthSale = shop.sales.map(s => s.date.getMonth())
   let yearSale = shop.sales.map(s => s.date.getFullYear())
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
@@ -183,37 +184,112 @@ const renderMonth = () => {
   let saleMonth
   year.forEach(e => {
     month.forEach(i => {
-      saleMonth = salesMonth(e, i)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${saleMonth}`) 
+      //saleMonth = salesMonth(e, i)
+      let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
+      arr.push(x)
+      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`)
     })
   })
-  return saleMonth
+  return arr
 }
 
-// renderMonth()
+
+//renderMonth()
+
+const printReports = () => {
+  let printMonthReport = document.getElementById("month-report")
+    let toPrintM = renderMonth()
+  toPrintM.forEach(e => {
+    let reportM
+    reportM = document.createElement("p")
+    reportM.classList.add("report-info")
+    reportM.innerHTML = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMonthReport.appendChild(reportM)
+    
+    let printMixReport = document.getElementById("mix-report")
+    let mixMReport = document.createElement("p")
+    mixMReport.innerText = (`Total de ${e.month} ${e.year}: $${e.sales}`)
+    printMixReport.appendChild(mixMReport)
+  })
+  
+  let printSubReport = document.getElementById("sub-report")
+  let toPrintS = renderSubsidiary()
+  toPrintS.forEach(e => {
+    let reportSub = document.createElement("p")
+    reportSub.classList.add("report-info")
+    reportSub.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
+    printSubReport.appendChild(reportSub)
+
+    let printMixReport = document.getElementById("mix-report")
+    let mixSReport = document.createElement("p")
+    mixSReport.classList.add("report-info")
+    mixSReport.innerText = (`Total de ${e.sub}: $${e.salesSub}`)
+    printMixReport.appendChild(mixSReport)
+  })
+
+  let printMixReport = document.getElementById("mix-report")
+  let reportBestProduct = document.createElement("p")
+  reportBestProduct.classList.add("report-info")
+  reportBestProduct.innerText = (`Producto estrella: ${bestSellerComponent()}`)
+  printMixReport.appendChild(reportBestProduct)
+
+  let reportBestSeller = document.createElement("p")
+  reportBestSeller.classList.add("report-info")
+  reportBestSeller.innerText = (`Vendedora que más ingresos generó: `+ bestSellerEver())
+  printMixReport.appendChild(reportBestSeller)
+}
+
+
+//printReports()
 
 // Importe total vendido por cada sucursal
 
 const renderSubsidiary = () => {
-  let saleSubsidiary
+  let saleSubsidiary = []
   shop.subsidiary.forEach(e => {
-    saleSubsidiary = salesSubOrSeller(e)
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${saleSubsidiary}`)
+    let s = {sub: e, salesSub: salesSubOrSeller(e)}
+    saleSubsidiary.push(s)
+    //saleSubsidiary = salesSubOrSeller(e)
+    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
   })
   return saleSubsidiary
 }
 
 // renderSubsidiary()
 
-// Tiene que mostrar la unión de los dos reportes anteriores
+const bestSellerEver = () => {
+  let maxSales = 0
+  let maxSeller = ""
+  shop.seller.map(i => {
+    let counterS = 0
+    shop.sales.map(e => {
+      if(i === e.sellerName){
+        counterS += machinePrice(e.components)
+      }
+    })
+    if(counterS > maxSales){
+      maxSeller = i
+      maxSales = counterS
+    }
+  })
+  return maxSeller
+}
 
+bestSellerEver()
+
+// Tiene que mostrar la unión de los dos reportes anteriores
 const render = () => {
-  let month = new Date().getMonth()
+  //let month = new Date().getMonth()
+  //let renderMix = []
+  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
+  
   console.log(`Reporte:
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)
+  Vendedora que más ingresos generó: ${bestSellerEver()}`)
+  //console.log(renderP)
+  
 }
 
 render()
@@ -222,6 +298,14 @@ render()
 // Otras funciones
 
 
+<<<<<<< HEAD
+=======
+const onLoadFunctions = () => {
+  let container = document.getElementById('new-sale')
+  printSellerMonth()
+  printReports()
+}
+>>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -230,9 +314,10 @@ const printSellerMonth = () => {
   let salesSeller = document.getElementById('sales-seller')
   salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
   let subsidiary = document.getElementById('seller-subsidiary')
-  subsidiary.innerText = bestSubsidiaryMonth(2019, 0)
+  subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
 
+<<<<<<< HEAD
 //Modal
 
 const modal = () => {
@@ -251,6 +336,8 @@ const closeModal = () => {
   }
 
 
+=======
+>>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f
 //Crea UL
 const createUl = () => {
   let ul = document.createElement('ul')
@@ -259,6 +346,7 @@ const createUl = () => {
   ul.appendChild(li)
 }
 
+<<<<<<< HEAD
 const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
@@ -341,3 +429,26 @@ const addNewSale = () => {
    }
   printSales()
 }
+=======
+//MODAL
+/*
+const modal 
+let */
+
+// //Crea select
+// const createSelects = (list, container) => {
+//   list.forEach(e => {
+//       let select = document.createElement('select')
+//       select.id = e
+//       container.appendChild(select)
+//   })
+// }
+
+// //Crea option
+// const createOption = e =>{
+//   let option = document.createElement('option')
+//   option.innerText = e
+//   option.value = e.id
+//   return option
+// }
+>>>>>>> 54cb2c6eee8447ef99b77a30995f32852b59e26f

@@ -22,7 +22,10 @@ time, mark, audio, video, a {
 
 body {
   font-family: "Roboto", sans-serif;
-  background: url(img/background-img.png) no-repeat;
+  background: url(img/background-img.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 body .brand {
@@ -52,6 +55,11 @@ body header nav {
   left: 0;
   bottom: 0;
   right: 0;
+}
+@media only screen and (max-width: 940px) {
+  .container {
+    width: 100%;
+  }
 }
 
 .seller-month {
@@ -139,7 +147,8 @@ body header nav {
   background-color: #015E9A;
   color: white;
   padding: 10px 60px;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-bottom: 4%;
   border-radius: 20px;
 }
 
@@ -147,12 +156,159 @@ body header nav {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-top: 4%;
+}
+@media only screen and (max-width: 940px) {
+  .back-btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .back-btn {
+    text-align: center;
+    justify-content: center;
+  }
 }
 .back-btn .back {
   background-color: #015E9A;
   color: white;
   padding: 10px 25px;
   text-decoration: none;
+}
+
+.reports {
+  display: flex;
+  justify-content: space-around;
+  max-width: 80%;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 940px) {
+  .reports {
+    max-width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports {
+    flex-direction: column;
+  }
+}
+.reports p.reportbox-title {
+  font-size: 140%;
+  margin-bottom: 4%;
+  text-shadow: 0 0 2px #015E9A;
+}
+.reports .month-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 940px) {
+  .reports .month-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .month-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .month-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+.reports .month-report p.report-info {
+  margin-top: 5%;
+}
+.reports .sub-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 2%;
+}
+@media only screen and (max-width: 940px) {
+  .reports .sub-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .sub-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .sub-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .sub-report {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .sub-report {
+    margin-left: 0;
+  }
+}
+.reports .sub-report p.report-info {
+  margin-top: 5%;
+}
+.reports .mix-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 2%;
+}
+@media only screen and (max-width: 940px) {
+  .reports .mix-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .mix-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .mix-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .mix-report {
+    margin-left: 0;
+  }
+}
+.reports .mix-report p.report-info {
+  margin-top: 5%;
 }
 
 .modal {
