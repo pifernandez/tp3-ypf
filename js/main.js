@@ -1,4 +1,5 @@
-var shop = {
+let allSalesSales = []
+let shop = {
   subsidiary: ["Centro", "Caballito"],
 
   seller: ["Ada", "Grace", "Hedy", "Sheryl"],
@@ -249,7 +250,7 @@ const render = () => {
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
   Vendedora que más ingresos generó: ${bestSellerMonth(2019, month)}`)*/
-  console.log(renderP)
+  // console.log(renderP)
 }
 
 render()
@@ -261,6 +262,7 @@ const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
   createSelSubSelects()
+  addNewSale()
 } 
 
 const printSellerMonth = () => {
@@ -290,19 +292,32 @@ const closeModal = () => {
     } 
   }
 
+ let arrayOptions = []
 //Crea select para vendedoras y sucursales
 const createSelSubSelects = () => {
   let showModal = document.getElementById('modal')
   let select = document.createElement('select')
-  createOptions(shop.seller).forEach(o => select.appendChild(o))
+  createOptions(shop.seller).forEach(o => {
+    let option = o.value
+    arrayOptions.push(option)
+    select.appendChild(o)
+  })
   showModal.appendChild(select)
   let selectPrice = document.createElement('select')
-  createPriceOptions(shop.price).forEach(o => selectPrice.appendChild(o))
+  createPriceOptions(shop.price).forEach(o => {
+    let option = o.value
+    arrayOptions.push(option)
+    selectPrice.appendChild(o)
+  })
   showModal.appendChild(selectPrice)
   let selectSubsidiary = document.createElement('select')
-  createOptions(shop.subsidiary).forEach(o => selectSubsidiary.appendChild(o))
+  createOptions(shop.subsidiary).forEach(o => {
+    let option = o.value
+    arrayOptions.push(option)
+    selectSubsidiary.appendChild(o)
+  })
+  console.log(select)
   showModal.appendChild(selectSubsidiary)
-
 }
 
 const fillSelects = (list, id) => {
@@ -326,24 +341,23 @@ const createOptions = (array) => {
       option.id = i
       return option 
     })
-    
 } 
+
 const createPriceOptions = array => {
     return array.map((e,i) => {
       let option = document.createElement('option')
       option.innerText = e.component
-      option.value = e.price
+      option.value = e.component
       option.id=i
-      console.log(option)
+      // console.log(option)
       return option
     })
-    
 } 
 
 //Imprimir opciones elegidas
 
 const printSales = () => {
-    allSales = document.getElementById('allSales')
+    let allSales = document.getElementById('allSales')
     allSales.innerHTML = ''
     allSales.map = () => {
       let saleItem = document.createElement('li')
@@ -351,20 +365,33 @@ const printSales = () => {
       saleItem.innerText = newSale.text
     }
 }
-
-
+//ACA
 const addNewSale = () => {
-  let newSale = document.getElementById('input') 
-   let showNewsale = () => {
-    input.onclick() = document.createElement('ul')
-    newSale = input.value
-    newSale.unshift({
-          text: newSale,
-          isNewSale: true
-        })
-   }
+  let newSale = []
+  arrayOptions.forEach(e => {
+    let select = document.getElementsByTagName('select')
+    if(e === select.value){
+      select.value = ''
+      newSale.push(e)
+    }})
+  console.log(newSale)
   printSales()
 }
+
+
+// const createOrder = () => {
+//   let order = []
+//   plateTypes.forEach( type => {
+//       let select = document.getElementById(type)
+//       let selectedPlate = menu.find( 
+//           plate => plate.id === select.value
+//       )
+//       select.value = ''
+//       order.push(selectedPlate)
+//   })
+//   ordersList.push(order)
+//   printOrders()
+// }
 
 //Crea UL
 const createUl = (list) => {
