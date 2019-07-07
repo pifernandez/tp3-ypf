@@ -243,6 +243,13 @@ newSaleBtn.onclick = () => {
   } 
 }
 
+const closeModal = () => {
+  let closeModal = document.getElementById('closeModal')
+  closeModal.onclick = () => {
+      closeModal.classList.toggle('modal')
+    } 
+  }
+
 
 //Crea UL
 const createUl = () => {
@@ -256,24 +263,20 @@ const onLoadFunctions = () => {
   let openModal = document.getElementById('selectors')
   printSellerMonth()
   createSelSubSelects()
-
 } 
 
 //Crea select para vendedoras y sucursales
 const createSelSubSelects = () => {
-  let lala = document.getElementById('modal')
-
+  let showModal = document.getElementById('modal')
   let select = document.createElement('select')
   createOptions(shop.seller).forEach(o => select.appendChild(o))
-  lala.appendChild(select)
-
+  showModal.appendChild(select)
   let selectPrice = document.createElement('select')
   createPriceOptions(shop.price).forEach(o => selectPrice.appendChild(o))
-  lala.appendChild(selectPrice)
-
+  showModal.appendChild(selectPrice)
   let selectSubsidiary = document.createElement('select')
   createOptions(shop.subsidiary).forEach(o => selectSubsidiary.appendChild(o))
-  lala.appendChild(selectSubsidiary)
+  showModal.appendChild(selectSubsidiary)
 
 }
 
@@ -290,14 +293,13 @@ const fillSelects = (list, id) => {
 
 //Crea option para vendedoras y sucursales
 
-const createOptions = array => {
-    return array.map((e,i) => {
+const createOptions = (array) => {
+      return array.map((e,i) => {
       let option = document.createElement('option')
       option.innerText = e
       option.value = e
-      option.id=i
-      console.log(option)
-      return option
+      option.id = i
+      return option 
     })
     
 } 
@@ -312,3 +314,30 @@ const createPriceOptions = array => {
     })
     
 } 
+
+//Imprimir opciones elegidas
+
+
+const printSales = () => {
+    allSales = document.getElementById('allSales')
+    allSales.innerHTML = ''
+    allSales.map = () => {
+      let saleItem = document.createElement('li')
+      saleItem.classList.add('newSale')
+      saleItem.innerText = newSale.text
+    }
+}
+
+
+const addNewSale = () => {
+  let newSale = document.getElementById('input') 
+   let showNewsale = () => {
+    input.onclick() = document.createElement('ul')
+    newSale = input.value
+    newSale.unshift({
+          text: newSale,
+          isNewSale: true
+        })
+   }
+  printSales()
+}

@@ -50,7 +50,7 @@
                 <a id="newSaleBtn" href="#">Nueva Venta</a>
             </div>
         </div>
-        <div class="sellers">
+        <div class="sellers" id= "allSales">
             <ul class="categories">
                 <li>Fecha</li>
                 <li>Vendedora</li>
@@ -68,15 +68,15 @@
             <a href="reportes.html">Reportes</a>
         </div>
     </section>
-    <section class="modal" id="activeModal" >
+    <section class="modal" id="activeModal"  >
         <div class="inactive-modal"></div>
         <div class="contain-modal-select">
             <div class="modal-select">
                 <p class="modal-select-text">Seleccione</p>
-                <a class="closeModal" id="closeModal" href="">x</a>
+                <a class="closeModal" id="closeModal" href="index.html">x</a>
                 <div class="selectors" id="modal"></div>
                 <div>
-                <input type="submit"> 
+                <input type="submit" id="input" onclick="addNewSale()"> 
                 </div>
                 </div>
             </div>
