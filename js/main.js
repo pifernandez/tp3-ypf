@@ -54,7 +54,8 @@ const machinePrice = (a) => {
   return mPrice
 }
 
-console.log(machinePrice(["Motherboard ASUS 1200", "HDD Toyiva"]))
+let comp = ["Motherboard ASUS 1200", "HDD Toyiva"]
+console.log(`El precio de la máquina es: $${machinePrice(comp)}`)
 
 
 //sales specific seller and subsidiary sales in one function
@@ -66,9 +67,12 @@ const salesSubOrSeller = (sub) => {
     }
   })
   return salesSub
-}
+} 
 
-console.log(salesSubOrSeller("Ada"));
+let salesW = "Ada"
+console.log(`${salesW} realizó ventas por un total de $${salesSubOrSeller(salesW)}`);
+let subs = "Centro"
+console.log(`La sucursal ${subs} obtuvo ganancias por un total de $${salesSubOrSeller(subs)}`)
 
 // Devuelve la cantidad de veces que fue vendido
 
@@ -83,7 +87,9 @@ const amountSalesComponents = (param) => {
   })
   return cont
 }
-console.log(amountSalesComponents("Monitor GPRS 3000"));
+
+let item = "Monitor GPRS 3000"
+console.log(`El componente "${item}" fue vendido ${amountSalesComponents(item)} veces`);
 
 
 // Vendedora del mes 
@@ -105,7 +111,7 @@ const bestSellerMonth = (year, month) => {
   return sellerName
 }
 
-console.log(bestSellerMonth(2019, 0))
+console.log(`La mejor vendedora del mes es: ${bestSellerMonth(2019, 0)}`)
 
 // Ventas de un mes
 
@@ -122,7 +128,7 @@ const salesMonth = (year, month) => {
   return cont
 }
 
-// console.log(salesMonth(2019, 1));
+console.log(`El total de ventas del mes es de: $${salesMonth(2019, 1)}`);
 
 // Componente más vendido
 
@@ -139,7 +145,7 @@ const bestSellerComponent = () => {
   return nameComponent
 }
 
-console.log(bestSellerComponent());
+console.log(`El componente más vendido históricamente es: "${bestSellerComponent()}"`);
 
 // Indica si hubo ventas en un mes determinado
 
@@ -149,7 +155,7 @@ const thereWereSales = (year, month) => {
   return sales
 }
 
-console.log(thereWereSales(2019, 1));
+console.log(`¿Hubo ventas en ese mes?: ${thereWereSales(2019, 1)}`);
 
 // Sucursal del mes
 
@@ -170,7 +176,7 @@ const bestSubsidiaryMonth = (year, month) => {
   return subsidiaryName
 }
 
-console.log(bestSubsidiaryMonth(2019, 0))
+console.log(`La sucursal que más ganancias generó en el mes es: ${bestSubsidiaryMonth(2019, 0)}`)
 
 // Importe total vendido por cada mes/año
 
@@ -192,7 +198,6 @@ const renderMonth = () => {
   })
   return arr
 }
-
 
 //renderMonth()
 
@@ -287,13 +292,10 @@ const render = () => {
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerEver()}`)
-  //console.log(renderP)
-  
+  Vendedora que más ingresos generó: ${bestSellerEver()}`)  
 }
 
 render()
-
 
 
 // Otras funciones
