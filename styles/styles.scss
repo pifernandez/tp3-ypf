@@ -31,6 +31,9 @@
 @mixin to-center{
     text-align: center;
     justify-content: center;
+    justify-content: center;
+	align-items: center;
+    align-content: center;
 }
 
 //breakpoints//
@@ -208,28 +211,22 @@ body {
 
 .back-btn{
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    @include to-center();
     margin-top: 4%;
-    @media only screen and (max-width: $first){
-        @include to-center();
-    }
-    @media only screen and (max-width: $mobile){
-        @include to-center();
-    }
     .back{
         background-color: #015E9A;
         color: white;
         padding: 10px 25px;
         text-decoration: none;
     }
+    @media only screen and (max-width: $tablet){
+        margin-bottom: 5%;
+    }
 }
 
 .reports{
     display: flex;
-    //flex-wrap: wrap;
-    //flex-direction: row;
-    justify-content: space-around;
+    flex-direction: row;
     max-width: 80%;
     text-align: center;
     justify-content: center;
@@ -238,11 +235,12 @@ body {
         max-width: 90%;
     }
     @media only screen and (max-width: $tablet){
-        //flex-direction: column;
-        width: 60%;
-        //flex-wrap: wrap;
+        flex-direction: column;
+        max-width: 70%;
+        @include to-center();
     }
     @media only screen and (max-width: $mobile){
+        max-width: 90%;
         flex-direction: column;
     }
     p.reportbox-title{
@@ -252,16 +250,22 @@ body {
     }
     .month-report{
         @include reports-boxes();
+        flex: 2 1 0;
+        @media only screen and (max-width: $tablet){
+            flex: 0 0 auto;
+        }
         p.report-info{
             margin-top: 5%;
         }
     }
     .sub-report{
         @include reports-boxes();
+        flex: 2 1 0;
         margin-left: 2%;
         @media only screen and (max-width: $tablet){
             flex-direction: column;
             margin-left: 0;
+            flex: 0 0 auto
         }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
@@ -273,6 +277,11 @@ body {
     .mix-report{
         @include reports-boxes();
         margin-left: 2%;
+        flex: 3 1 0;
+        @media only screen and (max-width: $tablet){
+            flex: 0 0 auto;
+            margin-left: 0;
+        }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
         }
