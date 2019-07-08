@@ -1,4 +1,5 @@
-var shop = {
+let allSalesSales = []
+let shop = {
   subsidiary: ["Centro", "Caballito"],
 
   seller: ["Ada", "Grace", "Hedy", "Sheryl"],
@@ -302,10 +303,13 @@ render()
 
 
 const onLoadFunctions = () => {
-  let container = document.getElementById('new-sale')
+  let openModal = document.getElementById('modal')
   printSellerMonth()
-  printReports()
-}
+  // createSelSubSelects()
+  printSales()
+  createSelect(onlyCategories, openModal)
+  fillSelects(arrayOptionsS)
+} 
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -317,20 +321,116 @@ const printSellerMonth = () => {
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
 
-//Crea UL
-const createUl = () => {
-  let ul = document.createElement('ul')
-  ul.classList.add('categories sells')
-  let li = document.createElement('li')
-  ul.appendChild(li)
+//Modal
+
+const modal = () => {
+let newSaleBtn = document.getElementById('newSaleBtn')
+let openModal = document.getElementById('activeModal')
+newSaleBtn.onclick = () => {
+    activeModal.classList.toggle('activeModal')
+  } 
 }
 
-//MODAL
-/*
-const modal 
-let */
+const closeModal = () => {
+  let closeModal = document.getElementById('closeModal')
+  closeModal.onclick = () => {
+      closeModal.classList.toggle('modal')
+    } 
+  }
 
-// //Crea select
+let arrayOptionsS = []
+
+shop.seller.forEach(e => arrayOptionsS.push({name: e, category: "vendedora"}))
+shop.subsidiary.forEach(e => arrayOptionsS.push({name: e, category: "sucursal"}))
+shop.price.forEach(e => arrayOptionsS.push({name: e.component, category: "componente"}))
+
+arrayOptionsS.forEach((e, i) => {
+  e.id = i
+})
+
+// console.log(arrayOptionsS)
+let allCategories = arrayOptionsS.map(e => e.category)
+// console.log(allCategories)
+
+let onlyCategories = allCategories.filter((e, i) => allCategories.indexOf(e) === i)
+// console.log(onlyCategories)
+
+const createSelect = (list, container) => {
+    list.forEach(e => {
+        let select = document.createElement('select')
+        select.id = e
+        container.appendChild(select)
+    })
+}
+
+const fillSelects = list => {
+  list.forEach(e => {
+      let select = document.getElementById(e.category)
+      if(select.childElementCount === 0){
+          let placeholder = {name:`Seleccione ${e.category}`, id:''}
+          select.appendChild(createOption(placeholder))
+      }
+      select.appendChild(createOption(e))
+  })
+}
+
+const createOption = elem => {
+  let option = document.createElement('option')
+  option.innerText = elem.name
+  option.value = elem.id
+  return option
+}
+
+//Solo agrega una sola vez
+const addComponent = () => {
+  let container = document.getElementById('modal')
+  let component = document.getElementById('componente')
+
+  container.innerHTML = ''
+  createSelect(onlyCategories, container)
+  fillSelects(arrayOptionsS)
+  container.appendChild(component)
+}
+
+
+//Crea select para vendedoras y sucursales
+// const createSelSubSelects = () => {
+//   let showModal = document.getElementById('modal')
+//   let select = document.createElement('select')
+//   createOptions(shop.seller).forEach(o => {
+//     let option = o.value
+//     // arrayOptions.push(option)
+//     select.appendChild(o)
+//   })
+//   showModal.appendChild(select)
+//   let selectPrice = document.createElement('select')
+//   createPriceOptions(shop.price).forEach(o => {
+//     let option = o.value
+//     // arrayOptions.push(option)
+//     selectPrice.appendChild(o)
+//   })
+//   showModal.appendChild(selectPrice)
+//   let selectSubsidiary = document.createElement('select')
+//   createOptions(shop.subsidiary).forEach(o => {
+//     let option = o.value
+//     // arrayOptions.push(option)
+//     selectSubsidiary.appendChild(o)
+//   })
+//   // console.log(select)
+//   showModal.appendChild(selectSubsidiary)
+// }
+
+// const createSelect = (list) => {
+//   let showModal = document.getElementById('modal')
+//   let select = document.createElement('select')
+//   list.forEach(e =>)
+//   createOptions(shop.seller).forEach(o => {
+//     let option = o.value
+//     // arrayOptions.push(option)
+//     select.appendChild(o)
+//   })
+//   showModal.appendChild(select)
+// // }
 // const createSelects = (list, container) => {
 //   list.forEach(e => {
 //       let select = document.createElement('select')
@@ -339,10 +439,92 @@ let */
 //   })
 // }
 
-// //Crea option
-// const createOption = e =>{
-//   let option = document.createElement('option')
-//   option.innerText = e
-//   option.value = e.id
-//   return option
+// const fillSelects = (list, id) => {
+//   list.forEach(e => {
+//       let select = document.getElementById(id)
+//       if(select.childElementCount === 0){
+//           let placeholder = {name:`seleccione vendedora`, id:''}
+//           select.appendChild(createOption(placeholder))
+//       }
+//       select.appendChild(createOption(e))
+//   })
 // }
+
+//Crea option para vendedoras y sucursales
+
+// const createOptions = (array) => {
+//       return array.map((e,i) => {
+//       let option = document.createElement('option')
+//       option.innerText = e
+//       option.value = e
+//       option.id = i
+//       return option 
+//     })
+// } 
+
+// const createOption = () => {
+//   arrayOptionsS.forEach((e,i) => {
+//     let option = document.createElement('option')
+//     option.innerText = e
+//     option.value = e
+//     option.id = i
+//     return option 
+//   })
+// }
+
+// const createPriceOptions = array => {
+//     return array.map((e,i) => {
+//       let option = document.createElement('option')
+//       option.innerText = e.component
+//       option.value = e.component
+//       option.id=i
+//       // console.log(option)
+//       return option
+//     })
+// } 
+
+// //Imprimir opciones elegidas
+
+console.log(arrayOptionsS)
+const addNewSale = () => {
+  let newSale = []
+  onlyCategories.forEach(e => {
+    let select = document.getElementById(e)
+    let selectedCategory = arrayOptionsS.find(cat => cat.id === select.value)
+    select.value = ''
+    newSale.push(selectedCategory)
+  })
+  allSalesSales.push(newSale)
+  printSales()
+}
+console.log(allSalesSales)
+
+
+const printSales = () => {
+  let allSales = document.getElementById('allSales')
+  // allSales.innerHTML = ''
+
+  allSalesSales.forEach(e => {
+    let saleItem = document.createElement('ul')
+    saleItem.classList.add('categories', 'sells')
+    e.forEach(i => {
+      let item = document.createElement('li')
+      item.innerText = i.name
+      saleItem.appendChild(plateLi)
+    })
+    allSales.appendChild(saleItem)
+  })
+}
+
+// //Crea UL
+// const createUl = (list) => {
+//   let ul = document.createElement('ul')
+//   ul.classList.add('categories sells')
+//   list.forEach(e => {
+//     let li = document.createElement('li')
+//     li.innerText = e
+//     ul.appendChild(li)
+//   })
+// }
+
+
