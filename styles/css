@@ -29,7 +29,6 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;
 }
 body .brand {
   color: #393636;
@@ -40,23 +39,25 @@ body .brand {
   padding: 4%;
 }
 body header {
-  background-color: #fff;
+  background-color: red;
   display: block;
-  padding: 10px;
+  padding: 1.2%;
 }
 
 .section-best {
+  display: block;
   margin: 50px auto;
-  padding: 0 30px;
-  background-color: rgba(255, 255, 255, 0.671);
-  position: relative;
+  width: 90%;
 }
 .section-best .seller-month {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
   width: 100%;
   padding: 5px 10px;
+  background-color: #FFFFFF;
 }
 .section-best .seller-month .seller-text {
   display: block;
@@ -77,62 +78,52 @@ body header {
 }
 
 .section-sales {
-  margin: 50px auto;
+  margin: 0 auto;
   width: 90%;
-  position: relative;
 }
-.section-sales .action-buttons {
+
+.action-buttons {
   text-align: center;
-  margin: 10px auto;
+  margin-top: 15%;
+  margin-bottom: 5%;
 }
-.section-sales .action-buttons .subsidiaries {
+.action-buttons .subsidiaries {
   display: inline-block;
   margin: 0 auto;
   text-align: center;
 }
-.section-sales .action-buttons .subsidiaries a {
+.action-buttons .subsidiaries a {
   background-color: #1B96D1;
   color: white;
   padding: 10px 30px;
   text-decoration: none;
   margin-left: 5px;
-  border-radius: 5px;
+  border-radius: 20px;
 }
-.section-sales .action-buttons .new-sale {
+.action-buttons .new-sale {
   display: block;
   float: right;
 }
-.section-sales .action-buttons .new-sale a {
+.action-buttons .new-sale a {
   background-color: #015E9A;
   color: white;
   text-decoration: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
-.sellers {
-  margin: 10px auto;
-  overflow: hidden;
-}
-.sellers .categories {
-  background-color: rgba(255, 255, 255, 0.671);
-  border-radius: 5px;
+.categories {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   font-weight: bold;
-  margin-top: 20px;
-  padding: 10px 0;
+  margin-top: 2%;
+  width: 98%;
 }
-.sellers .categories li {
-  text-align: center;
-  width: 25%;
-  margin: 0 15px;
-}
-.sellers .sells {
+
+.sells {
   background-color: #FFFFFF;
-  border-radius: 5px;
-  margin: 10px auto;
-  padding: 10px 0;
+  height: 10%;
   align-items: center;
   align-self: center;
   font-weight: normal;
@@ -140,14 +131,18 @@ body header {
 
 .report-btn {
   float: right;
-  margin: 15px 0;
+  margin-bottom: 5%;
 }
 .report-btn a {
   background-color: #015E9A;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 20px;
+}
+
+.sellers {
+  height: 100%;
 }
 
 .reports-title {
@@ -161,12 +156,13 @@ body header {
   padding: 10px 60px;
   margin-top: 2%;
   margin-bottom: 4%;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .back-btn {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin-top: 4%;
 }
 @media only screen and (max-width: 940px) {
@@ -186,7 +182,7 @@ body header {
   color: white;
   padding: 10px 25px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .reports {
@@ -327,17 +323,71 @@ body header {
   display: none;
 }
 
-.activeModal {
-  display: block;
+.inactive-modal {
   background-color: rgba(144, 194, 253, 0.6);
   height: 120vh;
   width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+}
+
+.contain-modal-select {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.modal-select {
+  background-color: #FFFFFF;
+  width: 40%;
+  height: 50%;
+}
+.modal-select .modal-select-text {
+  display: inline-block;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.modal-select .selectors {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 30px;
+  align-content: space-between;
+}
+.modal-select .closeModal {
+  float: right;
+  margin-top: 4%;
+  margin-right: 4%;
+}
+.modal-select .closeModal a {
+  text-decoration: none;
+}
+.modal-select select {
+  width: 90%;
+  height: 25px;
+}
+.modal-select input {
+  float: right;
+  margin-right: 10%;
+  margin-top: 15%;
+  padding: px;
+}
+
+.activeModal {
+  display: block;
+}
+.activeModal .inactive-modal {
+  background-color: rgba(144, 194, 253, 0.6);
+  height: 120vh;
+  width: 100%;
+  position: absolute;
 }
 .activeModal .contain-modal-select {
   display: flex;
+  position: absolute;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -346,52 +396,33 @@ body header {
 .activeModal .modal-select {
   background-color: #FFFFFF;
   width: 40%;
-  overflow: hidden;
-  padding: 50px 20px;
-}
-.activeModal .modal-select .closeModal {
-  float: right;
-  text-decoration: none;
-  color: #000;
+  height: 50%;
 }
 .activeModal .modal-select .modal-select-text {
-  text-align: center;
+  display: inline-block;
+  justify-content: space-evenly;
 }
 .activeModal .modal-select .selectors {
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+}
+.activeModal .modal-select .closeModal {
+  float: right;
+  margin-top: 4%;
+  margin-right: 4%;
+}
+.activeModal .modal-select .closeModal a {
+  text-decoration: none;
 }
 .activeModal .modal-select select {
-  margin: 5px auto;
   width: 90%;
   height: 25px;
 }
-.activeModal .modal-select .container-add {
-  width: 90%;
-  margin: 10px auto;
-}
-.activeModal .modal-select .container-add #add {
-  margin: 5px auto;
-  width: 100%;
-  background-color: #015E9A;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-}
-.activeModal .modal-select .container-confirm {
-  width: 90%;
-  margin: 0 auto;
-}
-.activeModal .modal-select .container-confirm #button {
+.activeModal .modal-select input {
   float: right;
-  width: 100%;
-  background-color: #015E9A;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
+  margin-right: 10%;
+  margin-top: 15%;
+  padding: px;
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=css.map */
