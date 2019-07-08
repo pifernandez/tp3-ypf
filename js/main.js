@@ -293,13 +293,7 @@ const render = () => {
   Ventas del mes: ${renderMonth()}
   Ventas por sucursal: ${renderSubsidiary()}
   Producto estrella: ${bestSellerComponent()}
-<<<<<<< HEAD
-  Vendedora que más ingresos generó: ${bestSellerEver()}`)
-  //console.log(renderP)
-  
-=======
   Vendedora que más ingresos generó: ${bestSellerEver()}`)  
->>>>>>> 2b94b742a282ecc4320ee11a3fdbd9048345757a
 }
 
 render()
@@ -310,12 +304,6 @@ render()
 
 
 const onLoadFunctions = () => {
-<<<<<<< HEAD
-  let container = document.getElementById('new-sale')
-  printSellerMonth()
-  printReports()
-}
-=======
   let openModal = document.getElementById('modal')
   printSellerMonth()
   // createSelSubSelects()
@@ -323,7 +311,6 @@ const onLoadFunctions = () => {
   createSelect(onlyCategories, openModal)
   fillSelects(arrayOptionsS)
 } 
->>>>>>> 2b94b742a282ecc4320ee11a3fdbd9048345757a
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
@@ -335,14 +322,6 @@ const printSellerMonth = () => {
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
 
-<<<<<<< HEAD
-//Crea UL
-const createUl = () => {
-  let ul = document.createElement('ul')
-  ul.classList.add('categories sells')
-  let li = document.createElement('li')
-  ul.appendChild(li)
-=======
 //Modal
 
 const modal = () => {
@@ -518,34 +497,10 @@ const addNewSale = () => {
   })
   allSalesSales.push(newSale)
   printSales()
->>>>>>> 2b94b742a282ecc4320ee11a3fdbd9048345757a
 }
 console.log(allSalesSales)
 
 
-<<<<<<< HEAD
-//MODAL
-/*
-const modal 
-let */
-
-// //Crea select
-// const createSelects = (list, container) => {
-//   list.forEach(e => {
-//       let select = document.createElement('select')
-//       select.id = e
-//       container.appendChild(select)
-//   })
-// }
-
-// //Crea option
-// const createOption = e =>{
-//   let option = document.createElement('option')
-//   option.innerText = e
-//   option.value = e.id
-//   return option
-// }
-=======
 const printSales = () => {
   let allSales = document.getElementById('allSales')
   // allSales.innerHTML = ''
@@ -574,4 +529,3 @@ const printSales = () => {
 // }
 
 
->>>>>>> 2b94b742a282ecc4320ee11a3fdbd9048345757a

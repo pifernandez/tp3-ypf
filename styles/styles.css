@@ -1,17 +1,397 @@
-/* Error: expected "{".
- *     ,
- * 165 |         text-align: center;
- *     |                           ^
- *     '
- *   styles.scss 165:27  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a     \2577 \a 165 \2502          text-align: center;\a     \2502                            ^\a     \2575 \a   styles.scss 165:27  root stylesheet';
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  list-style: none;
 }
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background: url(img/background-img.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+body .brand {
+  color: #393636;
+  font-size: 160%;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 4%;
+}
+body header {
+  background-color: #fff;
+  display: block;
+  padding: 10px;
+}
+
+.section-best {
+  margin: 50px auto;
+  padding: 0 30px;
+  background-color: rgba(255, 255, 255, 0.671);
+  position: relative;
+}
+.section-best .seller-month {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px;
+}
+.section-best .seller-month .seller-text {
+  display: block;
+  flex: 1;
+  text-align: center;
+  padding: 30px 30px;
+  margin: 10px 10px;
+}
+.section-best .seller-month .seller-text .seller-main-text {
+  font-weight: bold;
+  margin-bottom: 6%;
+}
+.section-best .seller-month .seller-text #seller-subsidiary {
+  display: inline-block;
+}
+.section-best .seller-month .seller-text #best-seller {
+  display: inline-block;
+}
+
+.section-sales {
+  margin: 50px auto;
+  width: 90%;
+  position: relative;
+}
+.section-sales .action-buttons {
+  text-align: center;
+  margin: 10px auto;
+}
+.section-sales .action-buttons .subsidiaries {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+.section-sales .action-buttons .subsidiaries a {
+  background-color: #1B96D1;
+  color: white;
+  padding: 10px 30px;
+  text-decoration: none;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+.section-sales .action-buttons .new-sale {
+  display: block;
+  float: right;
+}
+.section-sales .action-buttons .new-sale a {
+  background-color: #015E9A;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.sellers {
+  margin: 10px auto;
+  overflow: hidden;
+}
+.sellers .categories {
+  background-color: rgba(255, 255, 255, 0.671);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+.sellers .categories li {
+  text-align: center;
+  width: 25%;
+  margin: 0 15px;
+}
+.sellers .sells {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px 0;
+  align-items: center;
+  align-self: center;
+  font-weight: normal;
+}
+
+.report-btn {
+  float: right;
+  margin: 15px 0;
+}
+.report-btn a {
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.reports-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.reports-title .rep {
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 60px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  border-radius: 5px;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+@media only screen and (max-width: 940px) {
+  .back-btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .back-btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+.back-btn .back {
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.reports {
+  display: flex;
+  justify-content: space-around;
+  max-width: 80%;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 940px) {
+  .reports {
+    max-width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports {
+    flex-direction: column;
+  }
+}
+.reports p.reportbox-title {
+  font-size: 140%;
+  margin-bottom: 4%;
+  text-shadow: 0 0 2px #015E9A;
+}
+.reports .month-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 940px) {
+  .reports .month-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .month-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .month-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+.reports .month-report p.report-info {
+  margin-top: 5%;
+}
+.reports .sub-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 2%;
+}
+@media only screen and (max-width: 940px) {
+  .reports .sub-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .sub-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .sub-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .sub-report {
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .sub-report {
+    margin-left: 0;
+  }
+}
+.reports .sub-report p.report-info {
+  margin-top: 5%;
+}
+.reports .mix-report {
+  background-color: white;
+  height: 270px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 2%;
+}
+@media only screen and (max-width: 940px) {
+  .reports .mix-report {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .mix-report {
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .mix-report {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .reports .mix-report {
+    margin-left: 0;
+  }
+}
+.reports .mix-report p.report-info {
+  margin-top: 5%;
+}
+
+.modal {
+  display: none;
+}
+
+.activeModal {
+  display: block;
+  background-color: rgba(144, 194, 253, 0.6);
+  height: 120vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.activeModal .contain-modal-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.activeModal .modal-select {
+  background-color: #FFFFFF;
+  width: 40%;
+  overflow: hidden;
+  padding: 50px 20px;
+}
+.activeModal .modal-select .closeModal {
+  float: right;
+  text-decoration: none;
+  color: #000;
+}
+.activeModal .modal-select .modal-select-text {
+  text-align: center;
+}
+.activeModal .modal-select .selectors {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+.activeModal .modal-select select {
+  margin: 5px auto;
+  width: 90%;
+  height: 25px;
+}
+.activeModal .modal-select .container-add {
+  width: 90%;
+  margin: 10px auto;
+}
+.activeModal .modal-select .container-add #add {
+  margin: 5px auto;
+  width: 100%;
+  background-color: #015E9A;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+.activeModal .modal-select .container-confirm {
+  width: 90%;
+  margin: 0 auto;
+}
+.activeModal .modal-select .container-confirm #button {
+  float: right;
+  width: 100%;
+  background-color: #015E9A;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=styles.css.map */
