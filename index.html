@@ -9,18 +9,18 @@
     <link href="styles/styles.css" rel="stylesheet" type="text/css" media="screen">
     <title>All Devices</title>
 </head>
-    <body onload="onLoadFunctions()">
+    <body onload="onLoadFunctions()" >
     <header>
         <nav>
             <a href="index.html" class="brand">All devices</a>
         </nav>
     </header>
-    <section class="container">
+    <section class="container" onload="printSellerMonth()">
         <div class="seller-month">
             <div><img src="styles/img/natsha.png" alt="seller-month-picture"></div>
             <div class="seller-text"> 
-                <p class="seller-main-text">¡Felicitaciones <p id="best-seller"></p>!</p>
-                <span>Sucursal <p id="seller-subsidiary"></span>
+                <p class="seller-main-text">¡Felicitaciones<p id="best-seller"></p>!</p>
+                <span>Sucursal<p id="seller-subsidiary"></span>
             </div>
             <div class="seller-text">
                 <p class="seller-main-text" id="sales-seller">389</p>
@@ -46,11 +46,11 @@
                 <a href="#">Caballito</a>
                 <a href="#">Centro</a>
             </div>
-            <div onclick="modal()" class="new-sale" >
+            <div onclick="modal()"class="new-sale" >
                 <a id="newSaleBtn" href="#">Nueva Venta</a>
             </div>
         </div>
-        <div class="sellers" id= "allSales">
+        <div class="sellers">
             <ul class="categories">
                 <li>Fecha</li>
                 <li>Vendedora</li>
@@ -58,26 +58,51 @@
                 <li>Total</li>
             </ul>
             <ul class="categories sells">
-                <li >20/02/2019</li>
-                <li >Grace</li>
-                <li >Monitor GPRS 3000, Motherboard ASUS 1500</li>
-                <li >$389,50</li>
+                <li>20/02/2019</li>
+                <li>Grace</li>
+                <li>Monitor GPRS 3000,Motherboard ASUS 1500</li>
+                <li>$389,50</li>
             </ul>
         </div>
         <div class="report-btn">
             <a href="reportes.html">Reportes</a>
         </div>
     </section>
-    <section class="modal" id="activeModal"  >
+    <section class="modal" id="activeModal" >
         <div class="inactive-modal"></div>
         <div class="contain-modal-select">
-            <div class="modal-select">
+        <div class="modal-select">
                 <p class="modal-select-text">Seleccione</p>
-                <a class="closeModal" id="closeModal" href="index.html">x</a>
-                <div class="selectors" id="modal"></div>
-                <div>
-                <input type="submit" id="input" onclick="addNewSale()"> 
-                </div>
+                <a class="closeModal" id="closeModal" href="">x</a>
+                <div class="selectors">
+                    <div>
+                    <select name="Vendedora">
+                        <option value="Ada">Ada</option>
+                        <option value="Grace">Grace</option>
+                        <option value="Hedy">Hedy</option>
+                        <option value="Sheryl">Sheryl</option>
+                    </select>
+                    </div>
+                    <div>
+                    <select name="Componentes">
+                        <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
+                        <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
+                        <option value="Monitor ASC 543">Monitor ASC 543</option>
+                        <option value="Motherboard MZI">Motherboard MZI</option>
+                        <option value="HDD Toyiva">HDD Toyiva</option>
+                        <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
+                        <option value="RAM Quinston">RAM Quinston</option>
+                    </select>
+                    </div>
+                    <div>
+                    <select name="Sucursal">
+                        <option value="Caballito">Caballito</option>
+                        <option value="Centro">Centro</option>
+                    </select>
+                    </div>
+                    <div>
+                    <input type="submit"> 
+                    </div>
                 </div>
             </div>
         </div>
