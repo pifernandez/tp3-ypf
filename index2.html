@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="js/main.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
-    <link href="styles/styles.css" rel="stylesheet" type="text/css" media="screen">
-    <title>DevicesShop</title>
+    <link href="styles/styles2.css" rel="stylesheet" type="text/css" media="screen">
+    <title>All Devices</title>
 </head>
-<body onload="onLoadFunctions()">
+    <body onload="onLoadFunctions()" >
     <header>
         <nav>
-            <a href="index.html" class="brand">DevicesShop</a>
+            <a href="index.html" class="brand">All devices</a>
         </nav>
     </header>
-    <section class="section-best">
+    <section class="container">
         <div class="seller-month">
             <div><img src="styles/img/natsha.png" alt="seller-month-picture"></div>
             <div class="seller-text"> 
+                <p class="title-seller-month">Vendedora del mes</p>
                 <p class="seller-main-text">¡Felicitaciones <p id="best-seller"></p>!</p>
                 <span>Sucursal <p id="seller-subsidiary"></p></span>
             </div>
@@ -40,30 +41,28 @@
            </div>
         </div>
     </section>
-    <section class="section-sales">
+    <section class="container">
         <div class="action-buttons">
             <div class="subsidiaries">
                 <a href="#">Caballito</a>
                 <a href="#">Centro</a>
             </div>
-            <div onclick="modal()" class="new-sale" >
+            <div onclick="modal()"class="new-sale" >
                 <a id="newSaleBtn" href="#">Nueva Venta</a>
             </div>
         </div>
-        <div class="sellers">
+        <div class="sellers" id="allSales">
             <ul class="categories">
                 <li>Fecha</li>
                 <li>Vendedora</li>
                 <li>Componentes</li>
                 <li>Total</li>
             </ul>
-        </div>
-        <div class="sellers" id="allSales">
             <ul class="categories sells">
                 <li>20/02/2019</li>
                 <li>Grace</li>
-                <li class="component">Monitor GPRS 3000, Motherboard ASUS 1500</li>
-                <li class="price">$389,50</li>
+                <li>Monitor GPRS 3000,Motherboard ASUS 1500</li>
+                <li>$389,50</li>
             </ul>
         </div>
         <div class="report-btn">
@@ -71,17 +70,16 @@
         </div>
     </section>
     <section class="modal" id="activeModal" >
+        <div class="inactive-modal"></div>
         <div class="contain-modal-select">
         <div class="modal-select">
-                <a class="closeModal" id="closeModal" href="index.html">x</a>
                 <p class="modal-select-text">Seleccione</p>
+                <a class="closeModal" id="closeModal" href="index.html">x</a>
                 <div class="selectors" id="modal">
                 </div>
-                <div class="container-add">
-                <button onclick="addComponent()" type="button" id="add">Agregar componente</button>
-                </div>
-                <div class="container-confirm">
-                <button type="button" id="button" onclick="addNewSale()">Confirmar</button>
+                <button onclick="addComponent()" type="button" id="add">+</button>
+                <div>
+                <input type="submit" id="input" onclick="addNewSale()"> 
                 </div>
                 </div>
             </div>

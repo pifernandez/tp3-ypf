@@ -313,10 +313,10 @@ const onLoadFunctions = () => {
 
 const printSellerMonth = () => {
   let nameBS = document.getElementById('best-seller')
-  nameBS.innerText = bestSellerMonth(2019, 0)
+  nameBS.innerText = bestSellerEver()
   nameBS.classList.add('seller-main-text')
   let salesSeller = document.getElementById('sales-seller')
-  salesSeller.innerText = salesSubOrSeller(bestSellerMonth(2019, 0))
+  salesSeller.innerText = salesSubOrSeller(bestSellerEver())
   let subsidiary = document.getElementById('seller-subsidiary')
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
 }
@@ -325,9 +325,9 @@ const printSellerMonth = () => {
 
 const modal = () => {
 let newSaleBtn = document.getElementById('newSaleBtn')
-let openModal = document.getElementById('activeModal')
 newSaleBtn.onclick = () => {
-    activeModal.classList.toggle('activeModal')
+    activeModal.classList.remove('modal')
+    activeModal.classList.add('activeModal')
   } 
 }
 
