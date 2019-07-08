@@ -96,7 +96,7 @@ body header {
   padding: 10px 30px;
   text-decoration: none;
   margin-left: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .section-sales .action-buttons .new-sale {
   display: block;
@@ -107,7 +107,7 @@ body header {
   color: white;
   text-decoration: none;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .sellers {
@@ -147,7 +147,7 @@ body header {
   color: white;
   padding: 10px 20px;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .reports-title {
@@ -161,7 +161,7 @@ body header {
   padding: 10px 60px;
   margin-top: 2%;
   margin-bottom: 4%;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .back-btn {
@@ -186,7 +186,7 @@ body header {
   color: white;
   padding: 10px 25px;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .reports {
@@ -378,7 +378,7 @@ body header {
   color: white;
   padding: 5px 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 .activeModal .modal-select .container-confirm {
   width: 90%;
@@ -391,7 +391,7 @@ body header {
   color: white;
   padding: 10px 25px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */
