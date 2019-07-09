@@ -461,15 +461,3 @@ const createLi = (list) => {
   li.innerText = e
   ul.appendChild(li)
 }
-
-
-// para mostrar reportes
-
-const showReports = () => {
-  document.getElementsByClassName("report-info").style.display = "none";
- 
-
-}
-
-showReports()
-
