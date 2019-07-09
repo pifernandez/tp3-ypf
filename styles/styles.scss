@@ -7,6 +7,11 @@
     border:none;
 }
 
+@mixin stylesHover{
+    background-color: #FFFFFF;
+    color: #015E9A;
+}
+
 @mixin reports-boxes{
     background-color: white;
     height: 300px;
@@ -128,12 +133,14 @@ body{
         height: 50%;
         display: flex;
         justify-content: space-around;
-                a{
-                    @include btnStyles;
-                }           
-    }
+            a{
+                @include btnStyles;
+            }
+            a:hover{
+                @include stylesHover;
+            }
+        }
 }
-
 
 .sellers{
     margin: 10px auto;
@@ -163,9 +170,6 @@ body{
     }
 }
 
-.report-btn{
-    @include btnStyles;
-}
 
 //reports page
 
@@ -196,6 +200,9 @@ body{
     }
     .back{
         @include btnStyles;
+    }
+    .back:hover{
+        @include stylesHover;
     }
 }
 
@@ -294,6 +301,9 @@ body{
             color: #000;
             font-weight: bold;
         }
+        .closeModal:hover{
+            cursor: pointer;
+        }
         .modal-select-text{
             text-align:center;
         }
@@ -315,6 +325,9 @@ body{
                 @include btnStyles;
                 background-color: rgb(70, 104, 126);
             }
+            #add:hover{
+                @include stylesHover;
+            }
         }
         .container-confirm{
             width: 90%;
@@ -323,6 +336,9 @@ body{
                 float:right;
                 width:100%;
                 @include btnStyles;
+            }
+            #button:hover{
+                @include stylesHover;
             }
         }
        
