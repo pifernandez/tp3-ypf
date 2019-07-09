@@ -309,6 +309,7 @@ const onLoadFunctions = () => {
   printSales()
   createSelect(onlyCategories, openModal)
   fillSelects(arrayOptionsS)
+  showReports()
 } 
 
 const printSellerMonth = () => {
@@ -527,4 +528,14 @@ const printSales = () => {
 //   })
 // }
 
+
+// para mostrar reportes
+
+const showReports = () => {
+  document.getElementsByClassName("report-info").style.display = "none";
+ 
+
+}
+
+showReports()
 
