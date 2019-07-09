@@ -1,10 +1,15 @@
-
-@mixin text-buttons{
-    font-size: 100%;
-    text-align: center;
+@mixin btnStyles {
+    background-color: #015E9A;
+    color: white;
     text-decoration: none;
-    line-height: 40px;
-    color: #ffffff;   
+    padding: 10px 20px;
+    border-radius: 5px;
+    border:none;
+}
+
+@mixin stylesHover{
+    background-color: #FFFFFF;
+    color: #015E9A;
 }
 
 @mixin reports-boxes{
@@ -115,12 +120,6 @@ body{
             #best-component{
                 display:block;
             }
-            // #seller-subsidiary, #sales-seller, #best-seller{
-            //     display:inline-block;
-            // }
-            // #best-seller{
-            //     display: inline-block;
-            // }
         }
     }
 }
@@ -128,32 +127,19 @@ body{
 .section-sales{
     margin: 50px auto;
     width: 90%; 
-    position:relative;
-
     .action-buttons{
         text-align: center;
         margin: 10px auto;
         height: 50%;
         display: flex;
         justify-content: space-around;
-            button{
-                background-color: #1B96D1;
-                color: white;
-                padding: 10px 30px;
-                text-decoration: none;
-                margin-left: 5px;
-                border-radius: 5px;
-                border: none;
-            }
             a{
-                background-color: #015E9A;
-                color: white;
-                text-decoration: none;
-                padding: 10px 15px;
-                border-radius: 5px;
+                @include btnStyles;
             }
-        
-    }
+            a:hover{
+                @include stylesHover;
+            }
+        }
 }
 
 .sellers{
@@ -164,7 +150,6 @@ body{
         border-radius: 5px;
         display: flex;
         flex-direction: row;
-        // justify-content: space-evenly;
         font-weight: bold;
         margin-top:20px;
         padding: 10px 0; 
@@ -185,15 +170,6 @@ body{
     }
 }
 
-.report-btn{
-    a{
-        background-color: #015E9A;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-}
 
 //reports page
 
@@ -201,7 +177,7 @@ body{
     display: flex;
     text-align: center;
     justify-content: center;
-    .rep{
+        .rep{
         color: #015E9A;
         padding: 10px 60px;
         margin-top: 2%;
@@ -209,7 +185,7 @@ body{
         border-radius: 5px;
         font-weight: bold;
         font-size: 150%;
-    }
+    } 
 }  
 
 .back-btn{
@@ -223,11 +199,10 @@ body{
         @include to-center();
     }
     .back{
-        background-color: #015E9A;
-        color: white;
-        padding: 10px 25px;
-        text-decoration: none;
-        border-radius: 5px;
+        @include btnStyles;
+    }
+    .back:hover{
+        @include stylesHover;
     }
 }
 
@@ -278,7 +253,7 @@ body{
             margin-left: 0;
         }
         p.report-info{
-            margin-top: 5%;
+            margin-top: 2%;
         }
     }
     .mix-report{
@@ -306,29 +281,28 @@ body{
 }
 
 .activeModal{
-    display:block;
     background-color: rgba(144, 194, 253, 0.6);
-    height: 120vh;
     width: 100%;
-    position: absolute;
     top:0;
-    left:0;
+    position:fixed;
     .contain-modal-select{
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
-        width: 100%;
     }
     .modal-select{
         background-color: #FFFFFF;
         width: 40%;
-        overflow: hidden;
         padding: 50px 20px;
         .closeModal{
             float: right;
             text-decoration: none;
             color: #000;
+            font-weight: bold;
+        }
+        .closeModal:hover{
+            cursor: pointer;
         }
         .modal-select-text{
             text-align:center;
@@ -347,13 +321,12 @@ body{
             width: 90%;
             margin: 10px auto;
             #add{
-                margin: 5px auto;
                 width: 100%;
-                background-color: #015E9A;
-                color: white;
-                padding: 5px 10px;
-                border:none;
-                border-radius: 5px;
+                @include btnStyles;
+                background-color: rgb(70, 104, 126);
+            }
+            #add:hover{
+                @include stylesHover;
             }
         }
         .container-confirm{
@@ -362,11 +335,10 @@ body{
             #button{
                 float:right;
                 width:100%;
-                background-color: #015E9A;
-                color: white;
-                padding: 10px 25px;
-                border:none;
-                border-radius: 5px;
+                @include btnStyles;
+            }
+            #button:hover{
+                @include stylesHover;
             }
         }
        
