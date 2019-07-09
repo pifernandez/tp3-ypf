@@ -346,15 +346,6 @@ const closeModal = () => {
     } 
   }
 
-// const subsidiaryCab = () => {
-//   let sales = document.getElementById('allSales')
-//   let btn = document.getElementById('subsidiaryCab')
-//   let li = document.getElementById('subsidiary')
-
-
-//   console.log(sales)
-// }
-
 let arrayOptionsS = []
 
 shop.seller.forEach(e => arrayOptionsS.push({name: e, category: "vendedora"}))
@@ -424,6 +415,8 @@ const addNewSale = () => {
   })
   newSale.push(arrayComponent)
   console.log(newSale)
+
+
 
   shop.sales.push({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
   printSales()
