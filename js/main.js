@@ -410,26 +410,28 @@ const addComponent = () => {
 const addNewSale = () => {
   let newSale = []
   onlyCategories.pop()
+
   onlyCategories.forEach(e => {
     let select = document.getElementById(e)
     let selectedCategory = arrayOptionsS.find(e => e.name === select.value)
     select.value = `Seleccione ${e}`
-    newSale.push(selectedCategory.name)
     let select2 = document.getElementById('componente')
     select2.value = `Seleccione componente`
 
     let components = document.getElementById('pendingSales')
     components.innerHTML = ''
+    newSale.push(selectedCategory.name)
   })
   newSale.push(arrayComponent)
 
 
   // let today = newDate(new Date())
   shop.sales.unshift({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
+  onlyCategories.push('componente')
   closeModal()
   printSales()
+  arrayComponent = []
 }
-
 
 const printSales = () => {
   let allSales = document.getElementById('allSales')
