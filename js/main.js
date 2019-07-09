@@ -355,16 +355,8 @@ const addComponent = () => {
   arrayComponent.push(option.name)
 }
 
-// const newDate = (date) => {
-//   let day = date.getDate()
-//   let month = date.getMonth() + 1
-//   let year = date.getFullYear()
-
-//   let today = `${day}/${month}/${year}`
-//   return today
-// }
-
 //Imprimir opciones elegidas
+
 
 const addNewSale = () => {
   let newSale = []
@@ -383,8 +375,6 @@ const addNewSale = () => {
   })
   newSale.push(arrayComponent)
 
-
-  // let today = newDate(new Date())
   shop.sales.unshift({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
   onlyCategories.push('componente')
   closeModal()
@@ -400,9 +390,9 @@ const printSales = () => {
     let saleItem = document.createElement('ul')
     saleItem.classList.add('categories', 'sells')
 
-    let date = document.createElement('li')
-    date.innerText = e.date
-    saleItem.appendChild(date)
+    let dates = document.createElement('li')
+    dates.innerText = `${e.date.getDate()}/${e.date.getMonth() + 1}/${e.date.getFullYear()}`
+    saleItem.appendChild(dates)
 
     let subsidiary = document.createElement('li')
     subsidiary.innerText = e.subsidiary
