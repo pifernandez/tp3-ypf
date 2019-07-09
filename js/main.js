@@ -308,6 +308,7 @@ const onLoadFunctions = () => {
   printSellerMonth()
   createSelect(onlyCategories, openModal)
   fillSelects(arrayOptionsS)
+  printSales()
 } 
 
 const printSellerMonth = () => {
@@ -387,8 +388,6 @@ const addComponent = () => {
   let select = document.getElementById('componente')
   let option = arrayOptionsS.find(e => e.name === select.value)
 
-  // select.value = 'Seleccione componente'
-
   let pendingSales = document.getElementById('pendingSales')
   let textPendingSales = document.createElement('p')
   textPendingSales.innerText = option.name
@@ -397,14 +396,14 @@ const addComponent = () => {
   arrayComponent.push(option.name)
 }
 
-const newDate = () => {
-  let day = new Date().getDate()
-  let month = new Date().getMonth() + 1
-  let year = new Date().getFullYear()
+// const newDate = (date) => {
+//   let day = date.getDate()
+//   let month = date.getMonth() + 1
+//   let year = date.getFullYear()
 
-  let today = `${day}/${month}/${year}`
-  return today
-}
+//   let today = `${day}/${month}/${year}`
+//   return today
+// }
 
 //Imprimir opciones elegidas
 
@@ -416,10 +415,17 @@ const addNewSale = () => {
     let selectedCategory = arrayOptionsS.find(e => e.name === select.value)
     select.value = `Seleccione ${e}`
     newSale.push(selectedCategory.name)
-  })
-  newSale.unshift(arrayComponent)
+    let select2 = document.getElementById('componente')
+    select2.value = `Seleccione componente`
 
-  shop.sales.push({date: newDate(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
+    let components = document.getElementById('pendingSales')
+    components.innerHTML = ''
+  })
+  newSale.push(arrayComponent)
+
+
+  // let today = newDate(new Date())
+  shop.sales.unshift({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
   closeModal()
   printSales()
 }
@@ -427,14 +433,14 @@ const addNewSale = () => {
 
 const printSales = () => {
   let allSales = document.getElementById('allSales')
-  // allSales.innerHTML = ''
+  allSales.innerHTML = ''
 
   shop.sales.forEach(e => {
     let saleItem = document.createElement('ul')
     saleItem.classList.add('categories', 'sells')
 
     let date = document.createElement('li')
-    date.innerText =  `${e.date.getDate()}/${e.date.getMonth() + 1}/${e.date.getFullYear()}`
+    date.innerText = e.date
     saleItem.appendChild(date)
 
     let subsidiary = document.createElement('li')
