@@ -9,7 +9,7 @@
 
 @mixin reports-boxes{
     background-color: white;
-    height: 270px;
+    height: 300px;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -231,9 +231,7 @@ body{
 
 .reports{
     display: flex;
-    //flex-wrap: wrap;
-    //flex-direction: row;
-    justify-content: space-around;
+    flex-direction: row;
     max-width: 80%;
     text-align: center;
     justify-content: center;
@@ -242,11 +240,12 @@ body{
         max-width: 90%;
     }
     @media only screen and (max-width: $tablet){
-        //flex-direction: column;
-        width: 60%;
-        //flex-wrap: wrap;
+        flex-direction: column;
+        max-width: 70%;
+        @include to-center();
     }
     @media only screen and (max-width: $mobile){
+        max-width: 90%;
         flex-direction: column;
     }
     p.reportbox-title{
@@ -256,16 +255,22 @@ body{
     }
     .month-report{
         @include reports-boxes();
+        flex: 2 1 0;
+        @media only screen and (max-width: $tablet){
+            flex: 0 0 auto;
+        }
         p.report-info{
             margin-top: 5%;
         }
     }
     .sub-report{
         @include reports-boxes();
+        flex: 2 1 0;
         margin-left: 2%;
         @media only screen and (max-width: $tablet){
             flex-direction: column;
             margin-left: 0;
+            flex: 0 0 auto
         }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
@@ -277,6 +282,11 @@ body{
     .mix-report{
         @include reports-boxes();
         margin-left: 2%;
+        flex: 3 1 0;
+        @media only screen and (max-width: $tablet){
+            flex: 0 0 auto;
+            margin-left: 0;
+        }
         @media only screen and (max-width: $mobile){
             margin-left: 0;
         }
@@ -361,57 +371,3 @@ body{
     }
 }
 
-
-// .inactive-modal{
-//     background-color: rgba(144, 194, 253, 0.6);
-//     height: 100%;
-//     width: 100%;
-// }
-// .contain-modal-select{
-//     display: flex;
-//     position: absolute;
-//     top:0;
-//     left:0;
-//     align-items: center;
-//     justify-content: center;
-//     height: 100vh;
-//     width: 100%;
-// }
-// .modal-select{
-//     background-color: #FFFFFF;
-//     width: 40%;
-//     height:50%;
-//     .modal-select-text{
-//         display:inline-block;
-//         justify-content: space-evenly;
-//         // margin-top: 30px; 
-//         // margin-left: 20px;
-//     }
-//     .selectors{
-//         display: flex;   
-//         flex-direction: column;
-//         // margin-top: 10px;
-//         // margin-left: 30px; 
-//         // align-content: space-between;
-//     }
-//     .closeModal{
-//         float: right;
-//         margin-top: 4%;
-//         margin-right: 4%;
-//         a{
-//             text-decoration: none;
-//         }
-//     }
-//     select{
-//         width: 90%;
-//         height: 25px;
-//     }
-    
-//     input{
-//         float:right;
-//         margin-right: 10%;
-//         margin-top: 15%;
-//         padding: px;  
-//     }
-// }
-// }
