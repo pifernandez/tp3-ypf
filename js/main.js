@@ -456,11 +456,4 @@ const printSales = () => {
   })
 }
 
-//Crea il
-const createLi = (list) => {
-  let li = document.createElement('li')
-  li.innerText = e
-  ul.appendChild(li)
-}
-
 
