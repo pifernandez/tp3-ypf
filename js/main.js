@@ -414,4 +414,3 @@ const printSales = () => {
   })
 }
 
-
