@@ -313,7 +313,7 @@ body{
             #add{
                 width: 100%;
                 @include btnStyles;
-
+                background-color: rgb(70, 104, 126);
             }
         }
         .container-confirm{

@@ -378,6 +378,7 @@ body header nav .logo {
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
+  background-color: #46687e;
 }
 .activeModal .modal-select .container-confirm {
   width: 90%;
