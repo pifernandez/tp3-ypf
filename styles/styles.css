@@ -1,16 +1,4 @@
-body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, a {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -18,6 +6,7 @@ time, mark, audio, video, a {
   font: inherit;
   vertical-align: baseline;
   list-style: none;
+  font-family: "Raleway", sans-serif;
 }
 
 body {
@@ -44,6 +33,13 @@ body header {
   display: block;
   padding: 10px;
 }
+body header nav {
+  text-align: center;
+}
+body header nav .logo {
+  width: 30px;
+  height: 30px;
+}
 
 .section-best {
   margin: 50px auto;
@@ -66,14 +62,12 @@ body header {
   margin: 10px 10px;
 }
 .section-best .seller-month .seller-text .seller-main-text {
+  display: inline-block;
   font-weight: bold;
   margin-bottom: 6%;
 }
-.section-best .seller-month .seller-text #seller-subsidiary {
-  display: inline-block;
-}
-.section-best .seller-month .seller-text #best-seller {
-  display: inline-block;
+.section-best .seller-month .seller-text #best-component {
+  display: block;
 }
 
 .section-sales {
@@ -90,13 +84,14 @@ body header {
   margin: 0 auto;
   text-align: center;
 }
-.section-sales .action-buttons .subsidiaries a {
+.section-sales .action-buttons .subsidiaries button {
   background-color: #1B96D1;
   color: white;
   padding: 10px 30px;
   text-decoration: none;
   margin-left: 5px;
   border-radius: 5px;
+  border: none;
 }
 .section-sales .action-buttons .new-sale {
   display: block;
@@ -125,7 +120,7 @@ body header {
 }
 .sellers .categories li {
   text-align: center;
-  width: 25%;
+  width: 20%;
   margin: 0 15px;
 }
 .sellers .sells {
