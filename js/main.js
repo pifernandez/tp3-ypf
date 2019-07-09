@@ -440,7 +440,7 @@ const printSales = () => {
     saleItem.classList.add('categories', 'sells')
 
     let date = document.createElement('li')
-    date.innerText = e.date
+    date.innerText =  `${e.date.getMonth() + 1}/${e.date.getFullYear()}`
     saleItem.appendChild(date)
 
     let subsidiary = document.createElement('li')
