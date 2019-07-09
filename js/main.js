@@ -306,8 +306,6 @@ render()
 const onLoadFunctions = () => {
   let openModal = document.getElementById('modal')
   printSellerMonth()
-  // createSelSubSelects()
-  printSales()
   createSelect(onlyCategories, openModal)
   fillSelects(arrayOptionsS)
 } 
@@ -332,19 +330,16 @@ const printSellerMonth = () => {
 //Modal
 
 const modal = () => {
-let newSaleBtn = document.getElementById('newSaleBtn')
 let activeModal = document.getElementById('activeModal')
-newSaleBtn.onclick = activeModal.classList.add('activeModal')
+activeModal.classList.remove('modal')
+activeModal.classList.add('activeModal')
 }
 
-
-
 const closeModal = () => {
-  let closeModal = document.getElementById('closeModal')
-  closeModal.onclick = () => {
-      closeModal.classList.toggle('modal')
-    } 
-  }
+  let closeModal = document.getElementById('activeModal')
+  closeModal.classList.remove('activeModal')
+  closeModal.classList.add('modal')
+}
 
 let arrayOptionsS = []
 
@@ -402,7 +397,16 @@ const addComponent = () => {
   arrayComponent.push(option.name)
 }
 
-// //Imprimir opciones elegidas
+const newDate = () => {
+  let day = new Date().getDate()
+  let month = new Date().getMonth() + 1
+  let year = new Date().getFullYear()
+
+  let today = `${day}/${month}/${year}`
+  return today
+}
+
+//Imprimir opciones elegidas
 
 const addNewSale = () => {
   let newSale = []
@@ -413,14 +417,11 @@ const addNewSale = () => {
     select.value = `Seleccione ${e}`
     newSale.push(selectedCategory.name)
   })
-  newSale.push(arrayComponent)
-  console.log(newSale)
+  newSale.unshift(arrayComponent)
 
-
-
-  shop.sales.push({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
-  printSales()
+  shop.sales.push({date: newDate(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
   closeModal()
+  printSales()
 }
 
 
@@ -433,7 +434,7 @@ const printSales = () => {
     saleItem.classList.add('categories', 'sells')
 
     let date = document.createElement('li')
-    date.innerText =  `${e.date.getMonth() + 1}/${e.date.getFullYear()}`
+    date.innerText =  `${e.date.getDate()}/${e.date.getMonth() + 1}/${e.date.getFullYear()}`
     saleItem.appendChild(date)
 
     let subsidiary = document.createElement('li')
