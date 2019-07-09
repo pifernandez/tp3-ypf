@@ -18,23 +18,28 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;
-}
-body .brand {
-  color: #393636;
-  font-size: 160%;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  padding: 4%;
+  padding-top: 80px;
 }
 body header {
   background-color: #fff;
   display: block;
-  padding: 10px;
+  padding: 20px 0px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 1000;
 }
 body header nav {
   text-align: center;
+}
+body header nav .brand {
+  color: #393636;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 4%;
 }
 body header nav .logo {
   width: 30px;
