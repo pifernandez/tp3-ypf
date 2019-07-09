@@ -332,6 +332,7 @@ const printSellerMonth = () => {
 
 const modal = () => {
 let newSaleBtn = document.getElementById('newSaleBtn')
+let activeModal = document.getElementById('activeModal')
 newSaleBtn.onclick = () => {
     activeModal.classList.remove('modal')
     activeModal.classList.add('activeModal')
@@ -364,12 +365,9 @@ arrayOptionsS.forEach((e, i) => {
   e.id = i
 })
 
-// console.log(arrayOptionsS)
 let allCategories = arrayOptionsS.map(e => e.category)
-// console.log(allCategories)
 
 let onlyCategories = allCategories.filter((e, i) => allCategories.indexOf(e) === i)
-// console.log(onlyCategories)
 
 const createSelect = (list, container) => {
     list.forEach(e => {
@@ -417,45 +415,59 @@ const addComponent = () => {
 
 const addNewSale = () => {
   let newSale = []
+  onlyCategories.pop()
   onlyCategories.forEach(e => {
     let select = document.getElementById(e)
     let selectedCategory = arrayOptionsS.find(e => e.name === select.value)
     select.value = `Seleccione ${e}`
     newSale.push(selectedCategory.name)
   })
-  newSale.push(...arrayComponent)
-  console.log(newSale)
-  // allSalesSales.push(newSale)
+  newSale.push(arrayComponent)
   printSales()
+  closeModal()
+  // newSale.forEach(e => {
+  //   allSalesSales.push({date: new Date(), sellerName: , components: arrayComponent, subsidiary: "Centro"})
+  // })
 }
-console.log(allSalesSales)
 
 
 const printSales = () => {
   let allSales = document.getElementById('allSales')
   // allSales.innerHTML = ''
 
-  allSalesSales.forEach(e => {
+  shop.sales.forEach(e => {
     let saleItem = document.createElement('ul')
     saleItem.classList.add('categories', 'sells')
-    e.forEach(i => {
-      let item = document.createElement('li')
-      item.innerText = i.name
-      // saleItem.appendChild(plateLi)
-    })
+
+    let date = document.createElement('li')
+    date.innerText = e.date
+    saleItem.appendChild(date)
+
+    let subsidiary = document.createElement('li')
+    subsidiary.innerText = e.subsidiary
+    saleItem.appendChild(subsidiary)
+
+    let seller = document.createElement('li')
+    seller.innerText = e.sellerName
+    saleItem.appendChild(seller)
+
+    let components = document.createElement('li')
+    components.innerText = e.components
+    saleItem.appendChild(components)
+
+    let price = document.createElement('li')
+    price.innerText = `$${machinePrice(e.components)}`
+    saleItem.appendChild(price)
+
     allSales.appendChild(saleItem)
   })
 }
 
-// //Crea UL
-// const createUl = (list) => {
-//   let ul = document.createElement('ul')
-//   ul.classList.add('categories sells')
-//   list.forEach(e => {
-//     let li = document.createElement('li')
-//     li.innerText = e
-//     ul.appendChild(li)
-//   })
-// }
+//Crea il
+const createLi = (list) => {
+  let li = document.createElement('li')
+  li.innerText = e
+  ul.appendChild(li)
+}
 
 
