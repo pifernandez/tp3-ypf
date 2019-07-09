@@ -92,6 +92,7 @@ body header nav .logo {
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
+  border: none;
 }
 
 .sellers {
@@ -128,6 +129,7 @@ body header nav .logo {
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
+  border: none;
 }
 
 .reports-title {
@@ -168,6 +170,7 @@ body header nav .logo {
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
+  border: none;
 }
 
 .reports {
@@ -328,13 +331,9 @@ body header nav .logo {
 }
 
 .activeModal {
-  display: block;
   background-color: rgba(144, 194, 253, 0.6);
-  height: 120vh;
   width: 100%;
-  position: absolute;
   top: 0;
-  left: 0;
   position: fixed;
 }
 .activeModal .contain-modal-select {
@@ -342,18 +341,17 @@ body header nav .logo {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100%;
 }
 .activeModal .modal-select {
   background-color: #FFFFFF;
   width: 40%;
-  overflow: hidden;
   padding: 50px 20px;
 }
 .activeModal .modal-select .closeModal {
   float: right;
   text-decoration: none;
   color: #000;
+  font-weight: bold;
 }
 .activeModal .modal-select .modal-select-text {
   text-align: center;
@@ -373,13 +371,13 @@ body header nav .logo {
   margin: 10px auto;
 }
 .activeModal .modal-select .container-add #add {
-  margin: 5px auto;
   width: 100%;
   background-color: #015E9A;
   color: white;
-  padding: 5px 10px;
-  border: none;
+  text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
+  border: none;
 }
 .activeModal .modal-select .container-confirm {
   width: 90%;
@@ -390,9 +388,10 @@ body header nav .logo {
   width: 100%;
   background-color: #015E9A;
   color: white;
-  padding: 10px 25px;
-  border: none;
+  text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
+  border: none;
 }
 
 .pendingSales {
