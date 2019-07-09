@@ -423,11 +423,11 @@ const addNewSale = () => {
     newSale.push(selectedCategory.name)
   })
   newSale.push(arrayComponent)
+  console.log(newSale)
+
+  shop.sales.push({date: new Date(), sellerName: newSale[0], components: newSale[2], subsidiary: newSale[1]})
   printSales()
   closeModal()
-  // newSale.forEach(e => {
-  //   allSalesSales.push({date: new Date(), sellerName: , components: arrayComponent, subsidiary: "Centro"})
-  // })
 }
 
 
