@@ -39,19 +39,9 @@ $tablet: 700px;
 $first: 940px;
 
 
-body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, a {
+
+
+*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -59,6 +49,7 @@ time, mark, audio, video, a {
     font:inherit;
     vertical-align: baseline;
     list-style: none;
+    font-family: 'Raleway', sans-serif;
 }
 
 body{
@@ -83,6 +74,14 @@ body{
         background-color: #fff;
         display: block;
         padding:10px;
+        nav{
+            text-align:center;
+            .logo{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
     }
 }
 
@@ -101,18 +100,22 @@ body{
             display:block;
             flex: 1;
             text-align: center;
-            padding: 30px 30px;
+            padding: 20px 20px;
             margin: 10px 10px;
             .seller-main-text{
+                display: inline-block;
                 font-weight: bold;
                 margin-bottom: 6%;
             }
-            #seller-subsidiary{
-                display:inline-block;
+            #best-component{
+                display:block;
             }
-            #best-seller{
-                display: inline-block;
-            }
+            // #seller-subsidiary, #sales-seller, #best-seller{
+            //     display:inline-block;
+            // }
+            // #best-seller{
+            //     display: inline-block;
+            // }
         }
     }
 }
@@ -121,25 +124,22 @@ body{
     margin: 50px auto;
     width: 90%; 
     position:relative;
+
     .action-buttons{
         text-align: center;
         margin: 10px auto;
-        .subsidiaries{
-            display: inline-block;
-            margin: 0 auto;
-            text-align: center;
-            a{
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
+            button{
                 background-color: #1B96D1;
                 color: white;
                 padding: 10px 30px;
                 text-decoration: none;
                 margin-left: 5px;
                 border-radius: 5px;
+                border: none;
             }
-        }
-        .new-sale{
-            display: block;
-            float: right;
             a{
                 background-color: #015E9A;
                 color: white;
@@ -147,7 +147,7 @@ body{
                 padding: 10px 15px;
                 border-radius: 5px;
             }
-        }
+        
     }
 }
 
@@ -165,7 +165,7 @@ body{
         padding: 10px 0; 
         li{
             text-align:center;
-            width: 25%;
+            width: 20%;
             margin: 0 15px;
         }
     }    
@@ -181,8 +181,6 @@ body{
 }
 
 .report-btn{
-    float: right;
-    margin: 15px 0;
     a{
         background-color: #015E9A;
         color: white;
@@ -199,12 +197,13 @@ body{
     text-align: center;
     justify-content: center;
     .rep{
-        background-color: #015E9A;
-        color: white;
+        color: #015E9A;
         padding: 10px 60px;
         margin-top: 2%;
         margin-bottom: 4%;
         border-radius: 5px;
+        font-weight: bold;
+        font-size: 150%;
     }
 }  
 
@@ -356,6 +355,14 @@ body{
             }
         }
        
+    }
+}
+
+.pendingSales{
+    margin: 5px auto;
+    width: 90%;
+    p{
+      margin-bottom: 0.5em;  
     }
 }
 

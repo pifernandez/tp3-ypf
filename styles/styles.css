@@ -1,16 +1,4 @@
-body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, a {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -18,6 +6,7 @@ time, mark, audio, video, a {
   font: inherit;
   vertical-align: baseline;
   list-style: none;
+  font-family: "Raleway", sans-serif;
 }
 
 body {
@@ -44,6 +33,13 @@ body header {
   display: block;
   padding: 10px;
 }
+body header nav {
+  text-align: center;
+}
+body header nav .logo {
+  width: 30px;
+  height: 30px;
+}
 
 .section-best {
   margin: 50px auto;
@@ -62,18 +58,16 @@ body header {
   display: block;
   flex: 1;
   text-align: center;
-  padding: 30px 30px;
+  padding: 20px 20px;
   margin: 10px 10px;
 }
 .section-best .seller-month .seller-text .seller-main-text {
+  display: inline-block;
   font-weight: bold;
   margin-bottom: 6%;
 }
-.section-best .seller-month .seller-text #seller-subsidiary {
-  display: inline-block;
-}
-.section-best .seller-month .seller-text #best-seller {
-  display: inline-block;
+.section-best .seller-month .seller-text #best-component {
+  display: block;
 }
 
 .section-sales {
@@ -84,25 +78,20 @@ body header {
 .section-sales .action-buttons {
   text-align: center;
   margin: 10px auto;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
 }
-.section-sales .action-buttons .subsidiaries {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: center;
-}
-.section-sales .action-buttons .subsidiaries a {
+.section-sales .action-buttons button {
   background-color: #1B96D1;
   color: white;
   padding: 10px 30px;
   text-decoration: none;
   margin-left: 5px;
   border-radius: 5px;
+  border: none;
 }
-.section-sales .action-buttons .new-sale {
-  display: block;
-  float: right;
-}
-.section-sales .action-buttons .new-sale a {
+.section-sales .action-buttons a {
   background-color: #015E9A;
   color: white;
   text-decoration: none;
@@ -125,7 +114,7 @@ body header {
 }
 .sellers .categories li {
   text-align: center;
-  width: 25%;
+  width: 20%;
   margin: 0 15px;
 }
 .sellers .sells {
@@ -138,10 +127,6 @@ body header {
   font-weight: normal;
 }
 
-.report-btn {
-  float: right;
-  margin: 15px 0;
-}
 .report-btn a {
   background-color: #015E9A;
   color: white;
@@ -156,12 +141,13 @@ body header {
   justify-content: center;
 }
 .reports-title .rep {
-  background-color: #015E9A;
-  color: white;
+  color: #015E9A;
   padding: 10px 60px;
   margin-top: 2%;
   margin-bottom: 4%;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 150%;
 }
 
 .back-btn {
@@ -392,6 +378,14 @@ body header {
   padding: 10px 25px;
   border: none;
   border-radius: 5px;
+}
+
+.pendingSales {
+  margin: 5px auto;
+  width: 90%;
+}
+.pendingSales p {
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=styles.css.map */
