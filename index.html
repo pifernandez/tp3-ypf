@@ -6,44 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="js/main.js" type="text/javascript"></script>
     <link href="styles/styles.css" rel="stylesheet" type="text/css" media="screen">
-    <title>DevicesShop</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <title>Devices Shop</title>
 </head>
 <body onload="onLoadFunctions()">
     <header>
         <nav>
-            <a href="index.html" class="brand">DevicesShop</a>
+            <a href="index.html" class="brand">Devices <img src="styles/img/logo.png" class="logo"> Shop</a>
         </nav>
     </header>
     <section class="section-best">
         <div class="seller-month">
-            <div><img src="styles/img/natsha.png" alt="seller-month-picture"></div>
+            <div class="seller-text"><img src="styles/img/natsha.png" alt="seller-month-picture"></div>
             <div class="seller-text"> 
-                <p class="seller-main-text">¡Felicitaciones <p id="best-seller"></p>!</p>
-                <span>Sucursal <p id="seller-subsidiary"></p></span>
+                <p class="seller-main-text">¡Felicitaciones, <p id="best-seller"></p>!</p>
+                <span>Vendedora estrella</span>
             </div>
             <div class="seller-text">
-                <p class="seller-main-text" id="sales-seller">389</p>
-                <span>Ventas</span>
+                <p class="seller-main-text">$<p id="sales-seller"></p></p>
+                <span>Vendido</span>
             </div>
            <div class="seller-text">
-               <p class="seller-main-text">USD 1478000</p>
-               <span>Rendimiento</span>
+               <p class="seller-main-text">¡Felicitaciones, Devices Shop <p id="best-subsidiary"></p>!</p>
+               <span>Sucursal del mes</span>
            </div>
            <div class="seller-text">
-               <p class="seller-main-text">40</p>
-               <span>Nuevos Clientes</span>
+               <p class="seller-main-text">$<p id="sales-subsidiary"></p></p>
+               <span>Vendido</span>
            </div>
            <div class="seller-text">
-               <p class="seller-main-text">70%</p>
-               <span>Incremento mes anterior</span>
+               <p class="seller-main-text" id="best-component"></p>
+               <span>Producto estrella</span>
            </div>
         </div>
     </section>
     <section class="section-sales">
         <div class="action-buttons">
             <div class="subsidiaries">
-                <a href="#">Caballito</a>
-                <a href="#">Centro</a>
+                <button type="button" onclick="subsidiaryCab()" id="subsidiaryCab">Caballito</button>
+                <button type="button" onclick="subsidiaryCen()" id="subsidiaryCen">Centro</button>
             </div>
             <div onclick="modal()" class="new-sale" >
                 <a id="newSaleBtn" href="#">Nueva Venta</a>
@@ -52,6 +53,7 @@
         <div class="sellers">
             <ul class="categories">
                 <li>Fecha</li>
+                <li>Sucursal</li>
                 <li>Vendedora</li>
                 <li>Componentes</li>
                 <li>Total</li>
@@ -59,10 +61,18 @@
         </div>
         <div class="sellers" id="allSales">
             <ul class="categories sells">
-                <li>20/02/2019</li>
-                <li>Grace</li>
-                <li class="component">Monitor GPRS 3000, Motherboard ASUS 1500</li>
+                <li class="date">20/02/2019</li>
+                <li class="subsidiary">Centro</li>
+                <li class="seller">Grace</li>
+                <li class="components">Monitor GPRS 3000, Motherboard ASUS 1500</li>
                 <li class="price">$389,50</li>
+            </ul>
+            <ul class="categories sells">
+                <li class="date">20/04/2019</li>
+                <li class="subsidiary">Caballito</li>
+                <li class="seller">Ada</li>
+                <li class="components">Motherboard ASUS 1500</li>
+                <li class="price">$120</li>
             </ul>
         </div>
         <div class="report-btn">

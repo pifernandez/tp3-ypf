@@ -316,9 +316,16 @@ const printSellerMonth = () => {
   nameBS.innerText = bestSellerEver()
   nameBS.classList.add('seller-main-text')
   let salesSeller = document.getElementById('sales-seller')
+  salesSeller.classList.add('seller-main-text')
   salesSeller.innerText = salesSubOrSeller(bestSellerEver())
-  let subsidiary = document.getElementById('seller-subsidiary')
+  let subsidiary = document.getElementById('best-subsidiary')
+  subsidiary.classList.add('seller-main-text')
   subsidiary.innerText = bestSubsidiaryMonth(2019, 0) 
+  let salesSub = document.getElementById('sales-subsidiary')
+  salesSub.classList.add('seller-main-text')
+  salesSub.innerText = salesSubOrSeller(bestSubsidiaryMonth(2019, 0))  
+  let bestComp = document.getElementById('best-component')
+  bestComp.innerText = bestSellerComponent() 
 }
 
 //Modal
@@ -337,6 +344,15 @@ const closeModal = () => {
       closeModal.classList.toggle('modal')
     } 
   }
+
+// const subsidiaryCab = () => {
+//   let sales = document.getElementById('allSales')
+//   let btn = document.getElementById('subsidiaryCab')
+//   let li = document.getElementById('subsidiary')
+
+
+//   console.log(sales)
+// }
 
 let arrayOptionsS = []
 
@@ -387,7 +403,7 @@ const addComponent = () => {
   let select = document.getElementById('componente')
   let option = arrayOptionsS.find(e => e.name === select.value)
 
-  select.value = 'Seleccione componente'
+  // select.value = 'Seleccione componente'
 
   let pendingSales = document.getElementById('pendingSales')
   let textPendingSales = document.createElement('p')

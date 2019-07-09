@@ -39,19 +39,7 @@ $tablet: 700px;
 $first: 940px;
 
 
-body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, a {
+*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -59,6 +47,7 @@ time, mark, audio, video, a {
     font:inherit;
     vertical-align: baseline;
     list-style: none;
+    font-family: 'Raleway', sans-serif;
 }
 
 body{
@@ -83,6 +72,14 @@ body{
         background-color: #fff;
         display: block;
         padding:10px;
+        nav{
+            text-align:center;
+            .logo{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
     }
 }
 
@@ -104,15 +101,19 @@ body{
             padding: 30px 30px;
             margin: 10px 10px;
             .seller-main-text{
+                display: inline-block;
                 font-weight: bold;
                 margin-bottom: 6%;
             }
-            #seller-subsidiary{
-                display:inline-block;
+            #best-component{
+                display:block;
             }
-            #best-seller{
-                display: inline-block;
-            }
+            // #seller-subsidiary, #sales-seller, #best-seller{
+            //     display:inline-block;
+            // }
+            // #best-seller{
+            //     display: inline-block;
+            // }
         }
     }
 }
@@ -128,13 +129,14 @@ body{
             display: inline-block;
             margin: 0 auto;
             text-align: center;
-            a{
+            button{
                 background-color: #1B96D1;
                 color: white;
                 padding: 10px 30px;
                 text-decoration: none;
                 margin-left: 5px;
                 border-radius: 5px;
+                border: none;
             }
         }
         .new-sale{
@@ -165,7 +167,7 @@ body{
         padding: 10px 0; 
         li{
             text-align:center;
-            width: 25%;
+            width: 20%;
             margin: 0 15px;
         }
     }    
