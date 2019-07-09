@@ -346,15 +346,6 @@ const closeModal = () => {
     } 
   }
 
-// const subsidiaryCab = () => {
-//   let sales = document.getElementById('allSales')
-//   let btn = document.getElementById('subsidiaryCab')
-//   let li = document.getElementById('subsidiary')
-
-
-//   console.log(sales)
-// }
-
 let arrayOptionsS = []
 
 shop.seller.forEach(e => arrayOptionsS.push({name: e, category: "vendedora"}))

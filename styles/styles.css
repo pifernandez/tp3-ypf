@@ -186,7 +186,7 @@ body header nav .logo {
 
 .reports {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
   max-width: 80%;
   text-align: center;
   justify-content: center;
@@ -199,11 +199,15 @@ body header nav .logo {
 }
 @media only screen and (max-width: 700px) {
   .reports {
-    width: 60%;
+    flex-direction: column;
+    max-width: 70%;
+    text-align: center;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 420px) {
   .reports {
+    max-width: 90%;
     flex-direction: column;
   }
 }
@@ -214,13 +218,14 @@ body header nav .logo {
 }
 .reports .month-report {
   background-color: white;
-  height: 270px;
+  height: 300px;
   width: 40%;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex: 2 1 0;
 }
 @media only screen and (max-width: 940px) {
   .reports .month-report {
@@ -238,18 +243,24 @@ body header nav .logo {
     margin-top: 5%;
   }
 }
+@media only screen and (max-width: 700px) {
+  .reports .month-report {
+    flex: 0 0 auto;
+  }
+}
 .reports .month-report p.report-info {
   margin-top: 5%;
 }
 .reports .sub-report {
   background-color: white;
-  height: 270px;
+  height: 300px;
   width: 40%;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex: 2 1 0;
   margin-left: 2%;
 }
 @media only screen and (max-width: 940px) {
@@ -272,6 +283,7 @@ body header nav .logo {
   .reports .sub-report {
     flex-direction: column;
     margin-left: 0;
+    flex: 0 0 auto;
   }
 }
 @media only screen and (max-width: 420px) {
@@ -284,7 +296,7 @@ body header nav .logo {
 }
 .reports .mix-report {
   background-color: white;
-  height: 270px;
+  height: 300px;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -292,6 +304,7 @@ body header nav .logo {
   justify-content: center;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-left: 2%;
+  flex: 3 1 0;
 }
 @media only screen and (max-width: 940px) {
   .reports .mix-report {
@@ -307,6 +320,12 @@ body header nav .logo {
   .reports .mix-report {
     width: 80%;
     margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .reports .mix-report {
+    flex: 0 0 auto;
+    margin-left: 0;
   }
 }
 @media only screen and (max-width: 420px) {
