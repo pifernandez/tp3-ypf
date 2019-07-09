@@ -39,6 +39,8 @@ $tablet: 700px;
 $first: 940px;
 
 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -103,7 +105,7 @@ body{
             display:block;
             flex: 1;
             text-align: center;
-            padding: 30px 30px;
+            padding: 20px 20px;
             margin: 10px 10px;
             .seller-main-text{
                 display: inline-block;
@@ -127,13 +129,13 @@ body{
     margin: 50px auto;
     width: 90%; 
     position:relative;
+
     .action-buttons{
         text-align: center;
         margin: 10px auto;
-        .subsidiaries{
-            display: inline-block;
-            margin: 0 auto;
-            text-align: center;
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
             button{
                 background-color: #1B96D1;
                 color: white;
@@ -143,10 +145,6 @@ body{
                 border-radius: 5px;
                 border: none;
             }
-        }
-        .new-sale{
-            display: block;
-            float: right;
             a{
                 background-color: #015E9A;
                 color: white;
@@ -154,7 +152,7 @@ body{
                 padding: 10px 15px;
                 border-radius: 5px;
             }
-        }
+        
     }
 }
 
@@ -188,8 +186,6 @@ body{
 }
 
 .report-btn{
-    float: right;
-    margin: 15px 0;
     a{
         background-color: #015E9A;
         color: white;
@@ -206,12 +202,13 @@ body{
     text-align: center;
     justify-content: center;
     .rep{
-        background-color: #015E9A;
-        color: white;
+        color: #015E9A;
         padding: 10px 60px;
         margin-top: 2%;
         margin-bottom: 4%;
         border-radius: 5px;
+        font-weight: bold;
+        font-size: 150%;
     }
 }  
 
@@ -376,3 +373,68 @@ body{
     }
 }
 
+<<<<<<< HEAD
+=======
+.pendingSales{
+    margin: 5px auto;
+    width: 90%;
+    p{
+      margin-bottom: 0.5em;  
+    }
+}
+
+
+// .inactive-modal{
+//     background-color: rgba(144, 194, 253, 0.6);
+//     height: 100%;
+//     width: 100%;
+// }
+// .contain-modal-select{
+//     display: flex;
+//     position: absolute;
+//     top:0;
+//     left:0;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100vh;
+//     width: 100%;
+// }
+// .modal-select{
+//     background-color: #FFFFFF;
+//     width: 40%;
+//     height:50%;
+//     .modal-select-text{
+//         display:inline-block;
+//         justify-content: space-evenly;
+//         // margin-top: 30px; 
+//         // margin-left: 20px;
+//     }
+//     .selectors{
+//         display: flex;   
+//         flex-direction: column;
+//         // margin-top: 10px;
+//         // margin-left: 30px; 
+//         // align-content: space-between;
+//     }
+//     .closeModal{
+//         float: right;
+//         margin-top: 4%;
+//         margin-right: 4%;
+//         a{
+//             text-decoration: none;
+//         }
+//     }
+//     select{
+//         width: 90%;
+//         height: 25px;
+//     }
+    
+//     input{
+//         float:right;
+//         margin-right: 10%;
+//         margin-top: 15%;
+//         padding: px;  
+//     }
+// }
+// }
+>>>>>>> 89b05c145e5cc5c43885d38559b9fe6eac655672

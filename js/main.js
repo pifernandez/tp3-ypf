@@ -299,6 +299,7 @@ const render = () => {
 render()
 
 
+
 // Otras funciones
 
 
@@ -333,11 +334,10 @@ const printSellerMonth = () => {
 const modal = () => {
 let newSaleBtn = document.getElementById('newSaleBtn')
 let activeModal = document.getElementById('activeModal')
-newSaleBtn.onclick = () => {
-    activeModal.classList.remove('modal')
-    activeModal.classList.add('activeModal')
-  } 
+newSaleBtn.onclick = activeModal.classList.add('activeModal')
 }
+
+
 
 const closeModal = () => {
   let closeModal = document.getElementById('closeModal')
