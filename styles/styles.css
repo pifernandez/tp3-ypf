@@ -278,7 +278,7 @@ body header nav .logo {
   }
 }
 .reports .sub-report p.report-info {
-  margin-top: 5%;
+  margin-top: 2%;
 }
 .reports .mix-report {
   background-color: white;
@@ -335,6 +335,7 @@ body header nav .logo {
   position: absolute;
   top: 0;
   left: 0;
+  position: fixed;
 }
 .activeModal .contain-modal-select {
   display: flex;
