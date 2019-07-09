@@ -55,11 +55,7 @@ const machinePrice = (a) => {
   return mPrice
 }
 
-let comp = ["Motherboard ASUS 1200", "HDD Toyiva"]
-console.log(`El precio de la máquina es: $${machinePrice(comp)}`)
-
-
-//sales specific seller and subsidiary sales in one function
+//Ventas por vendedora o sucursal
 const salesSubOrSeller = (sub) => {
   let salesSub = 0
   shop.sales.forEach(e => {
@@ -69,11 +65,6 @@ const salesSubOrSeller = (sub) => {
   })
   return salesSub
 } 
-
-let salesW = "Ada"
-console.log(`${salesW} realizó ventas por un total de $${salesSubOrSeller(salesW)}`);
-let subs = "Centro"
-console.log(`La sucursal ${subs} obtuvo ganancias por un total de $${salesSubOrSeller(subs)}`)
 
 // Devuelve la cantidad de veces que fue vendido
 
@@ -88,10 +79,6 @@ const amountSalesComponents = (param) => {
   })
   return cont
 }
-
-let item = "Monitor GPRS 3000"
-console.log(`El componente "${item}" fue vendido ${amountSalesComponents(item)} veces`);
-
 
 // Vendedora del mes 
 
@@ -112,24 +99,18 @@ const bestSellerMonth = (year, month) => {
   return sellerName
 }
 
-console.log(`La mejor vendedora del mes es: ${bestSellerMonth(2019, 0)}`)
-
 // Ventas de un mes
 
 const salesMonth = (year, month) => {
   let cont = 0
   shop.sales.forEach(e => {
-    let monthSale = e.date.getMonth()
-    let yearSale = e.date.getFullYear()
-    if(monthSale === month || yearSale === year){
+    if(e.date.getMonth() === month && e.date.getFullYear() === year){
       priceSale = machinePrice(e.components)
       cont += priceSale
     }
   })
   return cont
 }
-
-console.log(`El total de ventas del mes es de: $${salesMonth(2019, 1)}`);
 
 // Componente más vendido
 
@@ -146,8 +127,6 @@ const bestSellerComponent = () => {
   return nameComponent
 }
 
-console.log(`El componente más vendido históricamente es: "${bestSellerComponent()}"`);
-
 // Indica si hubo ventas en un mes determinado
 
 const thereWereSales = (year, month) => {
@@ -155,8 +134,6 @@ const thereWereSales = (year, month) => {
   shop.sales.forEach(e => { e.date.getMonth() === month || e.date.getFullYear() === year ? sales = true : undefined})
   return sales
 }
-
-console.log(`¿Hubo ventas en ese mes?: ${thereWereSales(2019, 1)}`);
 
 // Sucursal del mes
 
@@ -177,8 +154,6 @@ const bestSubsidiaryMonth = (year, month) => {
   return subsidiaryName
 }
 
-console.log(`La sucursal que más ganancias generó en el mes es: ${bestSubsidiaryMonth(2019, 0)}`)
-
 // Importe total vendido por cada mes/año
 
 let monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -188,13 +163,11 @@ const renderMonth = () => {
   let yearSale = shop.sales.map(s => s.date.getFullYear())
   const month = monthSale.filter((e, i) => monthSale.indexOf(e) === i).sort()
   const year = yearSale.filter((e, i) => yearSale.indexOf(e) === i)
-  let saleMonth
   year.forEach(e => {
     month.forEach(i => {
       //saleMonth = salesMonth(e, i)
       let x = {month: monthName[i], year: e, sales: salesMonth(e, i)}
       arr.push(x)
-      console.log(`El importe total vendido en ${monthName[i]} del ${e} es: $${salesMonth(e, i)}`)
     })
   })
   return arr
@@ -241,12 +214,9 @@ const printReports = () => {
 
   let reportBestSeller = document.createElement("p")
   reportBestSeller.classList.add("report-info")
-  reportBestSeller.innerText = (`Vendedora que más ingresos generó: `+ bestSellerEver())
+  reportBestSeller.innerText = (`Vendedora que más ingresos generó: ${bestSellerEver()}`)
   printMixReport.appendChild(reportBestSeller)
 }
-
-
-//printReports()
 
 // Importe total vendido por cada sucursal
 
@@ -255,8 +225,6 @@ const renderSubsidiary = () => {
   shop.subsidiary.forEach(e => {
     let s = {sub: e, salesSub: salesSubOrSeller(e)}
     saleSubsidiary.push(s)
-    //saleSubsidiary = salesSubOrSeller(e)
-    console.log(`El importe total vendido en la sucursal de ${e} es: $${salesSubOrSeller(e)}`)
   })
   return saleSubsidiary
 }
@@ -281,24 +249,15 @@ const bestSellerEver = () => {
   return maxSeller
 }
 
-bestSellerEver()
-
 // Tiene que mostrar la unión de los dos reportes anteriores
-const render = () => {
-  //let month = new Date().getMonth()
-  //let renderMix = []
-  //let renderP = {monthR: renderMonth(), subs: renderSubsidiary(), starP : bestSellerComponent(), bestS: bestSellerMonth(2019, month) }
-  
-  console.log(`Reporte:
-  Ventas del mes: ${renderMonth()}
-  Ventas por sucursal: ${renderSubsidiary()}
-  Producto estrella: ${bestSellerComponent()}
-  Vendedora que más ingresos generó: ${bestSellerEver()}`)  
+const render = () => {  
+  renderMonth()
+  renderSubsidiary()
+  bestSellerComponent()
+  bestSellerEver()
 }
 
 render()
-
-
 
 // Otras funciones
 
