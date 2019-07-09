@@ -78,7 +78,6 @@ body header nav .logo {
 .section-sales {
   margin: 50px auto;
   width: 90%;
-  position: relative;
 }
 .section-sales .action-buttons {
   text-align: center;
@@ -87,20 +86,11 @@ body header nav .logo {
   display: flex;
   justify-content: space-around;
 }
-.section-sales .action-buttons button {
-  background-color: #1B96D1;
-  color: white;
-  padding: 10px 30px;
-  text-decoration: none;
-  margin-left: 5px;
-  border-radius: 5px;
-  border: none;
-}
 .section-sales .action-buttons a {
   background-color: #015E9A;
   color: white;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border-radius: 5px;
 }
 
@@ -132,11 +122,11 @@ body header nav .logo {
   font-weight: normal;
 }
 
-.report-btn a {
+.report-btn {
   background-color: #015E9A;
   color: white;
-  padding: 10px 20px;
   text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
 }
 
@@ -175,8 +165,8 @@ body header nav .logo {
 .back-btn .back {
   background-color: #015E9A;
   color: white;
-  padding: 10px 25px;
   text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
 }
 
