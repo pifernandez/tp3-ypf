@@ -19,12 +19,12 @@
         <div class="seller-month">
             <div class="seller-text"><img src="styles/img/natsha.png" alt="seller-month-picture"></div>
             <div class="seller-text"> 
-                <p class="seller-main-text">¡Felicitaciones, <p id="best-seller"></p>!</p>
+                <p class="seller-main-text">¡Felicitaciones: <p id="best-seller"></p>!</p>
                 <span>Vendedora estrella</span>
             </div>
             <div class="seller-text">
                 <p class="seller-main-text">$<p id="sales-seller"></p></p>
-                <span>Vendido</span>
+                <span>Vendido por nuestra vendedora estrella</span>
             </div>
            <div class="seller-text">
                <p class="seller-main-text">¡Felicitaciones, Devices Shop <p id="best-subsidiary"></p>!</p>
@@ -32,7 +32,7 @@
            </div>
            <div class="seller-text">
                <p class="seller-main-text">$<p id="sales-subsidiary"></p></p>
-               <span>Vendido</span>
+               <span>Lo más vendido por la sucursal del mes!</span>
            </div>
            <div class="seller-text">
                <p class="seller-main-text" id="best-component"></p>
@@ -42,13 +42,12 @@
     </section>
     <section class="section-sales">
         <div class="action-buttons">
-            <div class="subsidiaries">
-                <button type="button">Caballito</button>
-                <button type="button">Centro</button>
-            </div>
             <div onclick="modal()" class="new-sale" >
                 <a id="newSaleBtn" href="#">Nueva Venta</a>
-            </div>
+            </div>   
+            <div class="report-btn">
+                    <a href="reportes.html">Reportes</a>
+            </div>   
         </div>
         <div class="sellers">
             <ul class="categories">
@@ -59,7 +58,7 @@
                 <li>Total</li>
             </ul>
         </div>
-        <div class="sellers" id="allSales">
+        <div class="sellers" id="allSales"><!--
             <ul class="categories sells">
                 <li class="date">20/02/2019</li>
                 <li class="subsidiary">Centro</li>
@@ -72,12 +71,10 @@
                 <li class="subsidiary">Caballito</li>
                 <li class="seller">Ada</li>
                 <li class="components">Motherboard ASUS 1500</li>
-                <li class="price">$120</li>
+                <li class="price">$120</li>-->
             </ul>
         </div>
-        <div class="report-btn">
-            <a href="reportes.html">Reportes</a>
-        </div>
+        
     </section>
     <section class="modal" id="activeModal" >
         <div class="contain-modal-select">
@@ -88,7 +85,7 @@
                 <div class="container-add">
                     <button onclick="addComponent()" type="button" id="add">Agregar componente</button>
                 </div>
-                <div id="pendingSales"></div>
+                <div id="pendingSales" class="pendingSales"></div>
                 <div class="container-confirm">
                     <button type="button" id="button" onclick="addNewSale()">Confirmar</button>
                 </div>

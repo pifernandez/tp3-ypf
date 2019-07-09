@@ -18,23 +18,28 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;
-}
-body .brand {
-  color: #393636;
-  font-size: 160%;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  padding: 4%;
+  padding-top: 80px;
 }
 body header {
   background-color: #fff;
   display: block;
-  padding: 10px;
+  padding: 20px 0px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 1000;
 }
 body header nav {
   text-align: center;
+}
+body header nav .brand {
+  color: #393636;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  padding: 4%;
 }
 body header nav .logo {
   width: 30px;
@@ -58,7 +63,7 @@ body header nav .logo {
   display: block;
   flex: 1;
   text-align: center;
-  padding: 30px 30px;
+  padding: 20px 20px;
   margin: 10px 10px;
 }
 .section-best .seller-month .seller-text .seller-main-text {
@@ -78,13 +83,11 @@ body header nav .logo {
 .section-sales .action-buttons {
   text-align: center;
   margin: 10px auto;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
 }
-.section-sales .action-buttons .subsidiaries {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: center;
-}
-.section-sales .action-buttons .subsidiaries button {
+.section-sales .action-buttons button {
   background-color: #1B96D1;
   color: white;
   padding: 10px 30px;
@@ -93,11 +96,7 @@ body header nav .logo {
   border-radius: 5px;
   border: none;
 }
-.section-sales .action-buttons .new-sale {
-  display: block;
-  float: right;
-}
-.section-sales .action-buttons .new-sale a {
+.section-sales .action-buttons a {
   background-color: #015E9A;
   color: white;
   text-decoration: none;
@@ -133,10 +132,6 @@ body header nav .logo {
   font-weight: normal;
 }
 
-.report-btn {
-  float: right;
-  margin: 15px 0;
-}
 .report-btn a {
   background-color: #015E9A;
   color: white;
@@ -151,12 +146,13 @@ body header nav .logo {
   justify-content: center;
 }
 .reports-title .rep {
-  background-color: #015E9A;
-  color: white;
+  color: #015E9A;
   padding: 10px 60px;
   margin-top: 2%;
   margin-bottom: 4%;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 150%;
 }
 
 .back-btn {
@@ -406,6 +402,14 @@ body header nav .logo {
   padding: 10px 25px;
   border: none;
   border-radius: 5px;
+}
+
+.pendingSales {
+  margin: 5px auto;
+  width: 90%;
+}
+.pendingSales p {
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=styles.css.map */

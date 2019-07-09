@@ -299,6 +299,7 @@ const render = () => {
 render()
 
 
+
 // Otras funciones
 
 
@@ -333,11 +334,10 @@ const printSellerMonth = () => {
 const modal = () => {
 let newSaleBtn = document.getElementById('newSaleBtn')
 let activeModal = document.getElementById('activeModal')
-newSaleBtn.onclick = () => {
-    activeModal.classList.remove('modal')
-    activeModal.classList.add('activeModal')
-  } 
+newSaleBtn.onclick = activeModal.classList.add('activeModal')
 }
+
+
 
 const closeModal = () => {
   let closeModal = document.getElementById('closeModal')
@@ -433,7 +433,7 @@ const printSales = () => {
     saleItem.classList.add('categories', 'sells')
 
     let date = document.createElement('li')
-    date.innerText = e.date
+    date.innerText =  `${e.date.getMonth() + 1}/${e.date.getFullYear()}`
     saleItem.appendChild(date)
 
     let subsidiary = document.createElement('li')
