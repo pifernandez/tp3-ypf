@@ -396,15 +396,19 @@ const addComponent = () => {
   arrayComponent.push(option.name)
 }
 
-// const newDate = (date) => {
-//   let day = date.getDate()
-//   let month = date.getMonth() + 1
-//   let year = date.getFullYear()
 
-//   let today = `${day}/${month}/${year}`
-//   return today
-// }
 
+/* const newDate = (date) => {
+  let date= new Date()
+  document.write(date)
+  let day = ate.getDate()
+  let month = date.getMonth()
+  let year = date.getFullYear()
+
+  let date = `${day}/${month}/${year}`
+  return date
+}
+ */
 //Imprimir opciones elegidas
 
 const addNewSale = () => {
