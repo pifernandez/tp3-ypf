@@ -470,4 +470,3 @@ const createLi = (list) => {
   ul.appendChild(li)
 }
 
-

@@ -1,3 +1,10 @@
+@mixin btnStyles {
+    background-color: #015E9A;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
 
 @mixin text-buttons{
     font-size: 100%;
@@ -115,12 +122,6 @@ body{
             #best-component{
                 display:block;
             }
-            // #seller-subsidiary, #sales-seller, #best-seller{
-            //     display:inline-block;
-            // }
-            // #best-seller{
-            //     display: inline-block;
-            // }
         }
     }
 }
@@ -128,33 +129,18 @@ body{
 .section-sales{
     margin: 50px auto;
     width: 90%; 
-    position:relative;
-
     .action-buttons{
         text-align: center;
         margin: 10px auto;
         height: 50%;
         display: flex;
         justify-content: space-around;
-            button{
-                background-color: #1B96D1;
-                color: white;
-                padding: 10px 30px;
-                text-decoration: none;
-                margin-left: 5px;
-                border-radius: 5px;
-                border: none;
-            }
-            a{
-                background-color: #015E9A;
-                color: white;
-                text-decoration: none;
-                padding: 10px 15px;
-                border-radius: 5px;
-            }
-        
+                a{
+                    @include btnStyles;
+                }           
     }
 }
+
 
 .sellers{
     margin: 10px auto;
@@ -164,7 +150,6 @@ body{
         border-radius: 5px;
         display: flex;
         flex-direction: row;
-        // justify-content: space-evenly;
         font-weight: bold;
         margin-top:20px;
         padding: 10px 0; 
@@ -186,13 +171,7 @@ body{
 }
 
 .report-btn{
-    a{
-        background-color: #015E9A;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
+    @include btnStyles;
 }
 
 //reports page
@@ -223,11 +202,7 @@ body{
         @include to-center();
     }
     .back{
-        background-color: #015E9A;
-        color: white;
-        padding: 10px 25px;
-        text-decoration: none;
-        border-radius: 5px;
+        @include btnStyles;
     }
 }
 
@@ -373,8 +348,6 @@ body{
     }
 }
 
-<<<<<<< HEAD
-=======
 .pendingSales{
     margin: 5px auto;
     width: 90%;
@@ -383,58 +356,3 @@ body{
     }
 }
 
-
-// .inactive-modal{
-//     background-color: rgba(144, 194, 253, 0.6);
-//     height: 100%;
-//     width: 100%;
-// }
-// .contain-modal-select{
-//     display: flex;
-//     position: absolute;
-//     top:0;
-//     left:0;
-//     align-items: center;
-//     justify-content: center;
-//     height: 100vh;
-//     width: 100%;
-// }
-// .modal-select{
-//     background-color: #FFFFFF;
-//     width: 40%;
-//     height:50%;
-//     .modal-select-text{
-//         display:inline-block;
-//         justify-content: space-evenly;
-//         // margin-top: 30px; 
-//         // margin-left: 20px;
-//     }
-//     .selectors{
-//         display: flex;   
-//         flex-direction: column;
-//         // margin-top: 10px;
-//         // margin-left: 30px; 
-//         // align-content: space-between;
-//     }
-//     .closeModal{
-//         float: right;
-//         margin-top: 4%;
-//         margin-right: 4%;
-//         a{
-//             text-decoration: none;
-//         }
-//     }
-//     select{
-//         width: 90%;
-//         height: 25px;
-//     }
-    
-//     input{
-//         float:right;
-//         margin-right: 10%;
-//         margin-top: 15%;
-//         padding: px;  
-//     }
-// }
-// }
->>>>>>> 89b05c145e5cc5c43885d38559b9fe6eac655672
