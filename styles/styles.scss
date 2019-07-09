@@ -31,9 +31,6 @@
 @mixin to-center{
     text-align: center;
     justify-content: center;
-    justify-content: center;
-	align-items: center;
-    align-content: center;
 }
 
 //breakpoints//
@@ -217,15 +214,18 @@ body{
     display:flex;
     justify-content: center;
     margin-top: 4%;
+    @media only screen and (max-width: $first){
+        @include to-center();
+    }
+    @media only screen and (max-width: $mobile){
+        @include to-center();
+    }
     .back{
         background-color: #015E9A;
         color: white;
         padding: 10px 25px;
         text-decoration: none;
         border-radius: 5px;
-    }
-    @media only screen and (max-width: $tablet){
-        margin-bottom: 5%;
     }
 }
 
@@ -295,6 +295,7 @@ body{
         }
     }
 }
+
 
 //MODAL
 
@@ -369,61 +370,3 @@ body{
        
     }
 }
-
-<<<<<<< HEAD
-
-// .inactive-modal{
-//     background-color: rgba(144, 194, 253, 0.6);
-//     height: 100%;
-//     width: 100%;
-// }
-// .contain-modal-select{
-//     display: flex;
-//     position: absolute;
-//     top:0;
-//     left:0;
-//     align-items: center;
-//     justify-content: center;
-//     height: 100vh;
-//     width: 100%;
-// }
-// .modal-select{
-//     background-color: #FFFFFF;
-//     width: 40%;
-//     height:50%;
-//     .modal-select-text{
-//         display:inline-block;
-//         justify-content: space-evenly;
-//         // margin-top: 30px; 
-//         // margin-left: 20px;
-//     }
-//     .selectors{
-//         display: flex;   
-//         flex-direction: column;
-//         // margin-top: 10px;
-//         // margin-left: 30px; 
-//         // align-content: space-between;
-//     }
-//     .closeModal{
-//         float: right;
-//         margin-top: 4%;
-//         margin-right: 4%;
-//         a{
-//             text-decoration: none;
-//         }
-//     }
-//     select{
-//         width: 90%;
-//         height: 25px;
-//     }
-    
-//     input{
-//         float:right;
-//         margin-right: 10%;
-//         margin-top: 15%;
-//         padding: px;  
-//     }
-// }
-// }
-=======
->>>>>>> 0747ea9705692aee79754698dfc19063c6e44783

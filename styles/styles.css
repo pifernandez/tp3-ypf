@@ -66,16 +66,8 @@ body header nav .logo {
   font-weight: bold;
   margin-bottom: 6%;
 }
-<<<<<<< HEAD
 .section-best .seller-month .seller-text #best-component {
   display: block;
-=======
-.seller-text #seller-subsidiary {
-  display: inline-block;
-}
-.seller-text #best-seller {
-  display: inline-block;
->>>>>>> fb97a61f33884a2e83c8b7b4b5eef5a79ecc85f6
 }
 
 .section-sales {
@@ -109,7 +101,6 @@ body header nav .logo {
   background-color: #015E9A;
   color: white;
   text-decoration: none;
-  border-radius: 20px;
   padding: 10px 15px;
   border-radius: 5px;
 }
@@ -123,16 +114,9 @@ body header nav .logo {
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   font-weight: bold;
   margin-top: 20px;
   padding: 10px 0;
-=======
-  justify-content: space-around;
-  font-weight: bold;
-  margin-top: 2%;
-  width: 98%;
->>>>>>> fb97a61f33884a2e83c8b7b4b5eef5a79ecc85f6
 }
 .sellers .categories li {
   text-align: center;
@@ -158,15 +142,7 @@ body header nav .logo {
   color: white;
   padding: 10px 20px;
   text-decoration: none;
-<<<<<<< HEAD
   border-radius: 5px;
-=======
-  border-radius: 20px;
-}
-
-.sellers {
-  height: 100%;
->>>>>>> fb97a61f33884a2e83c8b7b4b5eef5a79ecc85f6
 }
 
 .reports-title {
@@ -393,28 +369,12 @@ body header nav .logo {
   color: #000;
 }
 .activeModal .modal-select .modal-select-text {
-<<<<<<< HEAD
   text-align: center;
-=======
-  display: inline-block;
-  justify-content: space-evenly;
->>>>>>> fb97a61f33884a2e83c8b7b4b5eef5a79ecc85f6
 }
 .activeModal .modal-select .selectors {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   margin: 20px auto;
-=======
-}
-.activeModal .modal-select .closeModal {
-  float: right;
-  margin-top: 4%;
-  margin-right: 4%;
-}
-.activeModal .modal-select .closeModal a {
-  text-decoration: none;
->>>>>>> fb97a61f33884a2e83c8b7b4b5eef5a79ecc85f6
 }
 .activeModal .modal-select select {
   margin: 5px auto;
