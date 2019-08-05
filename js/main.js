@@ -46,6 +46,7 @@ let shop = {
 const machinePrice = (a) => {  
   let mPrice = 0
   a.forEach(i => {
+    // se podria reducir la complejidad haciendo un find() en lugar de un segundo forEach()
     shop.price.forEach(e => {
       if(e.component === i){
         mPrice += e.price
